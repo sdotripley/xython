@@ -1,0 +1,1140 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:udld" targetNamespace="http://www.cisco.com/nxos:1.0:udld" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module udld</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_udld"/>
+  <xs:complexType name="show_type_Cmd_show_udld">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_show_udld"/>
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_some_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_udld_runn_config"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_udld_startup_config"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_show_udld">
+    <xs:annotation>
+      <xs:documentation>UDLD status and configuration on one or all interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_udld_if0" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_udld_if0" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_udld___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_udld___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="global" minOccurs="1" type="global_type_Cmd_show_udld_global"/>
+        <xs:element name="neighbors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>UDLD neighbor interfaces</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_udld_if0">
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_show_udld"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_show_udld">
+    <xs:choice>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_show_udld">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_udld">
+        <xs:annotation>
+          <xs:documentation>Enter an interface name if only one single interface status is desired</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_udld___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_udld"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_udld">
+    <xs:sequence>
+      <xs:element name="TABLE_interface" minOccurs="1" type="TABLE_interface_type_Cmd_show_udld"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_interface_type_Cmd_show_udld">
+    <xs:sequence>
+      <xs:element name="ROW_interface" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="interface" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Interface ID</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:Interface">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="mib-port-status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port MIB enable status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="enabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is enabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is disabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="mib-oper-status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port MIB Operational status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="shutdown">
+                      <xs:annotation>
+                        <xs:documentation>this port status is shutdown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="indeterminant">
+                      <xs:annotation>
+                        <xs:documentation>this port status is indeterminant</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="bidirectional">
+                      <xs:annotation>
+                        <xs:documentation>this port status is bidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="notapplicable">
+                      <xs:annotation>
+                        <xs:documentation>this port status is not applicable</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="mib-aggresive-mode" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port MIB aggresive mode</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="enabled">
+                      <xs:annotation>
+                        <xs:documentation>Aggresive mode is enabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disabled">
+                      <xs:annotation>
+                        <xs:documentation>Aggresive mode is disabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="admin-port-mode" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port enable administration configuration setting</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="unknown">
+                      <xs:annotation>
+                        <xs:documentation>udld status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="enabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is enabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is disabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="enabled-aggressive">
+                      <xs:annotation>
+                        <xs:documentation>udld is enabled with aggressive mode this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="device-default">
+                      <xs:annotation>
+                        <xs:documentation>udld follows device default on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="operational-port-mode" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port enable operational state</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="enabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is enabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disabled">
+                      <xs:annotation>
+                        <xs:documentation>udld is disabled on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="enabled-aggressive">
+                      <xs:annotation>
+                        <xs:documentation>udld is enabled w/ aggresive mode on this port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="current-bidirectional-state" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Current bidirectional state</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="unknown">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="unidirectional">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is unidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="bidirectional">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is bidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="txrxloop">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is in tx-rx loop</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="mismatch">
+                      <xs:annotation>
+                        <xs:documentation>Mismatch with neighbor state reported</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="echoempty">
+                      <xs:annotation>
+                        <xs:documentation>Neighbors echo is empty</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="current-operational-state" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Current operational state</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="link-up">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is unidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="link-down">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is bidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="detection">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is in tx-rx loop</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="advertisement">
+                      <xs:annotation>
+                        <xs:documentation>Mismatch with neighbor state reported</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disable-port">
+                      <xs:annotation>
+                        <xs:documentation>Neighbors echo is empty</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disable-link-up">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="disable-link-down">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="udld-init">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="extended-detection">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="message-interval" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>UDLD probe messsage interval</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="timeout-interval" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>UDLD detection timeout interval</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="no-multiple-neighbor-detected" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>No multiple neighbor detected</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="TABLE_entry" minOccurs="1" type="TABLE_entry_type_Cmd_show_udld"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_entry_type_Cmd_show_udld">
+    <xs:annotation>
+      <xs:documentation>Neighbor entry info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_entry" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="entry-number" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Neighbor entry number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="expiration-time" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Expiration time</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="device-id" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Device ID</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="neighbor-state" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Current neighbor state</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="unknown">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status unknown</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="unidirectional">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is unidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="bidirectional">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is bidirectional</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="tx-rx-loop">
+                      <xs:annotation>
+                        <xs:documentation>Neighbor status is in tx-rx loop</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="neighbor-mismatch">
+                      <xs:annotation>
+                        <xs:documentation>Mismatch with neighbor state reported</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="empty-echo">
+                      <xs:annotation>
+                        <xs:documentation>Neighbors echo is empty</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="device-name" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Device name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="port-id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Port ID </xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="neighbor-echo-device-number" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Echo device number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="neighbor-echo-device-name" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Echo device name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="neighbor-echo-port-number" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Echo port number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="neighbor-echo-port-id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Echo port ID</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="neighbor-message-interval" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>UDLD probe messsage interval</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="neighbor-timeout-interval" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>UDLD detection timeout interval</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="cdp-device-name" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>CDP Device name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="pkt-xmt-rec-time" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Last UDLD packet send/recv time</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="pc-index" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Port channel index</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="global_type_Cmd_show_udld_global">
+    <xs:annotation>
+      <xs:documentation>UDLD global status and configuration on all interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_udld_global___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_udld_global___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_udld_global___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_udld_global"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_udld_global">
+    <xs:sequence>
+      <xs:element name="udld-global-mode" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>UDLD global configuration setting</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="enabled">
+                <xs:annotation>
+                  <xs:documentation>udld is gloablly enabled </xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="disabled">
+                <xs:annotation>
+                  <xs:documentation>udld is gloablly disabled </xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="enabled-aggressive">
+                <xs:annotation>
+                  <xs:documentation>udld is gloablly enabled with aggressive mode</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="message-interval" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>UDLD probe messsage interval</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show debugging flags of udld</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show udld logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_udld_runn_config">
+    <xs:annotation>
+      <xs:documentation>Current operating configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_show_udld_runn_config"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_show_udld_runn_config">
+    <xs:annotation>
+      <xs:documentation>Show udld configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_udld_runn_config_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_udld_runn_config_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_udld_runn_config_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_udld_startup_config">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show udld configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_udld_debug_all"/>
+  <xs:complexType name="debug_type_Cmd_udld_debug_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_udld_debug_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_udld_debug_all">
+    <xs:annotation>
+      <xs:documentation>Configure udld debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of udld</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demux" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld demux</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deque" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld dequeue</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of uddl error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld FSM and Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace-detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld trace detail</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld warning message</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_udld_debug_all"/>
+  <xs:complexType name="no_type_Cmd_udld_debug_all">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_udld_debug_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_udld_debug_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_e_Cmd_udld_debug_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_e_Cmd_udld_debug_all">
+    <xs:annotation>
+      <xs:documentation>Configure udld debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of udld</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demux" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld demux</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deque" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld dequeue</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of uddl error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld FSM and Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace-detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld trace detail</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of udld warning message</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_udld_agressive"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_udld_agressive"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_udld_log_level"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_udld_agressive">
+    <xs:annotation>
+      <xs:documentation>UDLD protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aggressive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD aggressive mode on all fiber optic ports</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="message-time" minOccurs="1" type="message-time_type_Cmd_udld_message_time"/>
+        <xs:element name="reset" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Reset all ports shut down by UDLD</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="message-time_type_Cmd_udld_message_time">
+    <xs:annotation>
+      <xs:documentation>Setting the time in seconds between UDLD probe messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the message timer value [default = 15]</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="7"/>
+              <xs:maxInclusive value="90"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_udld_agressive">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="udld" minOccurs="1" type="udld_type_ec_Cmd_udld_agressive"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_udld_log_level"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_ec_Cmd_udld_agressive">
+    <xs:annotation>
+      <xs:documentation>UDLD protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aggressive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD aggressive mode on all fiber optic ports</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="message-time" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Setting the time in seconds between UDLD probe messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_udld_log_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_udld_log_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Set level for udld syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_udld_log_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_ec_Cmd_udld_log_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_ec_Cmd_udld_log_level">
+    <xs:annotation>
+      <xs:documentation>Set level for udld syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-m_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch-m_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="remote-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-remote-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-remote-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vem-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-base_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="udld" minOccurs="1" type="udld_type_Cmd_udld_per_interface"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_udld_per_interface"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_Cmd_udld_per_interface">
+    <xs:annotation>
+      <xs:documentation>UDLD protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD for non-fiber interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="aggressive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD aggressive mode for interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="disable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Disable UDLD for fiber interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_udld_per_interface">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udld" minOccurs="1" type="udld_type_ecieb_Cmd_udld_per_interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udld_type_ecieb_Cmd_udld_per_interface">
+    <xs:annotation>
+      <xs:documentation>UDLD protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD for non-fiber interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="aggressive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable UDLD aggressive mode for interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="disable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Disable UDLD for fiber interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-remote-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

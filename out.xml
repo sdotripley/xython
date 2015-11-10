@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+  </capabilities>
+  <session-id>27354</session-id>
+</hello>
+]]>]]><?xml version="1.0" encoding="ISO-8859-1"?>
+<nf:rpc-reply xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns:mod="http://www.cisco.com/nxos:1.0:if_manager" message-id="110">
+  <nf:data>
+    <mod:show>
+      <mod:interface>
+        <mod:__XML__OPT_Cmd_show_interface_brief___readonly__>
+          <mod:__readonly__>
+            <mod:TABLE_interface>
+              <mod:ROW_interface>
+                <mod:interface>mgmt0</mod:interface>
+                <mod:state>up</mod:state>
+                <mod:ip_addr>172.25.158.204</mod:ip_addr>
+                <mod:speed>1000</mod:speed>
+                <mod:mtu>1500</mod:mtu>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/1</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/2</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/3</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/4</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/5</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/6</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/7</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/8</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/9</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/10</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/11</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/12</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/13</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/14</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/15</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/16</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/17</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/18</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/19</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/20</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/21</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/22</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/23</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/24</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/25</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/26</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/27</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/28</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/29</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/30</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/31</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/32</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/33</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/34</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/35</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/36</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/37</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/38</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/39</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/40</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/41</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/42</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/43</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/44</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/45</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/46</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/47</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/48</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
+                <mod:speed>auto</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/49</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/50</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/51</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/52</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/53</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+              <mod:ROW_interface>
+                <mod:interface>Ethernet1/54</mod:interface>
+                <mod:vlan>1</mod:vlan>
+                <mod:type>eth</mod:type>
+                <mod:portmode>access</mod:portmode>
+                <mod:state>down</mod:state>
+                <mod:state_rsn_desc>XCVR not inserted</mod:state_rsn_desc>
+                <mod:speed>40G</mod:speed>
+                <mod:ratemode>D</mod:ratemode>
+              </mod:ROW_interface>
+            </mod:TABLE_interface>
+          </mod:__readonly__>
+        </mod:__XML__OPT_Cmd_show_interface_brief___readonly__>
+      </mod:interface>
+    </mod:show>
+  </nf:data>
+</nf:rpc-reply>
+]]>]]>

@@ -1,0 +1,1674 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:am" targetNamespace="http://www.cisco.com/nxos:1.0:am" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module am</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_run_clis"/>
+  <xs:complexType name="show_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_clis"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_run_clis"/>
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_am_show_ipv4_adj_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_Cmd_am_show_ipv6_adj_cmd"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_am_show_tech_support_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_am_show_logging_level_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current operationg configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="adjmgr_type_Cmd_show_run_clis"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjmgr_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display adjmgr information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="adjmgr_type_e_Cmd_show_run_clis"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjmgr_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display adjmgr information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ip_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display IP information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjacency" minOccurs="1" type="adjacency_type_Cmd_am_show_ipv4_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjacency_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display adjacency table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_am_show_ipv4_adj_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_am_show_ipv4_adj_cmd_vrf" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_am_show_ipv4_adj_cmd___readonly__" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_interface">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__INTF_interface" minOccurs="1" type="interface_type_Cmd_am_show_ipv4_adj_cmd"/>
+        <xs:element name="ip-addr" minOccurs="1" type="ip-addr_type_Cmd_am_show_ipv4_adj_cmd"/>
+        <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show detail information of adjacency entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show adjacency summary</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="non-best" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show both best/non-best entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_am_show_ipv4_adj_cmd">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="loopback" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="vlan" maxOccurs="unbounded" type="nxos:vlan_id"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="control" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_am_show_ipv4_adj_cmd">
+        <xs:annotation>
+          <xs:documentation>Display specific interface adjacencies only</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_am_show_ipv4_adj_cmd_summary" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_summary" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_summary">
+    <xs:sequence>
+      <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show adjacency summary</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ip-addr_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IPV4 source address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_am_show_ipv4_adj_cmd_non-best" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_non-best" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_non-best">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="non-best" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show both best/non-best entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show detail information of adjacency entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_am_show_ipv4_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_am_show_ipv4_adj_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_am_show_ipv4_adj_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_am_show_ipv4_adj_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show adjacency entries for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_am_show_ipv4_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_invalid_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_invalid_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_drop_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_drop_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_punt_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_punt_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_glean_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_global_glean_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_glean_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_glean_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_normal_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_normal_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_last_updated" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_count-static" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_count-dynamic" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_count-others" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_count-throttle" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_count-total" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_TABLE_vrf" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_invalid_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="invalid_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_invalid_byte_cnt">
+    <xs:sequence>
+      <xs:element name="invalid_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_drop_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_drop_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_drop_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_drop_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_punt_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_punt_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_punt_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_punt_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_glean_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_glean_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_global_glean_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_glean_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_glean_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="glean_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_glean_byte_cnt">
+    <xs:sequence>
+      <xs:element name="glean_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_normal_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="normal_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_normal_byte_cnt">
+    <xs:sequence>
+      <xs:element name="normal_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_last_updated">
+    <xs:sequence>
+      <xs:element name="last_updated" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_count-static">
+    <xs:sequence>
+      <xs:element name="count-static" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_count-dynamic">
+    <xs:sequence>
+      <xs:element name="count-dynamic" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_count-others">
+    <xs:sequence>
+      <xs:element name="count-others" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_count-throttle">
+    <xs:sequence>
+      <xs:element name="count-throttle" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_count-total">
+    <xs:sequence>
+      <xs:element name="count-total" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_TABLE_vrf">
+    <xs:sequence>
+      <xs:element name="TABLE_vrf" minOccurs="1" type="TABLE_vrf_type_Cmd_am_show_ipv4_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_vrf_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_vrf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vrf-name-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="TABLE_afi" minOccurs="1" type="TABLE_afi_type_Cmd_am_show_ipv4_adj_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_afi_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_afi" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="afi" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string_key">
+                    <xs:enumeration value="ipv4"/>
+                    <xs:enumeration value="ipv6"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="count" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="TABLE_adj" minOccurs="1" type="TABLE_adj_type_Cmd_am_show_ipv4_adj_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_adj_type_Cmd_am_show_ipv4_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_adj" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="intf-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="ip-addr-out" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:IPV4Address">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_phy-intf" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="mac" minOccurs="1" type="nxos:Ethernet"/>
+            <xs:element name="pref" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="owner" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_pkt-count" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_byte-count" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_is-best" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv4_adj_cmd_is-thrtld" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_phy-intf">
+    <xs:sequence>
+      <xs:element name="phy-intf" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_pkt-count">
+    <xs:sequence>
+      <xs:element name="pkt-count" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_byte-count">
+    <xs:sequence>
+      <xs:element name="byte-count" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_is-best">
+    <xs:sequence>
+      <xs:element name="is-best" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv4_adj_cmd_is-thrtld">
+    <xs:sequence>
+      <xs:element name="is-thrtld" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ipv6_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display IPv6 information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_am_show_ipv6_adj_cmd_adjacency">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_am_show_ipv6_adj_cmd_adjacency" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_am_show_ipv6_adj_cmd_interface" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_interface" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_am_show_ipv6_adj_cmd_vrf" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="__XML__OPT_Cmd_am_show_ipv6_adj_cmd___readonly__" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_am_show_ipv6_adj_cmd_adjacency">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="adjacency" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display adjacency table</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="neighbor" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show IPv6 neighbor entry</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_interface">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__INTF_interface" minOccurs="1" type="interface_type_Cmd_am_show_ipv6_adj_cmd"/>
+        <xs:element name="ipv6-addr" minOccurs="1" type="ipv6-addr_type_Cmd_am_show_ipv6_adj_cmd"/>
+        <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show detail information of adjacency entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show adjacency summary</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="non-best" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show both best/non-best entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_am_show_ipv6_adj_cmd">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="loopback" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="vlan" maxOccurs="unbounded" type="nxos:vlan_id"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_am_show_ipv6_adj_cmd">
+        <xs:annotation>
+          <xs:documentation>Display specific interface adjacencies only</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_am_show_ipv6_adj_cmd_summary" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_summary" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_summary">
+    <xs:sequence>
+      <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show adjacency summary</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ipv6-addr_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV6 source address</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:IPV6Address">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_am_show_ipv6_adj_cmd_detail" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_detail" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_detail">
+    <xs:sequence>
+      <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show detail information of adjacency entries</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_am_show_ipv6_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_am_show_ipv6_adj_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_am_show_ipv6_adj_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_am_show_ipv6_adj_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show adjacency entries for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_am_show_ipv6_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_invalid_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_invalid_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_drop_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_drop_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_punt_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_punt_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_glean_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_global_glean_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_glean_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_glean_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_normal_pkt_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_normal_byte_cnt" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_last_updated" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_count-static" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_count-dynamic" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_count-others" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_count-throttle" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_count-total" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_TABLE_vrf" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_invalid_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="invalid_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_invalid_byte_cnt">
+    <xs:sequence>
+      <xs:element name="invalid_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_drop_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_drop_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_drop_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_drop_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_punt_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_punt_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_punt_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_punt_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_glean_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="global_glean_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_global_glean_byte_cnt">
+    <xs:sequence>
+      <xs:element name="global_glean_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_glean_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="glean_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_glean_byte_cnt">
+    <xs:sequence>
+      <xs:element name="glean_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_normal_pkt_cnt">
+    <xs:sequence>
+      <xs:element name="normal_pkt_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_normal_byte_cnt">
+    <xs:sequence>
+      <xs:element name="normal_byte_cnt" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_last_updated">
+    <xs:sequence>
+      <xs:element name="last_updated" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_count-static">
+    <xs:sequence>
+      <xs:element name="count-static" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_count-dynamic">
+    <xs:sequence>
+      <xs:element name="count-dynamic" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_count-others">
+    <xs:sequence>
+      <xs:element name="count-others" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_count-throttle">
+    <xs:sequence>
+      <xs:element name="count-throttle" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_count-total">
+    <xs:sequence>
+      <xs:element name="count-total" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_TABLE_vrf">
+    <xs:sequence>
+      <xs:element name="TABLE_vrf" minOccurs="1" type="TABLE_vrf_type_Cmd_am_show_ipv6_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_vrf_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_vrf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vrf-name-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="TABLE_afi" minOccurs="1" type="TABLE_afi_type_Cmd_am_show_ipv6_adj_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_afi_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_afi" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="afi" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string_key">
+                    <xs:enumeration value="ipv4"/>
+                    <xs:enumeration value="ipv6"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="count" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="TABLE_adj" minOccurs="1" type="TABLE_adj_type_Cmd_am_show_ipv6_adj_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_adj_type_Cmd_am_show_ipv6_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_adj" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="intf-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="ipv6-addr" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:IPV6Address">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_phy-intf" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="time-stamp" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="mac" minOccurs="1" type="nxos:Ethernet"/>
+            <xs:element name="pref" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="owner" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_pkt-count" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_byte-count" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_is-best" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_am_show_ipv6_adj_cmd_is-thrtld" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_phy-intf">
+    <xs:sequence>
+      <xs:element name="phy-intf" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_pkt-count">
+    <xs:sequence>
+      <xs:element name="pkt-count" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_byte-count">
+    <xs:sequence>
+      <xs:element name="byte-count" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_is-best">
+    <xs:sequence>
+      <xs:element name="is-best" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_am_show_ipv6_adj_cmd_is-thrtld">
+    <xs:sequence>
+      <xs:element name="is-thrtld" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="tech-support_type_Cmd_am_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="adjmgr_type_Cmd_am_show_tech_support_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjmgr_type_Cmd_am_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Display Adjmgr information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_am_show_tech_support_cmd_brief" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_am_show_tech_support_cmd_brief" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_show_tech_support_cmd_brief">
+    <xs:sequence>
+      <xs:element name="brief" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Brief information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_am_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_am_show_logging_level_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_am_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show adjmgr logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="hardware" minOccurs="1" type="hardware_type_Cmd_am_v4_throttle_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_am_v4_throttle_cmd"/>
+        <xs:element name="__XML__BLK_Cmd_am_v4_adj_limit_cmd_ip">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_am_v4_adj_limit_cmd_ip" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_am_v4_adj_limit_cmd_syslog" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_am_v4_adj_limit_cmd_syslog" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_am_v6_adj_limit_cmd_ipv6">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_am_v6_adj_limit_cmd_ipv6" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_am_v6_adj_limit_cmd_syslog" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_am_v6_adj_limit_cmd_syslog" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_am_v4_adjacency_route_distance_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_ec_Cmd_am_v6_adjacency_route_distance_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_am_syslog_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hardware_type_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Hardware Internal Information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_am_v4_throttle_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_Cmd_am_v6_throttle_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>IP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="glean" minOccurs="1" type="glean_type_Cmd_am_v4_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="glean_type_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Glean</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="throttle" minOccurs="1" type="throttle_type_Cmd_am_v4_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="throttle_type_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Throttle</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_am_v4_throttle_limit_count_cmd"/>
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_am_v4_throttle_timeout_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_am_v4_throttle_limit_count_cmd">
+    <xs:annotation>
+      <xs:documentation>Maximum number of entries</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="count" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Count</xs:documentation>
+            <xs:appinfo>
+              <default_value>1000</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="4095"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_Cmd_am_v4_throttle_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Timeout</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="timeout-in-sec" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Timeout value in seconds (should be multiple of 30, else will be rounded off to nearest boundary)</xs:documentation>
+            <xs:appinfo>
+              <default_value>300</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="300"/>
+              <xs:maxInclusive value="1800"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>IPv6</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="glean" minOccurs="1" type="glean_type_Cmd_am_v6_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="glean_type_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Glean</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="throttle" minOccurs="1" type="throttle_type_Cmd_am_v6_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="throttle_type_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Throttle</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_am_v6_throttle_limit_count_cmd"/>
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_am_v6_throttle_timeout_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_am_v6_throttle_limit_count_cmd">
+    <xs:annotation>
+      <xs:documentation>Maximum number of entries</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="count" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Count</xs:documentation>
+            <xs:appinfo>
+              <default_value>1000</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="32767"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_Cmd_am_v6_throttle_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Timeout</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="timeout-in-sec" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Timeout value in seconds (should be multiple of 30, else will be rounded off to nearest boundary)</xs:documentation>
+            <xs:appinfo>
+              <default_value>300</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="300"/>
+              <xs:maxInclusive value="1800"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="hardware" minOccurs="1" type="hardware_type_ec_Cmd_am_v4_throttle_cmd"/>
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_am_v4_adjacency_route_distance_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_Cmd_am_v6_adjacency_route_distance_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_am_syslog_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hardware_type_ec_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Hardware Internal Information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_am_v4_throttle_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_ec_Cmd_am_v6_throttle_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>IP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="glean" minOccurs="1" type="glean_type_ec_Cmd_am_v4_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="glean_type_ec_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Glean</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="throttle" minOccurs="1" type="throttle_type_ec_Cmd_am_v4_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="throttle_type_ec_Cmd_am_v4_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Throttle</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="maximum" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Maximum number of entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="timeout" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Timeout</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_ec_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>IPv6</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="glean" minOccurs="1" type="glean_type_ec_Cmd_am_v6_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="glean_type_ec_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Glean</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="throttle" minOccurs="1" type="throttle_type_ec_Cmd_am_v6_throttle_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="throttle_type_ec_Cmd_am_v6_throttle_cmd">
+    <xs:annotation>
+      <xs:documentation>Throttle</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="maximum" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Maximum number of entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="timeout" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Timeout</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjacency" minOccurs="1" type="adjacency_type_Cmd_am_v4_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjacency_type_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure Adjmgr</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="route" minOccurs="1" type="route_type_Cmd_am_v4_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="route_type_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>route</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="distance" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>admin-distance</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjacency" minOccurs="1" type="adjacency_type_Cmd_am_v6_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjacency_type_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure Adjmgr</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="route" minOccurs="1" type="route_type_Cmd_am_v6_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="route_type_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>route</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="distance" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>admin-distance</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_am_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="adjmgr_type_Cmd_am_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjmgr_type_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for Adjacency Manager</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_am_v4_adj_limit_cmd_ip">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_am_v4_adj_limit_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_am_v4_adj_limit_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ip_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cache" minOccurs="1" type="cache_type_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cache_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP cache parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Limit size of ARP adjacencies cache</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum number of ARP entries</xs:documentation>
+            <xs:appinfo>
+              <default_value>131072</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="409600"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_ec_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ec_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cache" minOccurs="1" type="cache_type_ec_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cache_type_ec_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP cache parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Limit size of ARP adjacencies cache</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_v4_adj_limit_cmd_syslog">
+    <xs:sequence>
+      <xs:element name="syslog" minOccurs="1" type="syslog_type_Cmd_am_v4_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="syslog_type_Cmd_am_v4_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Syslogs per second</xs:documentation>
+            <xs:appinfo>
+              <default_value>1</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_am_v6_adj_limit_cmd_ipv6">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_Cmd_am_v6_adj_limit_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_am_v6_adj_limit_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ipv6_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nd" minOccurs="1" type="nd_type_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nd_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ICMPv6 Neighbor Discovery commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cache" minOccurs="1" type="cache_type_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cache_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ND cache parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Limit size of ND adjacencies cache</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Max no of ND adjacencies configured</xs:documentation>
+            <xs:appinfo>
+              <default_value>131072</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="409600"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ipv6" minOccurs="1" type="ipv6_type_ec_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_ec_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="nd" minOccurs="1" type="nd_type_ec_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="nd_type_ec_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ICMPv6 Neighbor Discovery commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cache" minOccurs="1" type="cache_type_ec_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cache_type_ec_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>ND cache parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Limit size of ND adjacencies cache</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_am_v6_adj_limit_cmd_syslog">
+    <xs:sequence>
+      <xs:element name="syslog" minOccurs="1" type="syslog_type_Cmd_am_v6_adj_limit_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="syslog_type_Cmd_am_v6_adj_limit_cmd">
+    <xs:annotation>
+      <xs:documentation>Syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Syslogs per second</xs:documentation>
+            <xs:appinfo>
+              <default_value>1</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjacency" minOccurs="1" type="adjacency_type_ec_Cmd_am_v4_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjacency_type_ec_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure Adjmgr</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="route" minOccurs="1" type="route_type_ec_Cmd_am_v4_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="route_type_ec_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>route</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="distance" minOccurs="1" type="distance_type_Cmd_am_v4_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="distance_type_Cmd_am_v4_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>admin-distance</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pref" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>preference</xs:documentation>
+            <xs:appinfo>
+              <default_value>250</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="250"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_ec_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjacency" minOccurs="1" type="adjacency_type_ec_Cmd_am_v6_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjacency_type_ec_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure Adjmgr</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="route" minOccurs="1" type="route_type_ec_Cmd_am_v6_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="route_type_ec_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>route</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="distance" minOccurs="1" type="distance_type_Cmd_am_v6_adjacency_route_distance_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="distance_type_Cmd_am_v6_adjacency_route_distance_cmd">
+    <xs:annotation>
+      <xs:documentation>admin-distance</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pref" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>preference</xs:documentation>
+            <xs:appinfo>
+              <default_value>250</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="250"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_am_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="adjmgr" minOccurs="1" type="adjmgr_type_ec_Cmd_am_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adjmgr_type_ec_Cmd_am_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for Adjacency Manager</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

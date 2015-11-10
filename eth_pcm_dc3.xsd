@@ -1,0 +1,2560 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:eth_pcm_dc3" targetNamespace="http://www.cisco.com/nxos:1.0:eth_pcm_dc3" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module eth_pcm_dc3</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_port_channel_summary"/>
+  <xs:complexType name="show_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd_show_port_channel_summary"/>
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_some_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Show port-channel information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="summary" minOccurs="1" type="summary_type_Cmd_show_port_channel_summary"/>
+        <xs:element name="compatibility-parameters" minOccurs="1" type="compatibility-parameters_type_Cmd_show_port_channel_compat_parm"/>
+        <xs:element name="database" minOccurs="1" type="database_type_Cmd_show_port_channel_database"/>
+        <xs:element name="traffic" minOccurs="1" type="traffic_type_Cmd_some_cmd"/>
+        <xs:element name="usage" minOccurs="1" type="usage_type_Cmd_show_port_channel_usage"/>
+        <xs:element name="capacity" minOccurs="1" type="capacity_type_Cmd_show_port_channel_capacity"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="summary_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Show port-channel summary</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_port_channel_summary_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_port_channel_summary_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_port_channel_summary___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_port_channel_summary___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_summary_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Specify a port-channel</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_port_channel_summary">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_show_port_channel_summary">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_summary___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_port_channel_summary">
+    <xs:sequence>
+      <xs:element name="TABLE_channel" minOccurs="1" type="TABLE_channel_type_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_channel_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Port-channel table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_channel" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="group" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel group number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="port-channel" minOccurs="1" type="nxos:Interface">
+              <xs:annotation>
+                <xs:documentation>Port channel</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="layer" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel layer info</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="S">
+                      <xs:annotation>
+                        <xs:documentation>Channel is L2</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="R">
+                      <xs:annotation>
+                        <xs:documentation>Channel is L3</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="U">
+                      <xs:annotation>
+                        <xs:documentation>Channel is up</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="D">
+                      <xs:annotation>
+                        <xs:documentation>Channel is down</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="M">
+                      <xs:annotation>
+                        <xs:documentation>Channel not in use</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="type" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel type</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="Auto">
+                      <xs:annotation>
+                        <xs:documentation>DCE channel auto mode</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Edge">
+                      <xs:annotation>
+                        <xs:documentation>DCE channel edge mode</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Core">
+                      <xs:annotation>
+                        <xs:documentation>DCE channel core mode</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Off">
+                      <xs:annotation>
+                        <xs:documentation>DCE channel off  mode</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Eth">
+                      <xs:annotation>
+                        <xs:documentation>Ethernet channel type</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="FC">
+                      <xs:annotation>
+                        <xs:documentation>FC channel type</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Unknown">
+                      <xs:annotation>
+                        <xs:documentation>Unknown channel type</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="prtcl" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel protocol</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="LACP">
+                      <xs:annotation>
+                        <xs:documentation>Channel protocol is LACP</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="NONE">
+                      <xs:annotation>
+                        <xs:documentation>No protocol is running</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="PCP">
+                      <xs:annotation>
+                        <xs:documentation>Channel protocol is PCP</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_port_channel_summary_TABLE_member" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_summary_TABLE_member">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_port_channel_summary_TABLE_member" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_port_channel_summary_TABLE_member">
+    <xs:sequence>
+      <xs:element name="TABLE_member" minOccurs="1" type="TABLE_member_type_Cmd_show_port_channel_summary"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_member_type_Cmd_show_port_channel_summary">
+    <xs:annotation>
+      <xs:documentation>Member table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_member" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="port" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Member port</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:Interface">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="port-status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Member port status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="H">
+                      <xs:annotation>
+                        <xs:documentation>Hot standby port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="P">
+                      <xs:annotation>
+                        <xs:documentation>Port is up</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="D">
+                      <xs:annotation>
+                        <xs:documentation>Port is down</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="s">
+                      <xs:annotation>
+                        <xs:documentation>Suspended port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="I">
+                      <xs:annotation>
+                        <xs:documentation>Individual link</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="r">
+                      <xs:annotation>
+                        <xs:documentation>Module removed</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="compatibility-parameters_type_Cmd_show_port_channel_compat_parm">
+    <xs:annotation>
+      <xs:documentation>Show compatibility parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_port_channel_compat_parm___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_port_channel_compat_parm___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_compat_parm___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_port_channel_compat_parm"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_port_channel_compat_parm">
+    <xs:sequence>
+      <xs:element name="parameter" minOccurs="1" type="nxos:base_string_key">
+        <xs:annotation>
+          <xs:documentation>Compatibity parameter</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="description" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Parameter description</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="database_type_Cmd_show_port_channel_database">
+    <xs:annotation>
+      <xs:documentation>Show port-channel database</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_port_channel_database_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_port_channel_database_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_port_channel_database___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_port_channel_database___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_database_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_port_channel_database">
+    <xs:annotation>
+      <xs:documentation>Specify a port-channel</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_port_channel_database">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:PortMChannel"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_show_port_channel_database">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_database___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_port_channel_database">
+    <xs:sequence>
+      <xs:element name="TABLE_interface" minOccurs="1" type="TABLE_interface_type_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_interface_type_Cmd_show_port_channel_database">
+    <xs:annotation>
+      <xs:documentation>Port-channel table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_interface" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="interface" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Port channel</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:Interface">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="last-membership-update" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Last membership update</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="successful">
+                      <xs:annotation>
+                        <xs:documentation>Membership update succeeded</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="unsuccessful">
+                      <xs:annotation>
+                        <xs:documentation>Membership update failed</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="total-ports" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Total number of member ports</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="total-up-ports" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Total number of UP member ports</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_port_channel_database_first_operational-port" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="age-of-channel" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Age of port channel</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_port_channel_database_time-since-last-bundle" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_port_channel_database_last-bundled-member" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_port_channel_database_time-since-last-unbundle" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_port_channel_database_last-unbundled-member" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_port_channel_database_TABLE_member" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_port_channel_database_protocol" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_database_first_operational-port">
+    <xs:sequence>
+      <xs:element name="first_operational-port" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>First operational port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_database_time-since-last-bundle">
+    <xs:sequence>
+      <xs:element name="time-since-last-bundle" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Time since last port bundled</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_database_last-bundled-member">
+    <xs:sequence>
+      <xs:element name="last-bundled-member" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Last bundled member port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_database_time-since-last-unbundle">
+    <xs:sequence>
+      <xs:element name="time-since-last-unbundle" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Time since last port un-bundled</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_database_last-unbundled-member">
+    <xs:sequence>
+      <xs:element name="last-unbundled-member" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Last unbundled member port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_database_TABLE_member">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_port_channel_database_TABLE_member" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_port_channel_database_TABLE_member">
+    <xs:sequence>
+      <xs:element name="TABLE_member" minOccurs="1" type="TABLE_member_type_Cmd_show_port_channel_database"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_member_type_Cmd_show_port_channel_database">
+    <xs:annotation>
+      <xs:documentation>Member ports info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_member" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="port" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Member port</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:Interface">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="mode" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>channel-group mode</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="on">
+                      <xs:annotation>
+                        <xs:documentation>Channel mode is on</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="active">
+                      <xs:annotation>
+                        <xs:documentation>Admin channel mode is active</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="passive">
+                      <xs:annotation>
+                        <xs:documentation>Admin channel mode is passive</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="port-status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Member port status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="up">
+                      <xs:annotation>
+                        <xs:documentation>Port is up</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="down">
+                      <xs:annotation>
+                        <xs:documentation>Port is down</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="hot-standy">
+                      <xs:annotation>
+                        <xs:documentation>Hot standby port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="suspended">
+                      <xs:annotation>
+                        <xs:documentation>Suspended port</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="individual">
+                      <xs:annotation>
+                        <xs:documentation>Indivial link</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="module-removed">
+                      <xs:annotation>
+                        <xs:documentation>Module removed</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_database_protocol">
+    <xs:sequence>
+      <xs:element name="protocol" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Port channel protocol</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="lacp">
+                <xs:annotation>
+                  <xs:documentation>LACP</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="traffic_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show port-channel traffic statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_some_cmd___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_some_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Specify a port-channel</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_some_cmd">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_channel" minOccurs="1" type="TABLE_channel_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_channel_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Port-channel table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_channel" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="chanId" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Channel ID</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="port" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Member port</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:Interface">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="rx-ucst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Received unicast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="tx-ucst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Transmitted unicast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="rx-mcst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Received multicast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="tx-mcst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Tranmitted multicast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="rx-bcst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Received broadcast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="tx-bcst" minOccurs="1" type="xs:float">
+              <xs:annotation>
+                <xs:documentation>Transmitted broadcast</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="usage_type_Cmd_show_port_channel_usage">
+    <xs:annotation>
+      <xs:documentation>Show port-channel number usage</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_port_channel_usage___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_port_channel_usage___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_usage___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_port_channel_usage"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_port_channel_usage">
+    <xs:sequence>
+      <xs:element name="total-channel-number-used" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Total used number of port-channels</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_port_channel_usage_used-range-low" maxOccurs="unbounded"/>
+      <xs:group ref="bg_Cmd_show_port_channel_usage_unused-range-low" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_port_channel_usage_used-range-low">
+    <xs:sequence>
+      <xs:element name="used-range-low" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Used range low end value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="og_Cmd_show_port_channel_usage_used-range-hi" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_usage_used-range-hi">
+    <xs:sequence>
+      <xs:element name="used-range-hi" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Used range high end value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_port_channel_usage_unused-range-low">
+    <xs:sequence>
+      <xs:element name="unused-range-low" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Un-used range low end value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="og_Cmd_show_port_channel_usage_unused-range-hi" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_port_channel_usage_unused-range-hi">
+    <xs:sequence>
+      <xs:element name="unused-range-hi" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Un-used range high end value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="capacity_type_Cmd_show_port_channel_capacity">
+    <xs:annotation>
+      <xs:documentation>Capacity information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_port_channel_capacity___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_port_channel_capacity___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_port_channel_capacity___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_port_channel_capacity"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_port_channel_capacity">
+    <xs:sequence>
+      <xs:element name="total" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Total resource</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="used" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Used resource</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="free" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Free resource</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="percentage_used" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Used resource in percentage</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show debugging flags of port-channel</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="bypass" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show bypass flags of port-channel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show port-channel logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_e_Cmd_some_cmd"/>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="demux" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel message</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deque" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel message dequeue</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel FSM and Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_some_cmd"/>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="demux" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel message</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deque" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel message dequeue</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel FSM and Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of port-channel warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_config_logging_level_port_channel"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_config_logging_level_port_channel"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_ec_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_config_logging_level_port_channel"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_config_logging_level_port_channel_port-channel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_config_logging_level_port_channel_port-channel" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_config_logging_level_port_channel_port-channel">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd_config_logging_level_port_channel"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port-channel_type_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Set level for port-channel syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="loglevel" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_config_logging_level_port_channel"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_config_logging_level_port_channel"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_config_logging_level_port_channel_port-channel">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_config_logging_level_port_channel_port-channel" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_config_logging_level_port_channel_port-channel">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" minOccurs="1" type="port-channel_type_ec_Cmd_config_logging_level_port_channel"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port-channel_type_ec_Cmd_config_logging_level_port_channel">
+    <xs:annotation>
+      <xs:documentation>Set level for port-channel syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="loglevel" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_unsignedInt">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="15"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="name" minOccurs="1" type="name_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resource_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Resource template name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-eth-port-channel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel_type"/>
+                <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel-switch_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-m_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch-m_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="remote-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-remote-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-remote-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-eth-port-channel" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="lacp" minOccurs="1" type="lacp_type_Cmd_lacp-graceful-convergence"/>
+                <xs:element name="no" minOccurs="1" type="no_type_Cmd_lacp-graceful-convergence"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_if-port-channel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-port-channel_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_Cmd_lacp-graceful-convergence">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="graceful-convergence" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure port-channel lacp graceful convergence. Disable this only with lacp ports connected to Non-Nexus peer. Disabling this with Nexus peer can lead to port suspension</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="min-links" minOccurs="1" type="min-links_type_Cmd_lacp_min-links"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-links_type_Cmd_lacp_min-links">
+    <xs:annotation>
+      <xs:documentation>Configure the port-channel min-links</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-links-number" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_lacp-graceful-convergence">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="lacp" minOccurs="1" type="lacp_type_eciepc_Cmd_lacp-graceful-convergence"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_eciepc_Cmd_lacp-graceful-convergence">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="graceful-convergence" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure port-channel lacp graceful convergence. Disable this only with lacp ports connected to Non-Nexus peer. Disabling this with Nexus peer can lead to port suspension</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="min-links" minOccurs="1" type="min-links_type_eciepc_Cmd_lacp_min-links"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-links_type_eciepc_Cmd_lacp_min-links">
+    <xs:annotation>
+      <xs:documentation>Configure the port-channel min-links</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_lacp_min-links_min-links-number" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_lacp_min-links_min-links-number" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_lacp_min-links_min-links-number">
+    <xs:sequence>
+      <xs:element name="min-links-number" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-port-channel_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="lacp" minOccurs="1" type="lacp_type_Cmd_lacp-suspend-individual"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_lacp-suspend-individual"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_Cmd_lacp-suspend-individual">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_lacp-suspend-individual">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="lacp" minOccurs="1" type="lacp_type_ecipc_Cmd_lacp-suspend-individual"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_ecipc_Cmd_lacp-suspend-individual">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="lacp" minOccurs="1" type="lacp_type_eciepcs_Cmd_lacp-graceful-convergence"/>
+                <xs:element name="no" minOccurs="1" type="no_type_eciepcs_Cmd_lacp-graceful-convergence"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_if-port-channel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-port-channel_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_eciepcs_Cmd_lacp-graceful-convergence">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="graceful-convergence" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure port-channel lacp graceful convergence. Disable this only with lacp ports connected to Non-Nexus peer. Disabling this with Nexus peer can lead to port suspension</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="min-links" minOccurs="1" type="min-links_type_eciepcs_Cmd_lacp_min-links"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-links_type_eciepcs_Cmd_lacp_min-links">
+    <xs:annotation>
+      <xs:documentation>Configure the port-channel min-links</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-links-number" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_eciepcs_Cmd_lacp-graceful-convergence">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="lacp" minOccurs="1" type="lacp_type_eciepcs_Cmd_lacp-graceful-convergence_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lacp_type_eciepcs_Cmd_lacp-graceful-convergence_1">
+    <xs:annotation>
+      <xs:documentation>Set LACP parameters for the interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="graceful-convergence" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure port-channel lacp graceful convergence. Disable this only with lacp ports connected to Non-Nexus peer. Disabling this with Nexus peer can lead to port suspension</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="suspend-individual" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure lacp port-channel state. Enabling this will cause lacp to put the port to suspend instead of individual state in case it does not get LACP BPDU from the peer ports in the port-channel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="min-links" minOccurs="1" type="min-links_type_eciepcs_Cmd_lacp_min-links_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-links_type_eciepcs_Cmd_lacp_min-links_1">
+    <xs:annotation>
+      <xs:documentation>Configure the port-channel min-links</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_lacp_min-links_min-links-number" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciepcs_Cmd_lacp_min-links_min-links-number" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciepcs_Cmd_lacp_min-links_min-links-number">
+    <xs:sequence>
+      <xs:element name="min-links-number" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-base_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="channel-group" minOccurs="1" type="channel-group_type_Cmd_channel_group_id_mode"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_channel_group_id_mode"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="channel-group_type_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Configure port channel parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="channel-id" minOccurs="1" type="channel-id_type_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="channel-id_type_Cmd_channel_group_id_mode">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Specify a port-channel number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_channel_group_id_mode_mode" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_channel_group_id_mode_mode" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="force" minOccurs="1" type="force_type_Cmd_channel_group_id_mode"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_channel_group_id_mode_mode">
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mode_type_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Specify channeling mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_channel_group_id_mode_active">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_channel_group_id_mode_active" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_channel_group_id_mode_active">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="active" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ACTIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="passive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to PASSIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="on" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ON</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="force_type_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Forcefully add a port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_channel_group_id_mode_mode" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecieb_Cmd_channel_group_id_mode_mode" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecieb_Cmd_channel_group_id_mode_mode">
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_ecieb_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mode_type_ecieb_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Specify channeling mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_channel_group_id_mode_active">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecieb_Cmd_channel_group_id_mode_active" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecieb_Cmd_channel_group_id_mode_active">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="active" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ACTIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="passive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to PASSIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="on" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ON</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="channel-group" minOccurs="1" type="channel-group_type_ecieb_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="channel-group_type_ecieb_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Configure port channel parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_channel_group_id_mode_channel-id" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_channel_group_id_mode_channel-id" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="channel-id" minOccurs="1" type="channel-id_type_ecieb_Cmd_channel_group_id_mode_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_channel_group_id_mode_channel-id">
+    <xs:sequence>
+      <xs:element name="channel-id" minOccurs="1" type="channel-id_type_ecieb_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="channel-id_type_ecieb_Cmd_channel_group_id_mode">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Specify a port-channel number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_channel_group_id_mode_mode" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecieb_Cmd_channel_group_id_mode_mode_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecieb_Cmd_channel_group_id_mode_mode_1">
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_ecieb_Cmd_channel_group_id_mode_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mode_type_ecieb_Cmd_channel_group_id_mode_1">
+    <xs:annotation>
+      <xs:documentation>Specify channeling mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_channel_group_id_mode_active">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecieb_Cmd_channel_group_id_mode_active_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecieb_Cmd_channel_group_id_mode_active_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="active" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ACTIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="passive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to PASSIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="on" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ON</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="channel-id_type_ecieb_Cmd_channel_group_id_mode_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Specify a port-channel number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="force" minOccurs="1" type="force_type_ecieb_Cmd_channel_group_id_mode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="force_type_ecieb_Cmd_channel_group_id_mode">
+    <xs:annotation>
+      <xs:documentation>Forcefully add a port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_channel_group_id_mode_mode" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecieb_Cmd_channel_group_id_mode_mode_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecieb_Cmd_channel_group_id_mode_mode_2">
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_ecieb_Cmd_channel_group_id_mode_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mode_type_ecieb_Cmd_channel_group_id_mode_2">
+    <xs:annotation>
+      <xs:documentation>Specify channeling mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_channel_group_id_mode_active">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecieb_Cmd_channel_group_id_mode_active_2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecieb_Cmd_channel_group_id_mode_active_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="active" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ACTIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="passive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to PASSIVE</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="on" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set channeling mode to ON</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-remote-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_CREATE_VDC_template" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_CREATE_VDC_template" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="__XML__OPT_Cmd_CREATE_VDC_hap" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:group ref="og_Cmd_CREATE_VDC_hap" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="__XML__MODE_vdc" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc_type"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1" type="vdc-id_type_Cmd_CREATE_VDC"/>
+        <xs:element name="__XML__OPT_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_CREATE_VDC_vdc-id" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC_1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vdc-id_type_Cmd_CREATE_VDC">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_CREATE_VDC_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_CREATE_VDC_name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:element name="vdc-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC_1">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_template">
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="template_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Resource template for this vdc</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_hap">
+    <xs:sequence>
+      <xs:element name="hap" minOccurs="1" type="hap_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hap_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Change HA policy for this VDC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_CREATE_VDC_bringdown">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_CREATE_VDC_bringdown" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_bringdown">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="bringdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="restart" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc, then bring the vdc back up</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="reset" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Reset the supervisor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_vdc_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_Cmd_LIMIT_RES"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_LIMIT_RES"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set port-channel limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum port-channel value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="104"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_LIMIT_RES_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_LIMIT_RES_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum port-channel value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="104"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set port-channel limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_LIMIT_RES_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_LIMIT_RES_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_LIMIT_RES_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecv_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum port-channel value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="104"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecv_Cmd_LIMIT_RES_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecv_Cmd_LIMIT_RES_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum port-channel value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="104"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Resource template name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="__XML__MODE_vdc-template" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc-template_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vdc-template_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_LIMIT_RES"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecvt_Cmd_LIMIT_RES"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set port-channel limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecvt_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum port-channel value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="104"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_LIMIT_RES_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_LIMIT_RES_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum port-channel value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="104"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>set port-channel limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_LIMIT_RES_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvt_Cmd_LIMIT_RES_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvt_Cmd_LIMIT_RES_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>minimum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum port-channel value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="104"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>maximum port-channels to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_LIMIT_RES_max-val_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_LIMIT_RES_max-val_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum port-channel value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="104"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

@@ -1,0 +1,948 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:svi" targetNamespace="http://www.cisco.com/nxos:1.0:svi" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module svi</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_debug_svi"/>
+  <xs:complexType name="show_type_Cmd_show_debug_svi">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_show_debug_svi"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_svi"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_show_debug_svi">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show all debugging flags for interface vlan</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_svi">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_svi"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_svi">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show interface-vlan logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_debug_svi_all"/>
+  <xs:complexType name="debug_type_Cmd_debug_svi_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_Cmd_debug_svi_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_Cmd_debug_svi_all">
+    <xs:annotation>
+      <xs:documentation>Configure debug flags for interface vlan</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags for interface vlan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="traces" minOccurs="1" type="traces_type_Cmd_some_cmd"/>
+        <xs:element name="errors" minOccurs="1" type="errors_type_Cmd_some_cmd"/>
+        <xs:element name="mts" minOccurs="1" type="mts_type_Cmd_debug_svi_mts"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="traces_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of per interface vlan trace</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enter VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:VsanRange">
+        <xs:annotation>
+          <xs:documentation>VLAN id range</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errors_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of per interface vlan error</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enter VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:VsanRange">
+        <xs:annotation>
+          <xs:documentation>VLAN id range</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mts_type_Cmd_debug_svi_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of interface vlan mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pkt" minOccurs="1" type="pkt_type_Cmd_debug_svi_mts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkt_type_Cmd_debug_svi_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of interface vlan mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_debug_svi_mts_rx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_debug_svi_mts_rx" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_debug_svi_mts_rx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="both" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted/Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="no" type="no_type_Cmd_debug_svi_all"/>
+  <xs:complexType name="no_type_Cmd_debug_svi_all">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_debug_svi_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_debug_svi_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_e_Cmd_debug_svi_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_e_Cmd_debug_svi_all">
+    <xs:annotation>
+      <xs:documentation>Configure debug flags for interface vlan</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags for interface vlan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of interface vlan trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="traces" minOccurs="1" type="traces_type_e_Cmd_some_cmd"/>
+        <xs:element name="errors" minOccurs="1" type="errors_type_e_Cmd_some_cmd"/>
+        <xs:element name="mts" minOccurs="1" type="mts_type_e_Cmd_debug_svi_mts"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="traces_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of per interface vlan trace</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Enter VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:VsanRange">
+        <xs:annotation>
+          <xs:documentation>VLAN id range</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errors_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of per interface vlan error</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_e_Cmd_some_cmd_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_e_Cmd_some_cmd_2">
+    <xs:annotation>
+      <xs:documentation>Enter VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:VsanRange">
+        <xs:annotation>
+          <xs:documentation>VLAN id range</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mts_type_e_Cmd_debug_svi_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of interface vlan mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pkt" minOccurs="1" type="pkt_type_e_Cmd_debug_svi_mts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkt_type_e_Cmd_debug_svi_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of interface vlan mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_debug_svi_mts_rx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_debug_svi_mts_rx" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_debug_svi_mts_rx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="both" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted/Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_svi_config_term_log_facility"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_svi_config_term_log_facility"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_svi_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_Cmd_svi_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Set level for interface vlan syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_svi_config_term_log_facility"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_svi_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_ec_Cmd_svi_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_ec_Cmd_svi_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Set level for interface vlan syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel-switch_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vlan" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:vlan_idMRange_key"/>
+              <xs:element name="__XML__MODE_if-vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vlan_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="switchport" minOccurs="1" type="switchport_type_Cmd_auto-state"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_auto-state"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autostate" minOccurs="1" type="autostate_type_Cmd_auto-state"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autostate_type_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Include or exclude this port from vlan link up calculation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Exclude this port from vlan link up calculation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="switchport" minOccurs="1" type="switchport_type_eciepcs_Cmd_auto-state"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_eciepcs_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autostate" minOccurs="1" type="autostate_type_eciepcs_Cmd_auto-state"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autostate_type_eciepcs_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Include or exclude this port from vlan link up calculation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Exclude this port from vlan link up calculation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vlan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/disable an interface</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_svi_shut_no_shut"/>
+        <xs:element name="description" minOccurs="1" type="description_type_Cmd_svi_desc"/>
+        <xs:element name="delay" minOccurs="1" type="delay_type_Cmd_svi_delay"/>
+        <xs:element name="bandwidth" minOccurs="1" type="bandwidth_type_Cmd_svi_bandwidth"/>
+        <xs:element name="mtu" minOccurs="1" type="mtu_type_Cmd_svi_mtu"/>
+        <xs:element name="carrier-delay" minOccurs="1" type="carrier-delay_type_Cmd_svi_carrier_delay"/>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_eciv_Cmd_svi_snmp_trap_link_status"/>
+        <xs:element name="mac-address" minOccurs="1" type="mac-address_type_Cmd_svi_mac_address"/>
+        <xs:element name="load-interval" minOccurs="1" type="load-interval_type_eciv_Cmd_svi_load_interval"/>
+        <xs:element name="autostate" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable or disable autostate for interface-vlan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="management" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Allow in-band management access to VLAN Interface IP address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_svi_shut_no_shut">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/disable an interface</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="description" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Interface specific description</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="delay" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Specify interface throughput delay</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bandwidth" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set bandwidth informational parameter</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mtu" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set the interface Maximum Transmission Unit (MTU)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="carrier-delay" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Specify delay for interface transitions</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_Cmd_svi_snmp_trap_link_status"/>
+        <xs:element name="mac-address" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Manually set interface MAC address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="load-interval" minOccurs="1" type="load-interval_type_Cmd_svi_load_interval"/>
+        <xs:element name="autostate" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable or disable autostate for interface-vlan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="management" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Allow in-band management access to VLAN Interface IP address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="snmp_type_Cmd_svi_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Modify SNMP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="trap" minOccurs="1" type="trap_type_Cmd_svi_snmp_trap_link_status"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trap_type_Cmd_svi_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Allow a specific SNMP trap</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="link-status" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Allow SNMP LINKUP and LINKDOWN traps</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="load-interval_type_Cmd_svi_load_interval">
+    <xs:annotation>
+      <xs:documentation>Specify interval for load calculation for an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_svi_load_interval_counter" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_svi_load_interval_counter" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_svi_load_interval_counter">
+    <xs:sequence>
+      <xs:element name="counter" minOccurs="1" type="counter_type_Cmd_svi_load_interval"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="counter_type_Cmd_svi_load_interval">
+    <xs:annotation>
+      <xs:documentation>Specify counter for this load interval</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="counter_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Specify counter for this load interval</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="3"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="description_type_Cmd_svi_desc">
+    <xs:annotation>
+      <xs:documentation>Interface specific description</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="desc_line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Up to 80 characters describing this interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delay_type_Cmd_svi_delay">
+    <xs:annotation>
+      <xs:documentation>Specify interface throughput delay</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="microseconds" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Throughput delay (tens of microseconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="16777215"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bandwidth_type_Cmd_svi_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Set bandwidth informational parameter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bandwidth_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Bandwidth in kilobits</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="400000000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mtu_type_Cmd_svi_mtu">
+    <xs:annotation>
+      <xs:documentation>Set the interface Maximum Transmission Unit (MTU)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mtu_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>MTU size in bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="64"/>
+              <xs:maxInclusive value="9216"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="carrier-delay_type_Cmd_svi_carrier_delay">
+    <xs:annotation>
+      <xs:documentation>Specify delay for interface transitions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_svi_carrier_delay_sec_val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_svi_carrier_delay_sec_val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_svi_carrier_delay_sec_val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="sec_val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Carrier Transitions delay seconds</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_unsignedInt">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="60"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="msec" minOccurs="1" type="msec_type_Cmd_svi_carrier_delay"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="msec_type_Cmd_svi_carrier_delay">
+    <xs:annotation>
+      <xs:documentation>Carrier Transitions delay milliseconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="msec_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Carrier Transitions delay milliseconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="snmp_type_eciv_Cmd_svi_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Modify SNMP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="trap" minOccurs="1" type="trap_type_eciv_Cmd_svi_snmp_trap_link_status"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trap_type_eciv_Cmd_svi_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Allow a specific SNMP trap</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="link-status" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Allow SNMP LINKUP and LINKDOWN traps</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mac-address_type_Cmd_svi_mac_address">
+    <xs:annotation>
+      <xs:documentation>Manually set interface MAC address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mac-addr" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>MAC address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="load-interval_type_eciv_Cmd_svi_load_interval">
+    <xs:annotation>
+      <xs:documentation>Specify interval for load calculation for an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_svi_load_interval_counter">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciv_Cmd_svi_load_interval_counter" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="interval" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Load interval delay in seconds</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_unsignedInt">
+                    <xs:minInclusive value="60"/>
+                    <xs:maxInclusive value="600"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciv_Cmd_svi_load_interval_counter">
+    <xs:sequence>
+      <xs:element name="counter" minOccurs="1" type="counter_type_eciv_Cmd_svi_load_interval"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="counter_type_eciv_Cmd_svi_load_interval">
+    <xs:annotation>
+      <xs:documentation>Specify counter for this load interval</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="counter_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Specify counter for this load interval</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="3"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="switchport" minOccurs="1" type="switchport_type_ecies_Cmd_auto-state"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecies_Cmd_auto-state"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_ecies_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autostate" minOccurs="1" type="autostate_type_ecies_Cmd_auto-state"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autostate_type_ecies_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Include or exclude this port from vlan link up calculation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Exclude this port from vlan link up calculation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ecies_Cmd_auto-state">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="switchport" minOccurs="1" type="switchport_type_ecies_Cmd_auto-state_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_ecies_Cmd_auto-state_1">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autostate" minOccurs="1" type="autostate_type_ecies_Cmd_auto-state_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="autostate_type_ecies_Cmd_auto-state_1">
+    <xs:annotation>
+      <xs:documentation>Include or exclude this port from vlan link up calculation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Exclude this port from vlan link up calculation</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

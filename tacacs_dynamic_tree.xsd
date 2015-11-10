@@ -1,0 +1,3924 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:tacacs_dynamic_tree" targetNamespace="http://www.cisco.com/nxos:1.0:tacacs_dynamic_tree" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module tacacs_dynamic_tree</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="debug" type="debug_type_Cmd_tacacs_aaa_request"/>
+  <xs:complexType name="debug_type_Cmd_tacacs_aaa_request">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_Cmd_tacacs_aaa_request"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_Cmd_tacacs_aaa_request">
+    <xs:annotation>
+      <xs:documentation>Configure debugging for TACACS+</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa-request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ AAA Request Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="aaa-request-lowlevel" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ AAA Request Lowlevel Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable all the debug flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ Configuration Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config-lowlevel" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ Configuration Lowlevel Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="server-monitor" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS server monitoring</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="server-monitor-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS server monitoring errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_tacacs_aaa_request"/>
+  <xs:complexType name="no_type_Cmd_tacacs_aaa_request">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_tacacs_aaa_request"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_tacacs_aaa_request">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_e_Cmd_tacacs_aaa_request"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_e_Cmd_tacacs_aaa_request">
+    <xs:annotation>
+      <xs:documentation>Configure debugging for TACACS+</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa-request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ AAA Request Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="aaa-request-lowlevel" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ AAA Request Lowlevel Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable all the debug flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ Configuration Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config-lowlevel" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ Configuration Lowlevel Debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="server-monitor" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS server monitoring</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="server-monitor-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS server monitoring errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="show" type="show_type_Cmd_show_debug_tacacs"/>
+  <xs:complexType name="show_type_Cmd_show_debug_tacacs">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_show_debug_tacacs"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_tacacs"/>
+        <xs:element name="tacacs-server" minOccurs="1" type="tacacs-server_type_Cmd_show_tacacs_server"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_tacacs"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_start_tacacs"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_show_tacacs_tech_support"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_show_debug_tacacs">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show debugging flags of TACACS+</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_tacacs">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_tacacs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_tacacs">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show tacacs+ logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs-server_type_Cmd_show_tacacs_server">
+    <xs:annotation>
+      <xs:documentation>Show TACACS+ configuration information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_tacacs_server___readonly__" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_tacacs_server___readonly__" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="host0" minOccurs="1" type="host0_type_Cmd_show_tacacs_server_host0"/>
+        <xs:element name="directed-request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show directed server enable configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="groups" minOccurs="1" type="groups_type_Cmd_show_tacacs_server_groups_s0"/>
+        <xs:element name="sorted" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show TACACS+ servers sorted by server name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_show_tacacs_server_statistics_host0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_tacacs_server___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_tacacs_server"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_tacacs_server">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_tacacs_server_host0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_host0">
+    <xs:sequence>
+      <xs:element name="host0" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tacacs_port" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="shared_key" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>TACACS+ shared secret</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idle_time" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time interval for monitoring the server</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="test_username" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>User name in test packets</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="test_password" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>User password in test packets</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="host0_type_Cmd_show_tacacs_server_host0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:DNSIPV4IPV6">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_tacacs_server_host0___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_tacacs_server_host0___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_tacacs_server_host0___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_tacacs_server_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_tacacs_server_host0">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_tacacs_server_host0_host1" maxOccurs="1"/>
+      <xs:element name="tacacs_port" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="shared_key" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>TACACS+ shared secret</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="idle_time" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time interval for monitoring the server</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="test_username" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>User name in test packets</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="test_password" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>User password in test packets</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_host0_host1">
+    <xs:sequence>
+      <xs:element name="host1" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="groups_type_Cmd_show_tacacs_server_groups_s0">
+    <xs:annotation>
+      <xs:documentation>Show TACACS+ server group configuration information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_tacacs_server_groups_s0_s0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_tacacs_server_groups_s0_s0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_tacacs_server_groups_s0_s0">
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="statistics_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Show TACACS statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="host0" minOccurs="1" type="host0_type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host0_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:DNSIPV4IPV6">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_tacacs_server_statistics_host0___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_tacacs_server_statistics_host0___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_tacacs_server_statistics_host0___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_tacacs_server_statistics_host0_server_state" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_tacacs_server_statistics_host0_auth_statistics" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_tacacs_server_statistics_host0_autho_statistics" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_tacacs_server_statistics_host0_acct_statistics" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_statistics_host0_server_state">
+    <xs:sequence>
+      <xs:element name="server_state" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Show state of server</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="alive"/>
+              <xs:enumeration value="dead"/>
+              <xs:enumeration value="not monitored"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="og_Cmd_show_tacacs_server_statistics_host0_clock_time" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_tacacs_server_statistics_host0_clock_time">
+    <xs:sequence>
+      <xs:element name="clock_time" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Show clock time in terms of hours, minutes and seconds</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_tacacs_server_statistics_host0_monitoring_statistics" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_tacacs_server_statistics_host0_monitoring_statistics">
+    <xs:sequence>
+      <xs:element name="monitoring_statistics" minOccurs="1" type="monitoring_statistics_type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="monitoring_statistics_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Monitoring Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time_in_pstate" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Time in previous state</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ndead" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Number of times dead</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tt_in_dstate" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Total time in dead state</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_statistics_host0_auth_statistics">
+    <xs:sequence>
+      <xs:element name="auth_statistics" minOccurs="1" type="auth_statistics_type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="auth_statistics_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Authentication Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="auth_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_statistics_host0_autho_statistics">
+    <xs:sequence>
+      <xs:element name="autho_statistics" minOccurs="1" type="autho_statistics_type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="autho_statistics_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Authorization Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autho_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_tacacs_server_statistics_host0_acct_statistics">
+    <xs:sequence>
+      <xs:element name="acct_statistics" minOccurs="1" type="acct_statistics_type_Cmd_show_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="acct_statistics_type_Cmd_show_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Accounting Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="acct_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_tacacs">
+    <xs:annotation>
+      <xs:documentation>show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_Cmd_show_run_tacacs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_Cmd_show_run_tacacs">
+    <xs:annotation>
+      <xs:documentation>Display tacacs configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_tacacs_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_tacacs_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_tacacs_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_start_tacacs">
+    <xs:annotation>
+      <xs:documentation>show startup system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display tacacs configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tech-support_type_Cmd_show_tacacs_tech_support">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display tacacs information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="test" type="test_type_Cmd_test_aaa_authorization"/>
+  <xs:complexType name="test_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>test command</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_test_aaa_authorization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>Configure aaa functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_Cmd_test_aaa_authorization"/>
+        <xs:element name="server" minOccurs="1" type="server_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authorization_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>Configure authorization methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="command-type" minOccurs="1" type="command-type_type_Cmd_test_aaa_authorization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="command-type_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>Authorization for command-type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_test_aaa_authorization_commands">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_test_aaa_authorization_commands" maxOccurs="1"/>
+            <xs:element name="user" minOccurs="1" type="user_type_Cmd_test_aaa_authorization"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_test_aaa_authorization_commands">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for all comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config-commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for config comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="user_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>User to be authorized</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="user-name" minOccurs="1" type="user-name_type_Cmd_test_aaa_authorization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="user-name_type_Cmd_test_aaa_authorization">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>User to be authorized</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="command" minOccurs="1" type="command_type_Cmd_test_aaa_authorization"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="command_type_Cmd_test_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>Command to be authorized</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cmd-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Comamnd to be authorized</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="server_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>aaa server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="host" minOccurs="1" type="host_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:DNSIPV4IPV6">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>vrf to use for the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf_name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>vrf name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="s1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clear" type="clear_type_Cmd_clear_tacacs_server_statistics_host0"/>
+  <xs:complexType name="clear_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Reset functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs-server" minOccurs="1" type="tacacs-server_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs-server_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Clear TACACS related parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statistics_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Clear TACACS statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="host0" minOccurs="1" type="host0_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host0_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:DNSIPV4IPV6">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_clear_tacacs_server_statistics_host0___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_clear_tacacs_server_statistics_host0___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_clear_tacacs_server_statistics_host0___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_clear_tacacs_server_statistics_host0_server_state" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_clear_tacacs_server_statistics_host0_auth_statistics" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_clear_tacacs_server_statistics_host0_autho_statistics" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_clear_tacacs_server_statistics_host0_acct_statistics" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_clear_tacacs_server_statistics_host0_server_state">
+    <xs:sequence>
+      <xs:element name="server_state" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Show state of server</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="alive"/>
+              <xs:enumeration value="dead"/>
+              <xs:enumeration value="not monitored"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="og_Cmd_clear_tacacs_server_statistics_host0_clock_time" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_clear_tacacs_server_statistics_host0_clock_time">
+    <xs:sequence>
+      <xs:element name="clock_time" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Show clock time in terms of hours, minutes and seconds</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_Cmd_clear_tacacs_server_statistics_host0_monitoring_statistics" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_clear_tacacs_server_statistics_host0_monitoring_statistics">
+    <xs:sequence>
+      <xs:element name="monitoring_statistics" minOccurs="1" type="monitoring_statistics_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="monitoring_statistics_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Monitoring Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time_in_pstate" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Time in previous state</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ndead" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Number of times dead</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tt_in_dstate" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Total time in dead state</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_clear_tacacs_server_statistics_host0_auth_statistics">
+    <xs:sequence>
+      <xs:element name="auth_statistics" minOccurs="1" type="auth_statistics_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="auth_statistics_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Authentication Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="auth_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="auth_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authentication: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_clear_tacacs_server_statistics_host0_autho_statistics">
+    <xs:sequence>
+      <xs:element name="autho_statistics" minOccurs="1" type="autho_statistics_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="autho_statistics_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Authorization Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="autho_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="autho_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Authorization: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_clear_tacacs_server_statistics_host0_acct_statistics">
+    <xs:sequence>
+      <xs:element name="acct_statistics" minOccurs="1" type="acct_statistics_type_Cmd_clear_tacacs_server_statistics_host0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="acct_statistics_type_Cmd_clear_tacacs_server_statistics_host0">
+    <xs:annotation>
+      <xs:documentation>Accounting Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="acct_failed_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Failed transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_succ_transactions" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Successful transactions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_req_sent" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Requests sent</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_req_timedout" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Requests timedout</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_no_match" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses with no matching requests</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_not_processed" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses not processed</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="acct_resp_error" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Accounting: Responses containing errors</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_aaa_authorization_percmd_author_command"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_aaa_authorization_percmd_author_command"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_logging_level_tacacs_i0"/>
+        <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_source_interface_global_tacacs"/>
+        <xs:element name="tacacs-server" minOccurs="1" type="tacacs-server_type_ec_Cmd_tacacs_server_deadtime_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Configure aaa functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_Cmd_aaa_authorization_percmd_author_command"/>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_group_server_tacacs_s0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authorization_type_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Configure authorization methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_commands">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authorization_percmd_author_command_commands" maxOccurs="1"/>
+            <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_default">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="bg_Cmd_aaa_authorization_percmd_author_command_default" maxOccurs="1"/>
+                  <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_group">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="bg_Cmd_aaa_authorization_percmd_author_command_group" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authorization_percmd_author_command_commands">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for all exec-mode comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config-commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for config comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authorization_percmd_author_command_default">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure default methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="console" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure methods console</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authorization_percmd_author_command_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_aaa_authorization_percmd_author_command_group" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local RBACL based authorization</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorization_percmd_author_command_group">
+    <xs:sequence>
+      <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_authorization_percmd_author_command"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="grp_name" minOccurs="1" type="grp_name_type_Cmd_aaa_authorization_percmd_author_command"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="grp_name_type_Cmd_aaa_authorization_percmd_author_command">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" maxOccurs="8">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorization_percmd_author_command_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_authorization_percmd_author_command_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_authorization_percmd_author_command_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local RBACL based authorization</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>Configure aaa server group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="server" minOccurs="1" type="server_type_Cmd_aaa_group_server_tacacs_s0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="server_type_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>Configure aaa server group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_Cmd_aaa_group_server_tacacs_s0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server group name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>TACACS+ server group name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string_key">
+                    <xs:maxLength value="127"/>
+                    <xs:minLength value="1"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="__XML__MODE_tacacs_" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_tacacs__type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_tacacs__type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_source-interface"/>
+        <xs:element name="source-interface" minOccurs="1" type="source-interface_type_Cmd_source-interface"/>
+        <xs:element name="deadtime" minOccurs="1" type="deadtime_type_ect_Cmd_deadtime_i0"/>
+        <xs:element name="use-vrf" minOccurs="1" type="use-vrf_type_ect_Cmd_use-vrf_name"/>
+        <xs:element name="server" minOccurs="1" type="server_type_ect_Cmd_server_host0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_source-interface">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="source-interface" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Source interface to be used to reach tacacs server</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="deadtime" minOccurs="1" type="deadtime_type_Cmd_deadtime_i0"/>
+        <xs:element name="use-vrf" minOccurs="1" type="use-vrf_type_Cmd_use-vrf_name"/>
+        <xs:element name="server" minOccurs="1" type="server_type_Cmd_server_host0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadtime_type_Cmd_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>duration for which non-reachable server is skipped</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Length of time, in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="use-vrf_type_Cmd_use-vrf_name">
+    <xs:annotation>
+      <xs:documentation>vrf to be used to contact servers in this group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_use-vrf_name_management">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_use-vrf_name_management" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_use-vrf_name_management">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="management" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>management vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>default vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf_name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>name of the vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="server_type_Cmd_server_host0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server name or IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hostipname" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source-interface_type_Cmd_source-interface">
+    <xs:annotation>
+      <xs:documentation>Source interface to be used to reach tacacs server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Interface (default is mgmt)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadtime_type_ect_Cmd_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>duration for which non-reachable server is skipped</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Length of time, in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="use-vrf_type_ect_Cmd_use-vrf_name">
+    <xs:annotation>
+      <xs:documentation>vrf to be used to contact servers in this group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_use-vrf_name_management">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ect_Cmd_use-vrf_name_management" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ect_Cmd_use-vrf_name_management">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="management" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>management vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>default vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf_name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>name of the vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="server_type_ect_Cmd_server_host0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server name or IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hostipname" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa" minOccurs="1" type="aaa_type_ec_Cmd_aaa_authorization_percmd_author_command"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_logging_level_tacacs_i0"/>
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_source_interface_global_tacacs"/>
+        <xs:element name="tacacs-server" minOccurs="1" type="tacacs-server_type_Cmd_tacacs_server_deadtime_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_ec_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Configure aaa functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_ec_Cmd_aaa_authorization_percmd_author_command"/>
+        <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_group_server_tacacs_s0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authorization_type_ec_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Configure authorization methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_commands">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorization_percmd_author_command_commands" maxOccurs="1"/>
+            <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_default">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="bg_ec_Cmd_aaa_authorization_percmd_author_command_default" maxOccurs="1"/>
+                  <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_group">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="bg_ec_Cmd_aaa_authorization_percmd_author_command_group_1" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authorization_percmd_author_command_commands">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for all exec-mode comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="config-commands" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Authorization for config comamnds</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorization_percmd_author_command_default">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure default methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="console" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure methods console</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorization_percmd_author_command_group_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__BLK_Cmd_aaa_authorization_percmd_author_command_group">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_aaa_authorization_percmd_author_command_group_2" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local RBACL based authorization</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorization_percmd_author_command_group_2">
+    <xs:sequence>
+      <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_authorization_percmd_author_command"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_authorization_percmd_author_command">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="grp_name" minOccurs="1" type="grp_name_type_ec_Cmd_aaa_authorization_percmd_author_command"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="grp_name_type_ec_Cmd_aaa_authorization_percmd_author_command">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" maxOccurs="8">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorization_percmd_author_command_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorization_percmd_author_command_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorization_percmd_author_command_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local RBACL based authorization</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>Configure aaa server group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="server" minOccurs="1" type="server_type_ec_Cmd_aaa_group_server_tacacs_s0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="server_type_ec_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>Configure aaa server group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs__XML__PLUS" minOccurs="1" type="tacacs__XML__PLUS_type_ec_Cmd_aaa_group_server_tacacs_s0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs__XML__PLUS_type_ec_Cmd_aaa_group_server_tacacs_s0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server group name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_logging_level_tacacs_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs" minOccurs="1" type="tacacs_type_Cmd_logging_level_tacacs_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs_type_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ syslog level</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_logging_level_tacacs_i0_i0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_logging_level_tacacs_i0_i0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_logging_level_tacacs_i0_i0">
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ip_type_Cmd_source_interface_global_tacacs">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs" minOccurs="1" type="tacacs_type_Cmd_source_interface_global_tacacs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs_type_Cmd_source_interface_global_tacacs">
+    <xs:annotation>
+      <xs:documentation>Tacacs server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="source-interface" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Source interface to be used to reach tacacs server</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs-server_type_Cmd_tacacs_server_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>Configure TACACS+ server related parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="deadtime" minOccurs="1" type="deadtime_type_Cmd_tacacs_server_deadtime_i0"/>
+        <xs:element name="directed-request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable direct authentication requests to server</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="host" minOccurs="1" type="host_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="test" minOccurs="1" type="test_type_Cmd_tacacs_server_test"/>
+        <xs:element name="key" minOccurs="1" type="key_type_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_tacacs_server_timeout_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadtime_type_Cmd_tacacs_server_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>duration for which non-reachable server is skipped</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Length of time, in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server's DNS name or its IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="hostipname" minOccurs="1" type="hostipname_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="hostipnam" minOccurs="1" type="hostipnam_type_Cmd_tacacs_server_host_host0_test"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hostipname_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="key" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_key_port_timeout_key">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_tacacs_server_host_host0_key_port_timeout_key" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_host_host0_key_port_timeout_key">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="key" minOccurs="1" type="key_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="key_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__DIGIT0" minOccurs="1" type="__XML__DIGIT0_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__DIGIT6" minOccurs="1" type="__XML__DIGIT6_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__DIGIT7" minOccurs="1" type="__XML__DIGIT7_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="s2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_string">
+                <xs:maxLength value="63"/>
+                <xs:minLength value="1"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__DIGIT0_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT6_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="240"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT7_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tacacs_server_host_host0_key_port_timeout_port">
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tacacs_server_host_host0_key_port_timeout_timeout">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i2" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port">
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i3" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i4" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hostipnam_type_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="test" minOccurs="1" type="test_type_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="test_type_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>Parameters to send test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_test_username">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tacacs_server_host_host0_test_username" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_host_host0_test_username">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="username" minOccurs="1" type="username_type_Cmd_tacacs_server_host_host0_test"/>
+        <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_host_host0_test"/>
+        <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_2"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="username_type_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>user name in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_test_password">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tacacs_server_host_host0_test_password" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_host_host0_test_password">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_password" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_tacacs_server_host_host0_test_password" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_tacacs_server_host_host0_test_password">
+    <xs:sequence>
+      <xs:element name="password" minOccurs="1" type="password_type_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="password_type_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tacacs_server_host_host0_test_idle-time">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_idle-time">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_1">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_1">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_2">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="test_type_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>Parameters to send test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_test_username">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tacacs_server_test_username" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_test_username">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="username" minOccurs="1" type="username_type_Cmd_tacacs_server_test"/>
+        <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_test"/>
+        <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_2"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="username_type_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>user name in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_tacacs_server_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_test_password">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tacacs_server_test_password" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_test_password">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_test_password" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_tacacs_server_test_password" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_test_idle-time" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_tacacs_server_test_password">
+    <xs:sequence>
+      <xs:element name="password" minOccurs="1" type="password_type_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="password_type_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_Cmd_tacacs_server_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_tacacs_server_test_idle-time" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tacacs_server_test_idle-time">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_idle-time">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_test_idle-time_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_idle-time_1">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_1">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_2">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="key_type_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server shared secret</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="__XML__BLK_Cmd_tacacs_server_key_timeout___XML__DIGIT0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_tacacs_server_key_timeout___XML__DIGIT0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tacacs_server_key_timeout___XML__DIGIT0">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__DIGIT0" minOccurs="1" type="__XML__DIGIT0_type_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="__XML__DIGIT6" minOccurs="1" type="__XML__DIGIT6_type_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="__XML__DIGIT7" minOccurs="1" type="__XML__DIGIT7_type_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="s2" minOccurs="1" type="s2_type_Cmd_tacacs_server_key_timeout"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__DIGIT0_type_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tacacs_server_key_timeout_timeout">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT6_type_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1" type="s6_type_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s6_type_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="240"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i6" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT7_type_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_1">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_1">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s2_type_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_2">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_2">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i2" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_Cmd_tacacs_server_timeout_i0">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_logging_level_tacacs_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs" minOccurs="1" type="tacacs_type_ec_Cmd_logging_level_tacacs_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs_type_ec_Cmd_logging_level_tacacs_i0">
+    <xs:annotation>
+      <xs:documentation>TACACS+ syslog level</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_source_interface_global_tacacs">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tacacs" minOccurs="1" type="tacacs_type_ec_Cmd_source_interface_global_tacacs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs_type_ec_Cmd_source_interface_global_tacacs">
+    <xs:annotation>
+      <xs:documentation>Tacacs server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="source-interface" minOccurs="1" type="source-interface_type_Cmd_source_interface_global_tacacs"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source-interface_type_Cmd_source_interface_global_tacacs">
+    <xs:annotation>
+      <xs:documentation>Source interface to be used to reach tacacs server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Interface Description</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tacacs-server_type_ec_Cmd_tacacs_server_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>Configure TACACS+ server related parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="deadtime" minOccurs="1" type="deadtime_type_ec_Cmd_tacacs_server_deadtime_i0"/>
+        <xs:element name="directed-request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable direct authentication requests to server</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="host" minOccurs="1" type="host_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="test" minOccurs="1" type="test_type_ec_Cmd_tacacs_server_test"/>
+        <xs:element name="key" minOccurs="1" type="key_type_ec_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_timeout_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deadtime_type_ec_Cmd_tacacs_server_deadtime_i0">
+    <xs:annotation>
+      <xs:documentation>duration for which non-reachable server is skipped</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Length of time, in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server's DNS name or its IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="hostipname" minOccurs="1" type="hostipname_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="hostipnam" minOccurs="1" type="hostipnam_type_ec_Cmd_tacacs_server_host_host0_test"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hostipname_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_key_port_timeout_key">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_host_host0_key_port_timeout_key" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_host_host0_key_port_timeout_key">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="key" minOccurs="1" type="key_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port_2" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout_2" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="key_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_port" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port_1" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_key_port_timeout_timeout" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout_1" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_host_host0_key_port_timeout___XML__DIGIT0">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__DIGIT0" minOccurs="1" type="__XML__DIGIT0_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__DIGIT6" minOccurs="1" type="__XML__DIGIT6_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="__XML__DIGIT7" minOccurs="1" type="__XML__DIGIT7_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout"/>
+        <xs:element name="s2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_string">
+                <xs:maxLength value="63"/>
+                <xs:minLength value="1"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__DIGIT0_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT6_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="240"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT7_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout">
+    <xs:annotation>
+      <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port_1">
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_1">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout_1">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_1">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i2" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_port_2">
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="port_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_2">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i3" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_key_port_timeout_timeout_2">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_host_host0_key_port_timeout_2">
+    <xs:annotation>
+      <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i4" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hostipnam_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IPV4/IPV6 address or DNS name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:nameOrIP">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="test" minOccurs="1" type="test_type_ec_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="test_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>Parameters to send test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_test_username">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_host_host0_test_username" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_host_host0_test_username">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="username" minOccurs="1" type="username_type_ec_Cmd_tacacs_server_host_host0_test"/>
+        <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_host_host0_test_2"/>
+        <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_6"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="username_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:annotation>
+      <xs:documentation>user name in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_tacacs_server_host_host0_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_tacacs_server_host_host0_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_host_host0_test_password">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_host_host0_test_password" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_host_host0_test_password">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_password" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_password" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_3" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_password">
+    <xs:sequence>
+      <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_host_host0_test_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_host_host0_test_1">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_host_host0_test_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_host_host0_test_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_2">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_3"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_3">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_3">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_4"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_4">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_host_host0_test_2">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_host_host0_test_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_host_host0_test_2">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_host_host0_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_host_host0_test_idle-time_4">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_5"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_5">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_host_host0_test_6">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="test_type_ec_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>Parameters to send test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_test_username">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_test_username" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_test_username">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="username" minOccurs="1" type="username_type_ec_Cmd_tacacs_server_test"/>
+        <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_test_2"/>
+        <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_6"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="username_type_ec_Cmd_tacacs_server_test">
+    <xs:annotation>
+      <xs:documentation>user name in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_tacacs_server_test"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_tacacs_server_test">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_test_password">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_test_password" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_test_password">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_test_password" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_test_password" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_ec_Cmd_tacacs_server_test_idle-time_3" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_password">
+    <xs:sequence>
+      <xs:element name="password" minOccurs="1" type="password_type_ec_Cmd_tacacs_server_test_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_test_1">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_test_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_test_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_test_idle-time_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_idle-time_2">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_3"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_3">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_idle-time_3">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_4"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_4">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="password_type_ec_Cmd_tacacs_server_test_2">
+    <xs:annotation>
+      <xs:documentation>user password in test packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_test_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_test_2">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_test_idle-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_test_idle-time_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_test_idle-time_4">
+    <xs:sequence>
+      <xs:element name="idle-time" minOccurs="1" type="idle-time_type_ec_Cmd_tacacs_server_test_5"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_5">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="idle-time_type_ec_Cmd_tacacs_server_test_6">
+    <xs:annotation>
+      <xs:documentation>time interval for monitoring the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>time period in minutes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="1440"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="key_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server shared secret</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tacacs_server_key_timeout___XML__DIGIT0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_tacacs_server_key_timeout___XML__DIGIT0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_tacacs_server_key_timeout___XML__DIGIT0">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__DIGIT0" minOccurs="1" type="__XML__DIGIT0_type_ec_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="__XML__DIGIT6" minOccurs="1" type="__XML__DIGIT6_type_ec_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="__XML__DIGIT7" minOccurs="1" type="__XML__DIGIT7_type_ec_Cmd_tacacs_server_key_timeout"/>
+        <xs:element name="s2" minOccurs="1" type="s2_type_ec_Cmd_tacacs_server_key_timeout"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__DIGIT0_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_3">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_3"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_3">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT6_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1" type="s6_type_ec_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s6_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(type-6 encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="240"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_4">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_4"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_4">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i6" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT7_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:annotation>
+      <xs:documentation>default TACACS+ shared secret(encrypted)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_tacacs_server_key_timeout"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s1_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(encrypted)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_5">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_5"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_5">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s2_type_ec_Cmd_tacacs_server_key_timeout">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>default TACACS+ shared secret(clear text)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="63"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_tacacs_server_key_timeout_timeout" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_tacacs_server_key_timeout_timeout_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_tacacs_server_key_timeout_timeout_6">
+    <xs:sequence>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ec_Cmd_tacacs_server_key_timeout_6"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_key_timeout_6">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i2" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_ec_Cmd_tacacs_server_timeout_i0">
+    <xs:annotation>
+      <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Global TACACS+ server timeout period in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="60"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

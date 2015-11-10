@@ -1,0 +1,3698 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:mcecm" targetNamespace="http://www.cisco.com/nxos:1.0:mcecm" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module mcecm</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_vpc_brief"/>
+  <xs:complexType name="show_type_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_show_vpc_brief"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show-running-config-vpc"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show-startup-config-vpc"/>
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_some_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_vpc"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_vpc_brief_vpc-number" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_vpc_brief_vpc-number" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_vpc_brief___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_vpc_brief___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="peer-keepalive" minOccurs="1" type="peer-keepalive_type_Cmd_show_vpc_peer_keepalive"/>
+        <xs:element name="role" minOccurs="1" type="role_type_Cmd_show_vpc_role"/>
+        <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_show_vpc_statistics"/>
+        <xs:element name="consistency-parameters" minOccurs="1" type="consistency-parameters_type_Cmd_show_vpc_consistency_params"/>
+        <xs:element name="orphan-ports" minOccurs="1" type="orphan-ports_type_Cmd_show_vpc_orphan_ports"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_brief_vpc-number">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_show_vpc_brief_vpc-number">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_show_vpc_brief_vpc-number" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_vpc_brief_vpc-number">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vpc-number" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter a Virtual Port Channel number</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="nxos:brief" minOccurs="1"/>
+        <xs:element name="__XML__OPT_Cmd_show_vpc_brief_vpc" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_vpc_brief_vpc" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_vpc_brief_vpc">
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_e_Cmd_show_vpc_brief"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vpc_type_e_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-number" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter a Virtual Port Channel number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_brief___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_brief"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-domain-id" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC domain id</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-l2mp-switch-id" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>vPC+ switch ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-peer-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC peer status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="peer-not-configured">
+                <xs:annotation>
+                  <xs:documentation>vPC peer-link not configured</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-not-found">
+                <xs:annotation>
+                  <xs:documentation>vPC peer not found</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-ok">
+                <xs:annotation>
+                  <xs:documentation>vPC peer adjacency ok</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-link-down">
+                <xs:annotation>
+                  <xs:documentation>vPC peer link down</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-peer-status-reason" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC peer status reason</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="SUCCESS">
+                <xs:annotation>
+                  <xs:documentation>SUCCESS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_PEER_UNRCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_PEER_UNRCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_ELECTION_ERROR">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_ELECTION_ERROR</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_OOB_NOT_OPERATIONAL">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_OOB_NOT_OPERATIONAL</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_CORE_PORT_MCT">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_CORE_PORT_MCT</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_NONCORE_PORT_MCT">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_NONCORE_PORT_MCT</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-peer-keepalive-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vpc peer keepalive status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="disabled">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive disabled</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-alive">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive received</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-not-alive">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive not received</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-alive-domain-mismatch">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive received,domainID mismatch</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="suspended">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive suspended for ISSU</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="not-operational">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive not operational</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="suspended-vrf">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive suspended: invalid vrf</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="misconfigured">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive misconfigured</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-peer-l2mp-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC fabricpath status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="unknown">
+                <xs:annotation>
+                  <xs:documentation>vpc fabricpath peer is unknown</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="alive">
+                <xs:annotation>
+                  <xs:documentation>vpc peer is reachable through fabricpath network</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="dead">
+                <xs:annotation>
+                  <xs:documentation>vpc peer is unreachable through fabricpath network</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-role" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC role</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="none-established">
+                <xs:annotation>
+                  <xs:documentation>no role established</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary-secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary-primary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="num-of-vpcs" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Number of vPCs configured</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="track-obj" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Track object for vPC</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="peer-gateway" minOccurs="1" type="nxos:bool_enabled">
+        <xs:annotation>
+          <xs:documentation>Peer gateway status</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="peer-gateway-excluded-vlans" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>peer-gateway excluded VLANs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dual-active-excluded-vlans" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>dual-active excluded VLANs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-graceful-consistency-check-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC graceful consistency check</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="enabled">
+                <xs:annotation>
+                  <xs:documentation>vPC graceful consistency check enabled</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="disabled-user">
+                <xs:annotation>
+                  <xs:documentation>vPC graceful check user disabled</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="disabled-peer">
+                <xs:annotation>
+                  <xs:documentation>vPC graceful check peer disabled</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="fp-enhanced-load-balancing" minOccurs="1" type="nxos:bool_enabled">
+        <xs:annotation>
+          <xs:documentation>Fabricpath enhanced load balancing status</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-auto-recovery-status" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Auto-recovery status</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-peer-consistency" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC global configuration consistency</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="consistent">
+                <xs:annotation>
+                  <xs:documentation>vPC global configuration consistent</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="inconsistent">
+                <xs:annotation>
+                  <xs:documentation>vPC global configuration inconsistent</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="not-applicable">
+                <xs:annotation>
+                  <xs:documentation>vPC configuration not applicable</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_vpc_brief_vpc-peer-consistency-reason" maxOccurs="1"/>
+      <xs:element name="vpc-per-vlan-peer-consistency" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC per-vlan global configuration consistency</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="consistent">
+                <xs:annotation>
+                  <xs:documentation>vPC per-vlan global configuration consistent</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="inconsistent">
+                <xs:annotation>
+                  <xs:documentation>vPC per-vlan global configuration inconsistent</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="NA">
+                <xs:annotation>
+                  <xs:documentation>vPC global configuration inconsistent</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-type-2-consistency" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC type-2 configuration consistency status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="consistent">
+                <xs:annotation>
+                  <xs:documentation>vPC type-2 compat check succeeded</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="inconsistent">
+                <xs:annotation>
+                  <xs:documentation>vPC type-2 compat check failed</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_vpc_brief_vpc-type-2-consistency-reason" maxOccurs="1"/>
+      <xs:element name="vpc-peer-link-hdr" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Start of vPC peer-link table</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_vpc_brief_TABLE_peerlink" maxOccurs="1"/>
+      <xs:element name="vpc-end" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>End of table</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-hdr" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Start of vPC table</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-is-es" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Flag to indicate vPC+ complex</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-not-es" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Flag to indicate vPC complex</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_vpc_brief_TABLE_vpc" maxOccurs="1"/>
+      <xs:element name="vpc-end" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>End of table</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_brief_vpc-peer-consistency-reason">
+    <xs:sequence>
+      <xs:element name="vpc-peer-consistency-reason" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC consistency reason</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-peer-consistency-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC consistency reason</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="SUCCESS">
+                <xs:annotation>
+                  <xs:documentation>SUCCESS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="INVALID">
+                <xs:annotation>
+                  <xs:documentation>INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_PEER_NOT_CFG">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_PEER_NOT_CFG</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOWN">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOWN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_NOT_UP">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_NOT_UP</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCEC_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCEC_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_CHK_NOT_DONE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_CHK_NOT_DONE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_TYPE_CHECK_BYPASSED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_TYPE_CHECK_BYPASSED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_LAG_ID_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_LAG_ID_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INVALID">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INTERNAL">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INTERNAL</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_STP_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_STP_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_SVI_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_SVI_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_vpc_brief_vpc-type-2-consistency-reason">
+    <xs:sequence>
+      <xs:element name="vpc-type-2-consistency-reason" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC type-2 configuration consistency reason</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-type-2-consistency-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC type-2 configuration consistency status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="SUCCESS">
+                <xs:annotation>
+                  <xs:documentation>SUCCESS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="INVALID">
+                <xs:annotation>
+                  <xs:documentation>INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_PEER_NOT_CFG">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_PEER_NOT_CFG</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOWN">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOWN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_NOT_UP">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_NOT_UP</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCEC_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCEC_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_CHK_NOT_DONE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_CHK_NOT_DONE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_TYPE_CHECK_BYPASSED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_TYPE_CHECK_BYPASSED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_LAG_ID_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_LAG_ID_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INVALID">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INTERNAL">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INTERNAL</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_STP_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_STP_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_SVI_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_SVI_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_vpc_brief_TABLE_peerlink">
+    <xs:sequence>
+      <xs:element name="TABLE_peerlink" minOccurs="1" type="TABLE_peerlink_type_Cmd_show_vpc_brief"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_peerlink_type_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>vPC peerlink table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_peerlink" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="peer-link-id" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>peer link id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="peerlink-ifindex" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>peer link ifindex</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="peer-link-port-state" minOccurs="1" type="nxos:bool_enabled">
+              <xs:annotation>
+                <xs:documentation>peer-link port state</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="peer-up-vlan-bitset" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>peer link UP VLAN bitset</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_brief_TABLE_vpc">
+    <xs:sequence>
+      <xs:element name="TABLE_vpc" minOccurs="1" type="TABLE_vpc_type_Cmd_show_vpc_brief"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_vpc_type_Cmd_show_vpc_brief">
+    <xs:annotation>
+      <xs:documentation>vPC table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_vpc" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vpc-id" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>vPC id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vpc-ifindex" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>vPC ifindex</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vpc-port-state" minOccurs="1" type="nxos:bool_enabled">
+              <xs:annotation>
+                <xs:documentation>vPC port state</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vpc-thru-peerlink" minOccurs="1" type="nxos:bool_enabled">
+              <xs:annotation>
+                <xs:documentation>vPC Routing through peerlink</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vpc-consistency" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>vPC global configuration consistency</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="consistent">
+                      <xs:annotation>
+                        <xs:documentation>vPC global configuration consistent</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="inconsistent">
+                      <xs:annotation>
+                        <xs:documentation>vPC global configuration inconsistent</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="not-applicable">
+                      <xs:annotation>
+                        <xs:documentation>vPC configuration not applicable</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="bg_Cmd_show_vpc_brief_vpc-consistency-reason" maxOccurs="1"/>
+            <xs:element name="up-vlan-bitset" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>vPC UP VLAN bitset</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="es-attr" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>vPC+ attributes</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_brief_vpc-consistency-reason">
+    <xs:sequence>
+      <xs:element name="vpc-consistency-reason" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC consistency reason</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-consistency-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC consistency reason</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="SUCCESS">
+                <xs:annotation>
+                  <xs:documentation>SUCCESS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="INVALID">
+                <xs:annotation>
+                  <xs:documentation>INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_PEER_NOT_CFG">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_PEER_NOT_CFG</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOWN">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOWN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_NOT_UP">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_NOT_UP</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCT_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCT_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_MCEC_DOES_NOT_EXISTS">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_MCEC_DOES_NOT_EXISTS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_COMPAT_CHK_NOT_DONE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_COMPAT_CHK_NOT_DONE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_TYPE_CHECK_BYPASSED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_TYPE_CHECK_BYPASSED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_MCEC_LAG_ID_MISMATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_MCEC_LAG_ID_MISMATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INVALID">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INVALID</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_PCM_INTERNAL">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_PCM_INTERNAL</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_STP_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_STP_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_SVI_COMPAT_CHECK_FAILURE">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_SVI_COMPAT_CHECK_FAILURE</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="peer-keepalive_type_Cmd_show_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>vPC keepalive status</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_vpc_peer_keepalive___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_vpc_peer_keepalive___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_peer_keepalive___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-peer-keepalive-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vpc peer keepalive status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="disabled">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive disabled</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-alive">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive received</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-not-alive">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive not received</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-alive-domain-mismatch">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive received,domainID mismatch</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="suspended">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive suspended for ISSU</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="not-operational">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive not operational</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="suspended-vrf">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive suspended: invalid vrf</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="misconfigured">
+                <xs:annotation>
+                  <xs:documentation>vpc peer keepalive misconfigured</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-peer-keepalive-up-time" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>keepalive- alive time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="og_Cmd_show_vpc_peer_keepalive_vpc-keepalive-dest" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_peer_keepalive_vpc-keepalive-dest">
+    <xs:sequence>
+      <xs:element name="vpc-keepalive-dest" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive destination ip address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-send-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC keepalive send status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="Success">
+                <xs:annotation>
+                  <xs:documentation>vPC keepalive send succeeded</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="Failed">
+                <xs:annotation>
+                  <xs:documentation>vPC keepalive send failed</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-send-tstamp" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive last send timestamp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-send-interface" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive send interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-receive-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC keepalive receive status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="Success">
+                <xs:annotation>
+                  <xs:documentation>vPC keepalive receive succeeded</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="Failed">
+                <xs:annotation>
+                  <xs:documentation>vPC keepalive receive failed</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-receive-tstamp" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive last receive timestamp</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-receive-interface" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive receive interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-lastupdate" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC keepalive last update from peer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-interval" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC keepalive timeout</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-timeout" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC keepalive interval</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-hold-timeout" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>hold timeout</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-vrf" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vrf name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-udp-port" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>udp port</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-keepalive-tos" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>tos value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="role_type_Cmd_show_vpc_role">
+    <xs:annotation>
+      <xs:documentation>vPC role status</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_vpc_role___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_vpc_role___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_role___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_role"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_role">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-peer-status" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC peer status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="peer-not-configured">
+                <xs:annotation>
+                  <xs:documentation>vPC peer-link not configured</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-not-found">
+                <xs:annotation>
+                  <xs:documentation>vPC peer not found</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-ok">
+                <xs:annotation>
+                  <xs:documentation>vPC peer adjacency ok</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="peer-link-down">
+                <xs:annotation>
+                  <xs:documentation>vPC peer link down</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-peer-status-reason" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC peer status reason</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="SUCCESS">
+                <xs:annotation>
+                  <xs:documentation>SUCCESS</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_PEER_UNRCH">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_PEER_UNRCH</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_ELECTION_ERROR">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_ELECTION_ERROR</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_OOB_NOT_OPERATIONAL">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_OOB_NOT_OPERATIONAL</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_CORE_PORT_MCT">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_CORE_PORT_MCT</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="SYSERR_MCECM_NONCORE_PORT_MCT">
+                <xs:annotation>
+                  <xs:documentation>SYSERR_MCECM_NONCORE_PORT_MCT</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-current-role" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC role</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="none-established">
+                <xs:annotation>
+                  <xs:documentation>no role established</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary-secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary-primary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vpc-es-current-role" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>vPC role</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="none-established">
+                <xs:annotation>
+                  <xs:documentation>no role established</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary-secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC primary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary-primary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary primary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="secondary">
+                <xs:annotation>
+                  <xs:documentation>vPC secondary secondary</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="dual-active-detected" minOccurs="1" type="nxos:bool_enabled">
+        <xs:annotation>
+          <xs:documentation>Dual active detection status</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-system-mac" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC system mac</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-system-prio" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>vPC system priority</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-local-system-mac" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>vPC local system mac</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-local-system-prio" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>vPC local system priority</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statistics_type_Cmd_show_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="peer-keepalive" minOccurs="1" type="peer-keepalive_type_Cmd_show_vpc_statistics"/>
+        <xs:element name="__XML__BLK_Cmd_show_vpc_statistics_vpc_vpc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_show_vpc_statistics_vpc_vpc" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="peer-keepalive_type_Cmd_show_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>peer keepalive module related statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_vpc_statistics___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_vpc_statistics___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_statistics___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_statistics"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-keepalive-counters-tx" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>tx counters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-counters-rx" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>rx counters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-avg-rx-interval" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>avg rx interval in ms</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vpc-keepalive-peer-state-changes" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>peer state changes</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_statistics_vpc_vpc">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_show_vpc_statistics_vpc"/>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>stats for peer-link</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vpc_type_Cmd_show_vpc_statistics_vpc">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc_num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Virtual Port Channel number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="consistency-parameters_type_Cmd_show_vpc_consistency_params">
+    <xs:annotation>
+      <xs:documentation>Show vPC Consistency Parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="__XML__BLK_Cmd_show_vpc_consistency_params_global">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_show_vpc_consistency_params_global" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_vpc_consistency_params___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_vpc_consistency_params___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vlans" minOccurs="1" type="vlans_type_Cmd_show_vpc_consistency_params_vlans"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_consistency_params_global">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="global" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Global Parameters</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_vpc_consistency_params"/>
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_show_vpc_consistency_params"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_vpc_consistency_params">
+    <xs:annotation>
+      <xs:documentation>Specify interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if" minOccurs="1" type="if_type_Cmd_show_vpc_consistency_params"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_vpc_consistency_params">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if_type_Cmd_show_vpc_consistency_params">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_vpc_consistency_params"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_show_vpc_consistency_params">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc-num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter a Virtual Port Channel number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_consistency_params___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_consistency_params"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_consistency_params">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_vpc_consistency_params_TABLE_vpc_consistency" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_consistency_params_TABLE_vpc_consistency">
+    <xs:sequence>
+      <xs:element name="TABLE_vpc_consistency" minOccurs="1" type="TABLE_vpc_consistency_type_Cmd_show_vpc_consistency_params"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_vpc_consistency_type_Cmd_show_vpc_consistency_params">
+    <xs:annotation>
+      <xs:documentation>vPC table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_vpc_consistency" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vpc-param-name" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="vpc-param-type" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="vpc-param-local-val" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="vpc-param-peer-val" minOccurs="1" type="nxos:base_string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlans_type_Cmd_show_vpc_consistency_params_vlans">
+    <xs:annotation>
+      <xs:documentation>vlans</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_vpc_consistency_params_vlans___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_vpc_consistency_params_vlans___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_consistency_params_vlans___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_consistency_params_vlans"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_consistency_params_vlans">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_vpc_consistency_params_vlans_TABLE_vpc_consistency" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_consistency_params_vlans_TABLE_vpc_consistency">
+    <xs:sequence>
+      <xs:element name="TABLE_vpc_consistency" minOccurs="1" type="TABLE_vpc_consistency_type_Cmd_show_vpc_consistency_params_vlans"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_vpc_consistency_type_Cmd_show_vpc_consistency_params_vlans">
+    <xs:annotation>
+      <xs:documentation>vPC table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_vpc_consistency" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vpc-param-name" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="vpc-param-type" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="reason_code" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>vPC consistency reason</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="SUCCESS">
+                      <xs:annotation>
+                        <xs:documentation>SUCCESS</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="INVALID">
+                      <xs:annotation>
+                        <xs:documentation>INVALID</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_COMPAT_FAILED">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_COMPAT_FAILED</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_PEER_NOT_CFG">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_PEER_NOT_CFG</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_MCT_DOWN">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_MCT_DOWN</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_MCT_NOT_UP">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_MCT_NOT_UP</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_MCT_DOES_NOT_EXISTS">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_MCT_DOES_NOT_EXISTS</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_MCEC_DOES_NOT_EXISTS">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_MCEC_DOES_NOT_EXISTS</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_COMPAT_CHK_NOT_DONE">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_COMPAT_CHK_NOT_DONE</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_DOMAIN_COMPAT_FAILED">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_DOMAIN_COMPAT_FAILED</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_GLOBAL_COMPAT_CHK_FAILED</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_TYPE_CHECK_BYPASSED">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_TYPE_CHECK_BYPASSED</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_PCM_MCEC_CHANNEL_MODE_MISMATCH</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_PCM_MCEC_LAG_ID_MISMATCH">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_PCM_MCEC_LAG_ID_MISMATCH</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_PCM_INVALID">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_PCM_INVALID</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_PCM_INTERNAL">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_PCM_INTERNAL</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_STP_COMPAT_CHECK_FAILURE">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_STP_COMPAT_CHECK_FAILURE</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_SVI_COMPAT_CHECK_FAILURE">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_SVI_COMPAT_CHECK_FAILURE</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH">
+                      <xs:annotation>
+                        <xs:documentation>SYSERR_MCECM_LOCAL_PEER_SWITCHID_DOES_NOT_MATCH</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="syserr" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>vPC consistency reason</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="vpc-pass-vlans" minOccurs="1" type="nxos:base_string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orphan-ports_type_Cmd_show_vpc_orphan_ports">
+    <xs:annotation>
+      <xs:documentation>Show ports that are not part of vPC but have common VLANs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_vpc_orphan_ports___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_vpc_orphan_ports___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_vpc_orphan_ports___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_vpc_orphan_ports"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_vpc_orphan_ports">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_vpc_orphan_ports_TABLE_orphan_ports" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_vpc_orphan_ports_TABLE_orphan_ports">
+    <xs:sequence>
+      <xs:element name="TABLE_orphan_ports" minOccurs="1" type="TABLE_orphan_ports_type_Cmd_show_vpc_orphan_ports"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_orphan_ports_type_Cmd_show_vpc_orphan_ports">
+    <xs:annotation>
+      <xs:documentation>vPC orphan ports table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_orphan_ports" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vpc-vlan" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="vpc-orphan-ports" minOccurs="1" type="nxos:base_string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show-running-config-vpc">
+    <xs:annotation>
+      <xs:documentation>Current operating configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_show-running-config-vpc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_show-running-config-vpc">
+    <xs:annotation>
+      <xs:documentation>show running config for vPC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show-running-config-vpc_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show-running-config-vpc_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show-running-config-vpc_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show-startup-config-vpc">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_show-startup-config-vpc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_show-startup-config-vpc">
+    <xs:annotation>
+      <xs:documentation>show startup config for vPC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show-startup-config-vpc_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show-startup-config-vpc_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show-startup-config-vpc_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="debug_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show debugging flags of vPC</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_vpc">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_vpc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_vpc">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show vPC logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clear" type="clear_type_Cmd_clear_vpc_statistics"/>
+  <xs:complexType name="clear_type_Cmd_clear_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>Reset functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_clear_vpc_statistics"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_clear_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_clear_vpc_statistics"/>
+        <xs:element name="transport" minOccurs="1" type="transport_type_Cmd_clear_vpc_transport_statistics"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statistics_type_Cmd_clear_vpc_statistics">
+    <xs:annotation>
+      <xs:documentation>Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="peer-keepalive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>peer keepalive module related statistics</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_clear_vpc_statistics_vpc_vpc">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_clear_vpc_statistics_vpc_vpc" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>All vPC statistics</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_clear_vpc_statistics_vpc_vpc">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_clear_vpc_statistics_vpc"/>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>stats for peer-link</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vpc_type_Cmd_clear_vpc_statistics_vpc">
+    <xs:annotation>
+      <xs:documentation>Statistics for a specific vPC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc_num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Virtual Port Channel number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="262176"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="transport_type_Cmd_clear_vpc_transport_statistics">
+    <xs:annotation>
+      <xs:documentation>cfs transport</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_clear_vpc_transport_statistics"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statistics_type_Cmd_clear_vpc_transport_statistics">
+    <xs:annotation>
+      <xs:documentation>Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_clear_vpc_transport_statistics___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_clear_vpc_transport_statistics___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_clear_vpc_transport_statistics___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_clear_vpc_transport_statistics"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_clear_vpc_transport_statistics">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="last-clear-time" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>time difference from last clear time</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_e_Cmd_some_cmd"/>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure vPC debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of vPC</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer-link FSM</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vpc-fsm" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC FSM</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC MTS events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer-keepalive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer-keepalive events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_some_cmd"/>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure vPC debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of vPC</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer-link FSM</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vpc-fsm" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC FSM</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC MTS events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="peer-keepalive" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of vPC peer-keepalive events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_vpc_domain_id"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_vpc_domain_id"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_set_vpc_logging_level"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain" minOccurs="1" type="domain_type_Cmd_vpc_domain_id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="domain_type_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Specify domain</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain_id" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>domain id</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_unsignedInt">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="1000"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="__XML__MODE_vpc-domain" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vpc-domain_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vpc-domain_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="peer-keepalive" minOccurs="1" type="peer-keepalive_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="role" minOccurs="1" type="role_type_Cmd_vpc_role_priority"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_vpc_role_priority"/>
+        <xs:element name="system-mac" minOccurs="1" type="system-mac_type_Cmd_vpc_system_mac"/>
+        <xs:element name="system-priority" minOccurs="1" type="system-priority_type_ecvd_Cmd_vpc_system_prio"/>
+        <xs:element name="track" minOccurs="1" type="track_type_ecvd_Cmd_vpc_track"/>
+        <xs:element name="dual-active" minOccurs="1" type="dual-active_type_ecvd_Cmd_interface_vlan_no_suspend"/>
+        <xs:element name="peer-gateway" minOccurs="1" type="peer-gateway_type_Cmd_vpc_l3_enable"/>
+        <xs:element name="delay" minOccurs="1" type="delay_type_ecvd_Cmd_vpc_delay_restore"/>
+        <xs:element name="graceful" minOccurs="1" type="graceful_type_ecvd_Cmd_vpc_graceful_consistency_check"/>
+        <xs:element name="peer-config-check-bypass" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ignore type checks on primary, when MCT is down</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="fabricpath" minOccurs="1" type="fabricpath_type_ecvd_Cmd_fabricpath_switch_id"/>
+        <xs:element name="auto-recovery" minOccurs="1" type="auto-recovery_type_ecvd_Cmd_vpc_auto_recover"/>
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>suspend vpc locally</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="peer-keepalive_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>Keepalive/Hello with peer switch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="destination" minOccurs="1" type="destination_type_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="destination_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>specify destination ip address of peer switch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dst-ip" minOccurs="1" type="dst-ip_type_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dst-ip_type_Cmd_vpc_peer_keepalive">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IPv4 address (A.B.C.D) of destination</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_vpc_peer_keepalive_source" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_vpc_peer_keepalive_source" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_vpc_peer_keepalive_source">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__OPT_Cmd_vpc_peer_keepalive_source" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="__XML__ALL_og_Cmd_vpc_peer_keepalive_source" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_vpc_peer_keepalive_source_1" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="__XML__ALL_og_Cmd_vpc_peer_keepalive_source_1" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_vpc_peer_keepalive_source_2" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="__XML__ALL_og_Cmd_vpc_peer_keepalive_source_2" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="__XML__ALL_og_Cmd_vpc_peer_keepalive_source">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="source" minOccurs="0" type="source_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="udp-port" minOccurs="0" type="udp-port_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="vrf" minOccurs="0" type="vrf_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="interval" minOccurs="0" type="interval_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="tos-byte" minOccurs="0" type="tos-byte_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="hold-timeout" minOccurs="0" type="hold-timeout_type_Cmd_vpc_peer_keepalive"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="source_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>source interface for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="src-ip" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IPv4 address (A.B.C.D) of source</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udp-port_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter UDP port number used for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udp-port-num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>udp port number for hellos</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1024"/>
+              <xs:maxInclusive value="65000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>vrf to be used for hello messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_vpc_peer_keepalive_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_vpc_peer_keepalive_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_vpc_peer_keepalive_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:base_string">
+          <xs:annotation>
+            <xs:documentation>vrf to be used for hellos</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interval_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter interval in milleseconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interval-ms" minOccurs="1" type="interval-ms_type_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interval-ms_type_Cmd_vpc_peer_keepalive">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter interval in milleseconds</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="400"/>
+              <xs:maxInclusive value="10000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter timeout in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>enter timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="20"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tos-byte_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>Type of Service Byte</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tos-byte-value" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter 8-bit TOS value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="255"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hold-timeout_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>hold timeout to ignore stale peer alive messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hold-time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter hold-timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="10"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="__XML__ALL_og_Cmd_vpc_peer_keepalive_source_1">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="source" minOccurs="0" type="source_type_ecvd_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="udp-port" minOccurs="0" type="udp-port_type_ecvd_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="vrf" minOccurs="0" type="vrf_type_ecvd_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="interval" minOccurs="0" type="interval_type_ecvd_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="tos" minOccurs="0" type="tos_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="hold-timeout" minOccurs="0" type="hold-timeout_type_ecvd_Cmd_vpc_peer_keepalive"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="source_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>source interface for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="src-ip" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IPv4 address (A.B.C.D) of source</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udp-port_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter UDP port number used for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udp-port-num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>udp port number for hellos</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1024"/>
+              <xs:maxInclusive value="65000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>vrf to be used for hello messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_vpc_peer_keepalive_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvd_Cmd_vpc_peer_keepalive_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvd_Cmd_vpc_peer_keepalive_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:base_string">
+          <xs:annotation>
+            <xs:documentation>vrf to be used for hellos</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interval_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter interval in milleseconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interval-ms" minOccurs="1" type="interval-ms_type_ecvd_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interval-ms_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter interval in milleseconds</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="400"/>
+              <xs:maxInclusive value="10000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ecvd_Cmd_vpc_peer_keepalive"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>enter timeout in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>enter timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="20"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tos_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>Type of Service</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_vpc_peer_keepalive_tos-value">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_vpc_peer_keepalive_tos-value" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_vpc_peer_keepalive_tos-value">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="tos-value" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter 4-bit TOS value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="15"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="min-delay" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>min-delay (8)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="max-throughput" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>max-throughput (4)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="max-reliability" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>max-reliability (2)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="min-monetary-cost" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>min-monetary-cost (1)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="normal" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>normal (0)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hold-timeout_type_ecvd_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>hold timeout to ignore stale peer alive messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hold-time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter hold-timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="10"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="__XML__ALL_og_Cmd_vpc_peer_keepalive_source_2">
+    <xs:complexType>
+      <xs:all>
+        <xs:element name="source" minOccurs="0" type="source_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+        <xs:element name="udp-port" minOccurs="0" type="udp-port_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+        <xs:element name="vrf" minOccurs="0" type="vrf_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+        <xs:element name="interval" minOccurs="0" type="interval_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+        <xs:element name="precedence" minOccurs="0" type="precedence_type_Cmd_vpc_peer_keepalive"/>
+        <xs:element name="hold-timeout" minOccurs="0" type="hold-timeout_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+      </xs:all>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="source_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>source interface for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="src-ip" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IPv4 address (A.B.C.D) of source</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="udp-port_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>enter UDP port number used for hello</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="udp-port-num" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>udp port number for hellos</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1024"/>
+              <xs:maxInclusive value="65000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>vrf to be used for hello messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_vpc_peer_keepalive_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvd_Cmd_vpc_peer_keepalive_vrf-name_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvd_Cmd_vpc_peer_keepalive_vrf-name_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:base_string">
+          <xs:annotation>
+            <xs:documentation>vrf to be used for hellos</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interval_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>enter interval in milleseconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interval-ms" minOccurs="1" type="interval-ms_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interval-ms_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter interval in milleseconds</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="400"/>
+              <xs:maxInclusive value="10000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="timeout" minOccurs="1" type="timeout_type_ecvd_Cmd_vpc_peer_keepalive_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>enter timeout in seconds</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>enter timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="20"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="precedence_type_Cmd_vpc_peer_keepalive">
+    <xs:annotation>
+      <xs:documentation>Precedence</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_vpc_peer_keepalive_prec-vlaue">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_vpc_peer_keepalive_prec-vlaue" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_vpc_peer_keepalive_prec-vlaue">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="prec-vlaue" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Precedence value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="7"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="network" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>network (7)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="internet" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>internet (6)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="critical" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>critical (5)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="flash-override" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>flash-override (4)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="flash" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>flash (3)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="immediate" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>immediate (2)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="priority" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>priority (1)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="routine" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>routine (0)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hold-timeout_type_ecvd_Cmd_vpc_peer_keepalive_1">
+    <xs:annotation>
+      <xs:documentation>hold timeout to ignore stale peer alive messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hold-time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter hold-timeout in seconds</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="3"/>
+              <xs:maxInclusive value="10"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="role_type_Cmd_vpc_role_priority">
+    <xs:annotation>
+      <xs:documentation>Role related configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="priority" minOccurs="1" type="priority_type_Cmd_vpc_role_priority"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="priority_type_Cmd_vpc_role_priority">
+    <xs:annotation>
+      <xs:documentation>Configure priority to be used during vPC role (primary/secondary) election</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="priority_value" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>specify priority value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_vpc_role_priority">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="role" minOccurs="1" type="role_type_ecvd_Cmd_vpc_role_priority"/>
+        <xs:element name="system-mac" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure system mac address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="system-priority" minOccurs="1" type="system-priority_type_Cmd_vpc_system_prio"/>
+        <xs:element name="track" minOccurs="1" type="track_type_Cmd_vpc_track"/>
+        <xs:element name="dual-active" minOccurs="1" type="dual-active_type_Cmd_interface_vlan_no_suspend"/>
+        <xs:element name="peer-gateway" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable L3 forwarding for packets destined to peer's gateway mac-address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="delay" minOccurs="1" type="delay_type_Cmd_vpc_delay_restore"/>
+        <xs:element name="graceful" minOccurs="1" type="graceful_type_Cmd_vpc_graceful_consistency_check"/>
+        <xs:element name="peer-config-check-bypass" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ignore type checks on primary, when MCT is down</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="fabricpath" minOccurs="1" type="fabricpath_type_Cmd_fabricpath_switch_id"/>
+        <xs:element name="auto-recovery" minOccurs="1" type="auto-recovery_type_Cmd_vpc_auto_recover"/>
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>suspend vpc locally</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="role_type_ecvd_Cmd_vpc_role_priority">
+    <xs:annotation>
+      <xs:documentation>Role related configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="priority" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure priority to be used during vPC role (primary/secondary) election</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="system-priority_type_Cmd_vpc_system_prio">
+    <xs:annotation>
+      <xs:documentation>Configure system priority</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="syspri" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>specify system priority</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="track_type_Cmd_vpc_track">
+    <xs:annotation>
+      <xs:documentation>Tracking object to suspend vPC if object goes down</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="track-obj" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Tracked object</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="500"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dual-active_type_Cmd_interface_vlan_no_suspend">
+    <xs:annotation>
+      <xs:documentation>Configuration when peer link is down but peer is alive</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="exclude_type_Cmd_interface_vlan_no_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="exclude_type_Cmd_interface_vlan_no_suspend">
+    <xs:annotation>
+      <xs:documentation>Interface vlans to exclude from suspension when dual-active</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Interface vlan configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delay_type_Cmd_vpc_delay_restore">
+    <xs:annotation>
+      <xs:documentation>Initialization delay</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="restore" minOccurs="1" type="restore_type_Cmd_vpc_delay_restore"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restore_type_Cmd_vpc_delay_restore">
+    <xs:annotation>
+      <xs:documentation>Delay after restoring peer-link</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="interface-vlan" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Delay in bringing-up interface-vlan</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="graceful_type_Cmd_vpc_graceful_consistency_check">
+    <xs:annotation>
+      <xs:documentation>Enable graceful features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="consistency-check" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable graceful type-1 consistency check</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fabricpath_type_Cmd_fabricpath_switch_id">
+    <xs:annotation>
+      <xs:documentation>Configuration for a fabricpath network</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="switch-id" minOccurs="1" type="switch-id_type_Cmd_fabricpath_switch_id"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_Cmd_fabricpath_multicast_load_balance"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switch-id_type_Cmd_fabricpath_switch_id">
+    <xs:annotation>
+      <xs:documentation>Configure the fabricpath switch ID</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_fabricpath_switch_id_es_id" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_fabricpath_switch_id_es_id" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_fabricpath_switch_id_es_id">
+    <xs:sequence>
+      <xs:element name="es_id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Fabricpath Switch ID</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4094"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="multicast_type_Cmd_fabricpath_multicast_load_balance">
+    <xs:annotation>
+      <xs:documentation>Configuration pertaining to all multi-destination packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="load-balance" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Make both vPC peers as partial designated forwarders when possible</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="auto-recovery_type_Cmd_vpc_auto_recover">
+    <xs:annotation>
+      <xs:documentation>vPC settings to enable auto recovery if peer is presumed non-operational</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_vpc_auto_recover_reload-delay" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_vpc_auto_recover_reload-delay" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_vpc_auto_recover_reload-delay">
+    <xs:sequence>
+      <xs:element name="reload-delay" minOccurs="1" type="reload-delay_type_Cmd_vpc_auto_recover"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reload-delay_type_Cmd_vpc_auto_recover">
+    <xs:annotation>
+      <xs:documentation>Duration to wait before assuming peer dead and restoring vpcs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time-out for restoring vPC links (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="240"/>
+              <xs:maxInclusive value="3600"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="system-mac_type_Cmd_vpc_system_mac">
+    <xs:annotation>
+      <xs:documentation>Configure system mac address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sysmac" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>specify system mac address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="system-priority_type_ecvd_Cmd_vpc_system_prio">
+    <xs:annotation>
+      <xs:documentation>Configure system priority</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="syspri" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>specify system priority</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="track_type_ecvd_Cmd_vpc_track">
+    <xs:annotation>
+      <xs:documentation>Tracking object to suspend vPC if object goes down</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="track-obj" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Tracked object</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="500"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dual-active_type_ecvd_Cmd_interface_vlan_no_suspend">
+    <xs:annotation>
+      <xs:documentation>Configuration when peer link is down but peer is alive</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="exclude" minOccurs="1" type="exclude_type_ecvd_Cmd_interface_vlan_no_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="exclude_type_ecvd_Cmd_interface_vlan_no_suspend">
+    <xs:annotation>
+      <xs:documentation>Interface vlans to exclude from suspension when dual-active</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_Cmd_interface_vlan_no_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_Cmd_interface_vlan_no_suspend">
+    <xs:annotation>
+      <xs:documentation>Interface vlan configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="allow-vlans" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Set allowed interface vlans</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="peer-gateway_type_Cmd_vpc_l3_enable">
+    <xs:annotation>
+      <xs:documentation>Enable L3 forwarding for packets destined to peer's gateway mac-address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_vpc_l3_enable_exclude-vlan" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_vpc_l3_enable_exclude-vlan" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_vpc_l3_enable_exclude-vlan">
+    <xs:sequence>
+      <xs:element name="exclude-vlan" minOccurs="1" type="exclude-vlan_type_Cmd_vpc_l3_enable"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="exclude-vlan_type_Cmd_vpc_l3_enable">
+    <xs:annotation>
+      <xs:documentation>Specify VLANs to be excluded from peer-gateway functionality</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-list" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Specify the list of vlans</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="delay_type_ecvd_Cmd_vpc_delay_restore">
+    <xs:annotation>
+      <xs:documentation>Initialization delay</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="restore" minOccurs="1" type="restore_type_ecvd_Cmd_vpc_delay_restore"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="restore_type_ecvd_Cmd_vpc_delay_restore">
+    <xs:annotation>
+      <xs:documentation>Delay after restoring peer-link</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="time-out" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Delay in bringing up the vPC links (in seconds)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="3600"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="interface-vlan" minOccurs="1" type="interface-vlan_type_Cmd_vpc_delay_restore_interface_vlan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface-vlan_type_Cmd_vpc_delay_restore_interface_vlan">
+    <xs:annotation>
+      <xs:documentation>Delay in bringing-up interface-vlan</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Delay in bringing up the interface-vlan (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="3600"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="graceful_type_ecvd_Cmd_vpc_graceful_consistency_check">
+    <xs:annotation>
+      <xs:documentation>Enable graceful features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="consistency-check" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable graceful type-1 consistency check</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fabricpath_type_ecvd_Cmd_fabricpath_switch_id">
+    <xs:annotation>
+      <xs:documentation>Configuration for a fabricpath network</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="switch-id" minOccurs="1" type="switch-id_type_ecvd_Cmd_fabricpath_switch_id"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_ecvd_Cmd_fabricpath_multicast_load_balance"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switch-id_type_ecvd_Cmd_fabricpath_switch_id">
+    <xs:annotation>
+      <xs:documentation>Configure the fabricpath switch ID</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="es_id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Fabricpath Switch ID</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4094"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multicast_type_ecvd_Cmd_fabricpath_multicast_load_balance">
+    <xs:annotation>
+      <xs:documentation>Configuration pertaining to all multi-destination packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="load-balance" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Make both vPC peers as partial designated forwarders when possible</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="auto-recovery_type_ecvd_Cmd_vpc_auto_recover">
+    <xs:annotation>
+      <xs:documentation>vPC settings to enable auto recovery if peer is presumed non-operational</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_vpc_auto_recover_reload-delay" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvd_Cmd_vpc_auto_recover_reload-delay" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvd_Cmd_vpc_auto_recover_reload-delay">
+    <xs:sequence>
+      <xs:element name="reload-delay" minOccurs="1" type="reload-delay_type_ecvd_Cmd_vpc_auto_recover"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reload-delay_type_ecvd_Cmd_vpc_auto_recover">
+    <xs:annotation>
+      <xs:documentation>Duration to wait before assuming peer dead and restoring vpcs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time-out for restoring vPC links (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="240"/>
+              <xs:maxInclusive value="3600"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_ec_Cmd_vpc_domain_id"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_set_vpc_logging_level"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_ec_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain" minOccurs="1" type="domain_type_ec_Cmd_vpc_domain_id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="domain_type_ec_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Specify domain</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain_id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>domain id</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_set_vpc_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_set_vpc_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Set level for vPC syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_set_vpc_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_ec_Cmd_set_vpc_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_ec_Cmd_set_vpc_logging_level">
+    <xs:annotation>
+      <xs:documentation>Set level for vPC syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel-switch_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="remote-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-remote-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-remote-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_vpc"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_vpc"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_vpc">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_vpc_vpc_num" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_vpc_vpc_num" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_vpc_vpc_num">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vpc_num" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>specify a Virtual Port Channel number</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>specify if this link is used for peer communication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_vpc">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_eciepcs_Cmd_vpc"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_eciepcs_Cmd_vpc">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_vpc_vpc_num" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciepcs_Cmd_vpc_vpc_num" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciepcs_Cmd_vpc_vpc_num">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vpc_num" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>specify a Virtual Port Channel number</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="peer-link" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>specify if this link is used for peer communication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-l2-non-member_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_vpc_orphanports_suspend"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_vpc_orphanports_suspend"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_vpc_orphanports_suspend">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="orphan-port" minOccurs="1" type="orphan-port_type_Cmd_vpc_orphanports_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orphan-port_type_Cmd_vpc_orphanports_suspend">
+    <xs:annotation>
+      <xs:documentation>orphan-port (non-vpc port)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="suspend" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>suspend - when vPC secondary peerlink goes down</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_vpc_orphanports_suspend">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpc" minOccurs="1" type="vpc_type_ecielnm_Cmd_vpc_orphanports_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_ecielnm_Cmd_vpc_orphanports_suspend">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="orphan-port" minOccurs="1" type="orphan-port_type_ecielnm_Cmd_vpc_orphanports_suspend"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orphan-port_type_ecielnm_Cmd_vpc_orphanports_suspend">
+    <xs:annotation>
+      <xs:documentation>orphan-port (non-vpc port)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="suspend" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>suspend - when vPC secondary peerlink goes down</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-remote-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

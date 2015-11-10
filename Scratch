@@ -1,0 +1,2 @@
+for child in root.iter('ns0:data'):
+    print child.text

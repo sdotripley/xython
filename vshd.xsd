@@ -1,0 +1,1640 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:vshd" targetNamespace="http://www.cisco.com/nxos:1.0:vshd" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module vshd</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_role_pending"/>
+  <xs:complexType name="show_type_Cmd_show_role_pending">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="role" minOccurs="1" type="role_type_Cmd_show_role_pending"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_vshd"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_startup_vshd"/>
+        <xs:element name="cli" minOccurs="1" type="cli_type_Cmd_show_cli_dynamic_integers_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="role_type_Cmd_show_role_pending">
+    <xs:annotation>
+      <xs:documentation>Show role configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__BLK_Cmd_show_role_pending_pending">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_show_role_pending_pending" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_show_role_name" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_role_name" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_role___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_role___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="feature-group" minOccurs="1" type="feature-group_type_Cmd_show_role_feature_group"/>
+        <xs:element name="feature" minOccurs="1" type="feature_type_Cmd_show_role_feature"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_role_pending_pending">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="pending" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show uncommitted role configuration (for fabric distribution)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="pending-diff" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show uncommitted role configuration (for fabric distribution)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_Cmd_show_role"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_show_role">
+    <xs:annotation>
+      <xs:documentation>Enter the role name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg3" minOccurs="1" type="nxos:Userdef">
+        <xs:annotation>
+          <xs:documentation>Enter the role name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_role"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_role">
+    <xs:sequence>
+      <xs:element name="TABLE_role" minOccurs="1" type="TABLE_role_type_Cmd_show_role"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_role_type_Cmd_show_role">
+    <xs:sequence>
+      <xs:element name="ROW_role" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="role_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="role_description" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="og_Cmd_show_role_attribute_scope" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_permit_vsan" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_permit_vlan" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_permit_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_permit_vrf" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="TABLE_rule" minOccurs="1" type="TABLE_rule_type_Cmd_show_role"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_attribute_scope">
+    <xs:sequence>
+      <xs:element name="attribute_scope" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="global"/>
+              <xs:enumeration value="local"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_permit_vsan">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="permit_vsan" minOccurs="1" type="nxos:IntegerMRange"/>
+        <xs:element name="vsan_policy" minOccurs="1" type="nxos:base_string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_permit_vlan">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="permit_vlan" minOccurs="1" type="nxos:IntegerMRange"/>
+        <xs:element name="vlan_policy" minOccurs="1" type="nxos:base_string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_permit_interface">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="permit_interface" minOccurs="1" type="nxos:InterfaceMRange"/>
+        <xs:element name="interface_policy" minOccurs="1" type="nxos:base_string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_permit_vrf">
+    <xs:sequence>
+      <xs:element name="permit_vrf" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_rule_type_Cmd_show_role">
+    <xs:sequence>
+      <xs:element name="ROW_rule" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="rule_num" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="256"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="rule_action" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="permit"/>
+                    <xs:enumeration value="deny"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="bg_Cmd_show_role_rule_permission" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_rule_featuretype" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_role_rule_entity" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_role_rule_permission">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="rule_permission" minOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_string">
+                <xs:enumeration value="read"/>
+                <xs:enumeration value="read-write"/>
+                <xs:enumeration value="command"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="rule_permission_mds" minOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_string">
+                <xs:enumeration value="show"/>
+                <xs:enumeration value="config"/>
+                <xs:enumeration value="clear"/>
+                <xs:enumeration value="debug"/>
+                <xs:enumeration value="exec"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_rule_featuretype">
+    <xs:sequence>
+      <xs:element name="rule_featuretype" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="feature"/>
+              <xs:enumeration value="feature-group"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_rule_entity">
+    <xs:sequence>
+      <xs:element name="rule_entity" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="feature-group_type_Cmd_show_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Role feature group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_role_feature_group_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_role_feature_group_name" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_role_feature_group_detail" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_role_feature_group_detail" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_show_role_feature_group___readonly__" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_show_role_feature_group___readonly__" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature_group_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_Cmd_show_role_feature_group"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_show_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Enter the feature-group name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg4" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Feature-group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="16"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature_group_detail">
+    <xs:sequence>
+      <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Detailed information including feature rules</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_role_feature_group___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_role_feature_group"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_role_feature_group">
+    <xs:sequence>
+      <xs:element name="TABLE_role_feature_group" minOccurs="1" type="TABLE_role_feature_group_type_Cmd_show_role_feature_group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_role_feature_group_type_Cmd_show_role_feature_group">
+    <xs:sequence>
+      <xs:element name="ROW_role_feature_group" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feature_group_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="TABLE_role_feature" minOccurs="1" type="TABLE_role_feature_type_Cmd_show_role_feature_group"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_role_feature_type_Cmd_show_role_feature_group">
+    <xs:sequence>
+      <xs:element name="ROW_role_feature" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feature_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:group ref="og_Cmd_show_role_feature_group_TABLE_role_feature_rule" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature_group_TABLE_role_feature_rule">
+    <xs:sequence>
+      <xs:element name="TABLE_role_feature_rule" minOccurs="1" type="TABLE_role_feature_rule_type_Cmd_show_role_feature_group"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_role_feature_rule_type_Cmd_show_role_feature_group">
+    <xs:sequence>
+      <xs:element name="ROW_role_feature_rule" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feature_rule" minOccurs="1" type="nxos:base_string_key"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature_type_Cmd_show_role_feature">
+    <xs:annotation>
+      <xs:documentation>Role feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_role_feature_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_role_feature_name" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_role_feature___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_role_feature___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature_name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="name" minOccurs="1" type="name_type_Cmd_show_role_feature"/>
+        <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Detailed information including feature rules</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_show_role_feature">
+    <xs:annotation>
+      <xs:documentation>Enter the feature name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg5" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Feature name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="16"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_role_feature"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_role_feature">
+    <xs:sequence>
+      <xs:element name="TABLE_role_feature" minOccurs="1" type="TABLE_role_feature_type_Cmd_show_role_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_role_feature_type_Cmd_show_role_feature">
+    <xs:sequence>
+      <xs:element name="ROW_role_feature" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feature_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:group ref="og_Cmd_show_role_feature_TABLE_role_feature_rule" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_role_feature_TABLE_role_feature_rule">
+    <xs:sequence>
+      <xs:element name="TABLE_role_feature_rule" minOccurs="1" type="TABLE_role_feature_rule_type_Cmd_show_role_feature"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_role_feature_rule_type_Cmd_show_role_feature">
+    <xs:sequence>
+      <xs:element name="ROW_role_feature_rule" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="feature_rule" minOccurs="1" type="nxos:base_string_key"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_vshd">
+    <xs:annotation>
+      <xs:documentation>Current operating configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vshd" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show running config for vshd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="startup-config_type_Cmd_show_startup_vshd">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vshd" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show startup config for vshd</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cli_type_Cmd_show_cli_dynamic_integers_cmd">
+    <xs:annotation>
+      <xs:documentation>CLI commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dynamic" minOccurs="1" type="dynamic_type_Cmd_show_cli_dynamic_integers_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dynamic_type_Cmd_show_cli_dynamic_integers_cmd">
+    <xs:annotation>
+      <xs:documentation>Display current range of dynamic parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="integers" minOccurs="1" type="integers_type_Cmd_show_cli_dynamic_integers_cmd"/>
+        <xs:element name="strings" minOccurs="1" type="strings_type_Cmd_show_cli_dynamic_strings_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="integers_type_Cmd_show_cli_dynamic_integers_cmd">
+    <xs:annotation>
+      <xs:documentation>Display current range of dynamic integer parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_cli_dynamic_integers_cmd_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_cli_dynamic_integers_cmd_name" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_cli_dynamic_integers_cmd___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_cli_dynamic_integers_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cli_dynamic_integers_cmd_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string_key">
+        <xs:annotation>
+          <xs:documentation>name of the dynamic parameter</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cli_dynamic_integers_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_cli_dynamic_integers_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_cli_dynamic_integers_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_dynamic_integers" minOccurs="1" type="TABLE_dynamic_integers_type_Cmd_show_cli_dynamic_integers_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_dynamic_integers_type_Cmd_show_cli_dynamic_integers_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_dynamic_integers" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name-o" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="min" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="max" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="strings_type_Cmd_show_cli_dynamic_strings_cmd">
+    <xs:annotation>
+      <xs:documentation>Display current range of dynamic string parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_cli_dynamic_strings_cmd_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_cli_dynamic_strings_cmd_name" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_cli_dynamic_strings_cmd___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_cli_dynamic_strings_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cli_dynamic_strings_cmd_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string_key">
+        <xs:annotation>
+          <xs:documentation>name of the dynamic parameter</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cli_dynamic_strings_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_cli_dynamic_strings_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_cli_dynamic_strings_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_dynamic_strings" minOccurs="1" type="TABLE_dynamic_strings_type_Cmd_show_cli_dynamic_strings_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_dynamic_strings_type_Cmd_show_cli_dynamic_strings_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_dynamic_strings" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="name-o" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="value" minOccurs="1" maxOccurs="unbounded" type="nxos:base_string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="cli" minOccurs="1" type="cli_type_Cmd_some_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_some_cmd"/>
+        <xs:element name="role" minOccurs="1" type="role_type_ec_Cmd_role_feature_group"/>
+        <xs:element name="feature" minOccurs="1" type="feature_type_ec_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cli_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure CLI commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="var" minOccurs="1" type="var_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="var_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Define a variable</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Specify a variable name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Variable name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Variable value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="cli" minOccurs="1" type="cli_type_ec_Cmd_some_cmd"/>
+        <xs:element name="role" minOccurs="1" type="role_type_Cmd_role_feature_group"/>
+        <xs:element name="feature" minOccurs="1" type="feature_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cli_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure CLI commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="var" minOccurs="1" type="var_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="var_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Define a variable</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Specify a variable name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Variable name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="31"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_line" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_line" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_line">
+    <xs:sequence>
+      <xs:element name="line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Variable value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="role_type_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Configure roles</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="feature-group" minOccurs="1" type="feature-group_type_Cmd_role_feature_group"/>
+        <xs:element name="name" minOccurs="1" type="name_type_Cmd_role_name"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature-group_type_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Configure role feature-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_Cmd_role_feature_group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Feature-group name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg6" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter feature-group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_Cmd_role_name">
+    <xs:annotation>
+      <xs:documentation>Enter the role name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="arg2" minOccurs="1" type="nxos:Userdef">
+          <xs:annotation>
+            <xs:documentation>Enter the role name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s0" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter the role name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_string">
+                <xs:maxLength value="16"/>
+                <xs:minLength value="1"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Command to enable/disable features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="privilege" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/Disable IOS type privilege level support</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="role_type_ec_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Configure roles</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="feature-group" minOccurs="1" type="feature-group_type_ec_Cmd_role_feature_group"/>
+        <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_role_name"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature-group_type_ec_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Configure role feature-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_role_feature_group"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_ec_Cmd_role_feature_group">
+    <xs:annotation>
+      <xs:documentation>Feature-group name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg6" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Enter feature-group name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string_key">
+                    <xs:maxLength value="32"/>
+                    <xs:minLength value="1"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="__XML__MODE_rolefeaturegrp" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_rolefeaturegrp_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_rolefeaturegrp_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="feature" minOccurs="1" type="feature_type_Cmd_role_feature_group_config"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_feature_group_config"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature_type_Cmd_role_feature_group_config">
+    <xs:annotation>
+      <xs:documentation>Feature name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter feature name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_feature_group_config">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="feature" minOccurs="1" type="feature_type_ecr_Cmd_role_feature_group_config"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature_type_ecr_Cmd_role_feature_group_config">
+    <xs:annotation>
+      <xs:documentation>Feature name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arg1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter feature name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_ec_Cmd_role_name">
+    <xs:annotation>
+      <xs:documentation>Enter the role name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="arg2" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="__XML__PARAM_value" type="nxos:Userdef">
+                <xs:annotation>
+                  <xs:documentation>Enter the role name</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+              <xs:element name="__XML__MODE_role" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="s0" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="__XML__PARAM_value">
+                <xs:complexType>
+                  <xs:annotation>
+                    <xs:documentation>Enter the role name</xs:documentation>
+                  </xs:annotation>
+                  <xs:simpleContent>
+                    <xs:restriction base="nxos:base_string">
+                      <xs:maxLength value="16"/>
+                      <xs:minLength value="1"/>
+                    </xs:restriction>
+                  </xs:simpleContent>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="__XML__MODE_role" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_role_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="description" minOccurs="1" type="description_type_Cmd_role_description"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_description"/>
+        <xs:element name="rule" minOccurs="1" type="rule_type_ecr_Cmd_role_rule"/>
+        <xs:element name="__XML__MODE_role_vsan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_vsan_type"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_ecr_Cmd_role_vlan_policy"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_ecr_Cmd_role_intf_policy"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_ecr_Cmd_role_vrf_policy"/>
+        <xs:element name="vsan" minOccurs="1" type="vsan_type_ecr_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="description_type_Cmd_role_description">
+    <xs:annotation>
+      <xs:documentation>Add a description for the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Enter the description string(can include spaces)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_description">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="description" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Add a description for the role</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rule" minOccurs="1" type="rule_type_Cmd_role_rule"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_role_vlan_policy"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_role_intf_policy"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_role_vrf_policy"/>
+        <xs:element name="vsan" minOccurs="1" type="vsan_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rule_type_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Enter the rule number</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the rule number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="256"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_role_vlan_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vlan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_Cmd_role_vlan_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_Cmd_role_vlan_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vlan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Deny access to a vlan unless specifically permitted</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_role_intf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the interface policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_Cmd_role_intf_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_Cmd_role_intf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the interface policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Deny access to a interface unless specifically permitted</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_role_vrf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vrf policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_Cmd_role_vrf_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_Cmd_role_vrf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vrf policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Deny access to a vrf unless specifically permitted</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vsan_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the vsan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the vsan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Deny access to a vsan unless specifically permitted</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rule_type_ecr_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Enter the rule number</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number" minOccurs="1" type="number_type_Cmd_role_rule"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="number_type_Cmd_role_rule">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter the rule number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="256"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="action" minOccurs="1" type="action_type_ecr_Cmd_role_rule"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="action_type_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Action</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="permit">
+          <xs:annotation>
+            <xs:documentation>Permit rule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="deny">
+          <xs:annotation>
+            <xs:documentation>Deny rule</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="action_type_ecr_Cmd_role_rule">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="action_type_Cmd_role_rule"/>
+      <xs:element name="__XML__BLK_Cmd_role_rule_permission">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_role_rule_permission" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_role_rule_permission">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="permission" minOccurs="1" type="permission_type_ecr_Cmd_role_rule"/>
+        <xs:element name="command" minOccurs="1" type="command_type_Cmd_role_rule"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="permission_type_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Permission</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="read">
+          <xs:annotation>
+            <xs:documentation>Read access</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="read-write">
+          <xs:annotation>
+            <xs:documentation>Read and write access</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="permission_type_ecr_Cmd_role_rule">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="permission_type_Cmd_role_rule"/>
+      <xs:element name="__XML__OPT_Cmd_role_rule_featuretype" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_role_rule_featuretype" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_role_rule_featuretype">
+    <xs:sequence>
+      <xs:element name="featuretype" minOccurs="1" type="featuretype_type_ecr_Cmd_role_rule"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="featuretype_type_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Feature type</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="feature">
+          <xs:annotation>
+            <xs:documentation>Feature name</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="feature-group">
+          <xs:annotation>
+            <xs:documentation>Feature group name</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="featuretype_type_ecr_Cmd_role_rule">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="featuretype_type_Cmd_role_rule"/>
+      <xs:element name="name" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the access entity name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="command_type_Cmd_role_rule">
+    <xs:annotation>
+      <xs:documentation>Command line</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cmd_line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Enter the command (use space+';' for command separator) e.g. config t ; role *</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_role_vsan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="permit" minOccurs="1" type="permit_type_Cmd_role_vsan_permit_vsan"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_vsan_permit_vsan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_Cmd_role_vsan_permit_vsan">
+    <xs:annotation>
+      <xs:documentation>Permit access to vsans (applicable if vsan policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vsan" minOccurs="1" type="vsan_type_Cmd_role_vsan_permit_vsan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vsan_type_Cmd_role_vsan_permit_vsan">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vsans accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vsan-mrange" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vsan range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:VsanMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_vsan_permit_vsan">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="permit" minOccurs="1" type="permit_type_ecrv_Cmd_role_vsan_permit_vsan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_ecrv_Cmd_role_vsan_permit_vsan">
+    <xs:annotation>
+      <xs:documentation>Permit access to vsans (applicable if vsan policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vsan" minOccurs="1" type="vsan_type_ecrv_Cmd_role_vsan_permit_vsan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vsan_type_ecrv_Cmd_role_vsan_permit_vsan">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vsans accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vsan-mrange" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vsan range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:VsanMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_ecr_Cmd_role_vlan_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vlan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_ecr_Cmd_role_vlan_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_ecr_Cmd_role_vlan_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vlan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_role_vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_vlan_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_role_vlan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="permit" minOccurs="1" type="permit_type_Cmd_role_vlan_permit_vlan"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_vlan_permit_vlan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_Cmd_role_vlan_permit_vlan">
+    <xs:annotation>
+      <xs:documentation>Permit access to vlans (applicable if vlan policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_role_vlan_permit_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_role_vlan_permit_vlan">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vlans accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-mrange" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vlan range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vlan_idMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_vlan_permit_vlan">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="permit" minOccurs="1" type="permit_type_ecrv_Cmd_role_vlan_permit_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_ecrv_Cmd_role_vlan_permit_vlan">
+    <xs:annotation>
+      <xs:documentation>Permit access to vlans (applicable if vlan policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_ecrv_Cmd_role_vlan_permit_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_ecrv_Cmd_role_vlan_permit_vlan">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vlans accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-mrange" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vlan range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vlan_idMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_ecr_Cmd_role_intf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the interface policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_ecr_Cmd_role_intf_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_ecr_Cmd_role_intf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the interface policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_role_interface" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_interface_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_role_interface_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="permit" minOccurs="1" type="permit_type_Cmd_role_intf_permit_intf"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_intf_permit_intf"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_Cmd_role_intf_permit_intf">
+    <xs:annotation>
+      <xs:documentation>Permit access to interfaces (applicable if interface policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_role_intf_permit_intf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_role_intf_permit_intf">
+    <xs:annotation>
+      <xs:documentation>Enter the range of interfaces accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the interface range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_intf_permit_intf">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="permit" minOccurs="1" type="permit_type_ecri_Cmd_role_intf_permit_intf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_ecri_Cmd_role_intf_permit_intf">
+    <xs:annotation>
+      <xs:documentation>Permit access to interfaces (applicable if interface policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_ecri_Cmd_role_intf_permit_intf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_ecri_Cmd_role_intf_permit_intf">
+    <xs:annotation>
+      <xs:documentation>Enter the range of interfaces accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the interface range</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecr_Cmd_role_vrf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vrf policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_ecr_Cmd_role_vrf_policy"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_ecr_Cmd_role_vrf_policy">
+    <xs:annotation>
+      <xs:documentation>Configure the vrf policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_role_vrf" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_vrf_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_role_vrf_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="permit" minOccurs="1" type="permit_type_Cmd_role_vrf_permit_vrf"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_role_vrf_permit_vrf"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_Cmd_role_vrf_permit_vrf">
+    <xs:annotation>
+      <xs:documentation>Permit access to vrf (applicable if vrf policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_role_vrf_permit_vrf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_role_vrf_permit_vrf">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vrf accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vrf name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vrf">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_role_vrf_permit_vrf">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="permit" minOccurs="1" type="permit_type_ecrv_Cmd_role_vrf_permit_vrf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="permit_type_ecrv_Cmd_role_vrf_permit_vrf">
+    <xs:annotation>
+      <xs:documentation>Permit access to vrf (applicable if vrf policy is 'deny')</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_ecrv_Cmd_role_vrf_permit_vrf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecrv_Cmd_role_vrf_permit_vrf">
+    <xs:annotation>
+      <xs:documentation>Enter the range of vrf accessible the role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the vrf name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vrf">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vsan_type_ecr_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the vsan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="policy" minOccurs="1" type="policy_type_ecr_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="policy_type_ecr_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the vsan policy for this role</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="deny" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_role_vsan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_role_vsan_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="feature_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Command to enable/disable features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="privilege" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/Disable IOS type privilege level support</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
