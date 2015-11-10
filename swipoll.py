@@ -41,7 +41,7 @@ itemlist = xmldoc.getElementsByTagName('item')
 #    print "Value: ", s[0]
 #exit(0)
 
-switch = "172.25.158.204"
+switch = "SWITCH"
 
 xml_file = "/Users/scripley/xython2.7/xython2.7/show_int.xml"
 outfile = open('/Users/scripley/xython2.7/xython2.7/out.xml', 'wb')
