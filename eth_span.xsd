@@ -1,0 +1,2421 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:eth_span" targetNamespace="http://www.cisco.com/nxos:1.0:eth_span" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module eth_span</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_session_brief"/>
+  <xs:complexType name="show_type_Cmd_show_session_brief">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_show_session_brief"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_mon_runn_config"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_mon_startup_config"/>
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_show_debug_monitor"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_show_session_brief">
+    <xs:annotation>
+      <xs:documentation>Show Ethernet SPAN information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_session_brief___readonly__" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_session_brief___readonly__" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="session" minOccurs="1" type="session_type_Cmd_show_session"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_session_brief___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_session_brief"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_session_brief">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_session" minOccurs="1" type="TABLE_session_type_Cmd_show_session_brief"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_session_type_Cmd_show_session_brief">
+    <xs:annotation>
+      <xs:documentation>show monitor</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_session" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="session_number" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>session id</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="0"/>
+                    <xs:maxInclusive value="2147483647"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="state" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>State</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="up"/>
+                    <xs:enumeration value="down"/>
+                    <xs:enumeration value="error"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="state_reason" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>State reason</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="The session is up"/>
+                    <xs:enumeration value="No hardware resource"/>
+                    <xs:enumeration value="No operational src/dst"/>
+                    <xs:enumeration value="Generic error"/>
+                    <xs:enumeration value="No sources configured"/>
+                    <xs:enumeration value="No dest configured"/>
+                    <xs:enumeration value="No src/dst configured"/>
+                    <xs:enumeration value="Session admin shut"/>
+                    <xs:enumeration value="Dst in wrong mode"/>
+                    <xs:enumeration value="Src in wrong mode"/>
+                    <xs:enumeration value="No erspan-id specified"/>
+                    <xs:enumeration value="Multi-dst not allowed"/>
+                    <xs:enumeration value="No valid VRF"/>
+                    <xs:enumeration value="No valid IP Address"/>
+                    <xs:enumeration value="No valid global IP Address"/>
+                    <xs:enumeration value="ACL capture feature disabled"/>
+                    <xs:enumeration value="ACL capture resource unavailable"/>
+                    <xs:enumeration value="ACL capture VDC mismatched"/>
+                    <xs:enumeration value="Src/Dst LC mismatch"/>
+                    <xs:enumeration value="Src/Dst is disabled"/>
+                    <xs:enumeration value="Waiting for ARP response"/>
+                    <xs:enumeration value="ARP Failed"/>
+                    <xs:enumeration value="No route exists for configured destination ip"/>
+                    <xs:enumeration value="Destination IP cannot resolve over a FEX interface"/>
+                    <xs:enumeration value="Destination IP cannot resolve over a VETH interface"/>
+                    <xs:enumeration value="Waiting for MAC to be learnt"/>
+                    <xs:enumeration value="TCAM resource unavailable"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="description" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Session Description</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="session_type_Cmd_show_session">
+    <xs:annotation>
+      <xs:documentation>Show session info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_show_session_all">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_show_session_all" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_show_session_brief" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_show_session_brief" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_show_session___readonly__" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_show_session___readonly__" minOccurs="0" maxOccurs="1"/>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_session_all">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>All sessions</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="session_number" minOccurs="1">
+          <xs:complexType>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer_key">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="18"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="range" minOccurs="1" type="range_type_Cmd_show_session"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="range_type_Cmd_show_session">
+    <xs:annotation>
+      <xs:documentation>Specify a range</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="session_range" minOccurs="1" type="nxos:IntegerMRange"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_session_brief">
+    <xs:sequence>
+      <xs:element name="brief" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Brief information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_session"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_session">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_session" minOccurs="1" type="TABLE_session_type_Cmd_show_session"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_session_type_Cmd_show_session">
+    <xs:annotation>
+      <xs:documentation>show monitor</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_session" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="session_number" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_integer_key">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="18"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="flow_id" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>ERSPAN ID Value</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="state" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>State</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="up"/>
+                    <xs:enumeration value="down"/>
+                    <xs:enumeration value="error"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="state_reason" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>State reason</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="The session is up"/>
+                    <xs:enumeration value="No hardware resource"/>
+                    <xs:enumeration value="No operational src/dst"/>
+                    <xs:enumeration value="Generic error"/>
+                    <xs:enumeration value="No sources configured"/>
+                    <xs:enumeration value="No dest configured"/>
+                    <xs:enumeration value="No src/dst configured"/>
+                    <xs:enumeration value="Session admin shut"/>
+                    <xs:enumeration value="Dst in wrong mode"/>
+                    <xs:enumeration value="Src in wrong mode"/>
+                    <xs:enumeration value="No erspan-id specified"/>
+                    <xs:enumeration value="Multi-dst not allowed"/>
+                    <xs:enumeration value="No valid VRF"/>
+                    <xs:enumeration value="No valid IP Address"/>
+                    <xs:enumeration value="No valid global IP Address"/>
+                    <xs:enumeration value="ACL capture feature disabled"/>
+                    <xs:enumeration value="ACL capture resource unavailable"/>
+                    <xs:enumeration value="ACL capture VDC mismatched"/>
+                    <xs:enumeration value="Src/Dst LC mismatch"/>
+                    <xs:enumeration value="Src/Dst is disabled"/>
+                    <xs:enumeration value="Waiting for ARP response"/>
+                    <xs:enumeration value="ARP Failed"/>
+                    <xs:enumeration value="No route exists for configured destination ip"/>
+                    <xs:enumeration value="Destination IP cannot resolve over a FEX interface"/>
+                    <xs:enumeration value="Destination IP cannot resolve over a VETH interface"/>
+                    <xs:enumeration value="Waiting for MAC to be learnt"/>
+                    <xs:enumeration value="TCAM resource unavailable"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="description" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Session Description</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="type" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Session type</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="invalid"/>
+                    <xs:enumeration value="local"/>
+                    <xs:enumeration value="erspan-source"/>
+                    <xs:enumeration value="erspan-destination"/>
+                    <xs:enumeration value="acl-capture"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_session_sources_rx" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_sources_tx" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_sources_both" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_destinations" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_source_vlans_rx" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_dst_ip" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_origin_ip" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_vrf_name" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_acl_name" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_erspan_ttl" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_erspan_dscp" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_filter_vlans" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_source_vsans_rx" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_mtu" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_erspan_granularity" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_header_type" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_span_sampling" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:group ref="og_Cmd_show_session_sampling_capability" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_session_sources_rx">
+    <xs:sequence>
+      <xs:element name="sources_rx" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>List of ingress sources</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_sources_tx">
+    <xs:sequence>
+      <xs:element name="sources_tx" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>List of egress sources</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_sources_both">
+    <xs:sequence>
+      <xs:element name="sources_both" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>List of sources in both directions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_destinations">
+    <xs:sequence>
+      <xs:element name="destinations" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>List of destinations</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_source_vlans_rx">
+    <xs:sequence>
+      <xs:element name="source_vlans_rx" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Source ingress vlan</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_dst_ip">
+    <xs:sequence>
+      <xs:element name="dst_ip" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>ERSPAN destination IP</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_origin_ip">
+    <xs:sequence>
+      <xs:element name="origin_ip" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>ERSPAN origin IP at source router</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_vrf_name">
+    <xs:sequence>
+      <xs:element name="vrf_name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>ERSPAN session VRF</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_acl_name">
+    <xs:sequence>
+      <xs:element name="acl_name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Session ACL</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_erspan_ttl">
+    <xs:sequence>
+      <xs:element name="erspan_ttl" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>ERSPAN TTL Value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_erspan_dscp">
+    <xs:sequence>
+      <xs:element name="erspan_dscp" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>ERSPAN DSCP Value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_filter_vlans">
+    <xs:sequence>
+      <xs:element name="filter_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Filter vlans</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_source_vsans_rx">
+    <xs:sequence>
+      <xs:element name="source_vsans_rx" minOccurs="1" type="nxos:VsanMRange">
+        <xs:annotation>
+          <xs:documentation>Source vsans ingress only</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_mtu">
+    <xs:sequence>
+      <xs:element name="mtu" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>SPAN MTU value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_erspan_granularity">
+    <xs:sequence>
+      <xs:element name="erspan_granularity" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>ERSPAN Type III Granularity</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_header_type">
+    <xs:sequence>
+      <xs:element name="header_type" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Erspan header type: II/III</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_span_sampling">
+    <xs:sequence>
+      <xs:element name="span_sampling" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>SPAN sampling range</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_session_sampling_capability">
+    <xs:sequence>
+      <xs:element name="sampling_capability" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>List of modules that support Sampling</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="running-config_type_Cmd_show_mon_runn_config">
+    <xs:annotation>
+      <xs:documentation>Current operating configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_show_mon_runn_config"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_show_mon_runn_config">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_mon_runn_config_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_mon_runn_config_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_mon_runn_config_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_mon_startup_config">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_show_debug_monitor">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show debugging flags of Eth Span</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show ethernet span logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_eth_span_enable_dbg_all"/>
+  <xs:complexType name="debug_type_Cmd_eth_span_enable_dbg_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_eth_span_enable_dbg_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_eth_span_enable_dbg_all">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug all for monitor configuration flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_eth_span_enable_dbg_error_error">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_eth_span_enable_dbg_error_error" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_eth_span_enable_dbg_error_error">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug for errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug for warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable trace debugging</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="no" type="no_type_Cmd_eth_span_enable_dbg_all"/>
+  <xs:complexType name="no_type_Cmd_eth_span_enable_dbg_all">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_eth_span_enable_dbg_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_eth_span_enable_dbg_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="monitor_type_e_Cmd_eth_span_enable_dbg_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_e_Cmd_eth_span_enable_dbg_all">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug all for monitor configuration flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_eth_span_enable_dbg_error_error">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_e_Cmd_eth_span_enable_dbg_error_error" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_eth_span_enable_dbg_error_error">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug for errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable debug for warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable trace debugging</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_eth_span_create_session"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_shut_session"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_logging_level"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_ec_Cmd_vlan_create_delete"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_ec_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_eth_span_create_session">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="session" minOccurs="1" type="session_type_Cmd_eth_span_create_session"/>
+        <xs:element name="erspan" minOccurs="1" type="erspan_type_Cmd_eth_span_erspan_global_origin_ip"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="session_type_Cmd_eth_span_create_session">
+    <xs:annotation>
+      <xs:documentation>Configure session preferences</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="session_number" minOccurs="1" type="session_number_type_Cmd_eth_span_create_session"/>
+        <xs:element name="__XML__BLK_Cmd_eth_span_shut_session_all">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_eth_span_shut_session_all" maxOccurs="1"/>
+              <xs:element name="shut" minOccurs="1" type="nxos:empty_element">
+                <xs:annotation>
+                  <xs:documentation>Shut the selected session</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="session_number_type_Cmd_eth_span_create_session">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer_key">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="18"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_eth_span_create_session_type" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_eth_span_create_session_type" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__MODE_config-monitor" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_config-monitor_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="type" minOccurs="1" type="type_type_Cmd_eth_span_create_erspan_src_session"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_eth_span_create_session_type">
+    <xs:sequence>
+      <xs:element name="type" minOccurs="1" type="type_type_Cmd_eth_span_create_session"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="type_type_Cmd_eth_span_create_session">
+    <xs:annotation>
+      <xs:documentation>Specify a session type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Create a local session</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_config-monitor_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_monitor-common" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-common_type"/>
+        <xs:element name="__XML__MODE_monitor-local-src-vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-src-vlan_type"/>
+        <xs:element name="__XML__MODE_monitor-local-src" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-src_type"/>
+        <xs:element name="__XML__MODE_monitor-local-dst" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-dst_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_monitor-common_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shut" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shut a monitor session</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_shut"/>
+        <xs:element name="description" minOccurs="1" type="description_type_Cmd_eth_span_set_session_description"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_shut">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shut" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shut a monitor session</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="description" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Session description (max 32 characters)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="description_type_Cmd_eth_span_set_session_description">
+    <xs:annotation>
+      <xs:documentation>Session description (max 32 characters)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="descr" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Enter the description string(can include spaces)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_monitor-local-src-vlan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="source" minOccurs="1" type="source_type_Cmd_eth_span_source_vlan"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_source_vlan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_Cmd_eth_span_source_vlan">
+    <xs:annotation>
+      <xs:documentation>Source configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_eth_span_source_vlan_vlan">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_eth_span_source_vlan_vlan" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_eth_span_source_vlan_vlan">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_eth_span_source_vlan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vlan_type_Cmd_eth_span_source_vlan">
+    <xs:annotation>
+      <xs:documentation>Vlan type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan_range" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vlan_idMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_source_vlan">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="source" minOccurs="1" type="source_type_ecmlsv_Cmd_eth_span_source_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_ecmlsv_Cmd_eth_span_source_vlan">
+    <xs:annotation>
+      <xs:documentation>Source configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_eth_span_source_vlan_vlan">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecmlsv_Cmd_eth_span_source_vlan_vlan" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecmlsv_Cmd_eth_span_source_vlan_vlan">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_ecmlsv_Cmd_eth_span_source_vlan"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vlan_type_ecmlsv_Cmd_eth_span_source_vlan">
+    <xs:annotation>
+      <xs:documentation>Vlan type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan_range" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:vlan_idMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_monitor-local-src_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="source" minOccurs="1" type="source_type_Cmd_eth_span_source_int"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_source_int"/>
+        <xs:element name="mtu" minOccurs="1" type="mtu_type_Cmd_eth_span_set_mtu"/>
+        <xs:element name="filter" minOccurs="1" type="filter_type_ecmls_Cmd_eth_span_config_acl"/>
+        <xs:element name="sampling" minOccurs="1" type="sampling_type_Cmd_eth_span_set_sampling"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Source configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface_range" minOccurs="1" type="interface_range_type_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_range_type_Cmd_eth_span_source_int">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_eth_span_source_int_src_dir" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_eth_span_source_int_src_dir" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_eth_span_source_int_src_dir">
+    <xs:sequence>
+      <xs:element name="src_dir" minOccurs="1" type="src_dir_type_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="src_dir_type_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Source direction</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="rx">
+          <xs:annotation>
+            <xs:documentation>ingress</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="tx">
+          <xs:annotation>
+            <xs:documentation>egress</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="both">
+          <xs:annotation>
+            <xs:documentation>both</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="source" minOccurs="1" type="source_type_ecmls_Cmd_eth_span_source_int"/>
+        <xs:element name="mtu" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set the MTU size for SPAN packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="filter" minOccurs="1" type="filter_type_Cmd_eth_span_config_acl"/>
+        <xs:element name="sampling" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set the sampling range for SPAN packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_ecmls_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Source configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_ecmls_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_ecmls_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface_range" minOccurs="1" type="interface_range_type_ecmls_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_range_type_ecmls_Cmd_eth_span_source_int">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_eth_span_source_int_src_dir" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecmls_Cmd_eth_span_source_int_src_dir" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecmls_Cmd_eth_span_source_int_src_dir">
+    <xs:sequence>
+      <xs:element name="src_dir" minOccurs="1" type="src_dir_type_ecmls_Cmd_eth_span_source_int"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="src_dir_type_ecmls_Cmd_eth_span_source_int">
+    <xs:annotation>
+      <xs:documentation>Source direction</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="rx">
+          <xs:annotation>
+            <xs:documentation>ingress</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="tx">
+          <xs:annotation>
+            <xs:documentation>egress</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="both">
+          <xs:annotation>
+            <xs:documentation>both</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="filter_type_Cmd_eth_span_config_acl">
+    <xs:annotation>
+      <xs:documentation>Filter configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="access-group" minOccurs="1" type="access-group_type_Cmd_eth_span_config_acl"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="access-group_type_Cmd_eth_span_config_acl">
+    <xs:annotation>
+      <xs:documentation>access control group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="acl-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>access control list name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mtu_type_Cmd_eth_span_set_mtu">
+    <xs:annotation>
+      <xs:documentation>Set the MTU size for SPAN packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mtu_value" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter the value of MTU truncation size for SPAN packets</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="64"/>
+              <xs:maxInclusive value="1518"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="filter_type_ecmls_Cmd_eth_span_config_acl">
+    <xs:annotation>
+      <xs:documentation>Filter configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="access-group" minOccurs="1" type="access-group_type_ecmls_Cmd_eth_span_config_acl"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="access-group_type_ecmls_Cmd_eth_span_config_acl">
+    <xs:annotation>
+      <xs:documentation>access control group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="acl-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>access control list name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sampling_type_Cmd_eth_span_set_sampling">
+    <xs:annotation>
+      <xs:documentation>Set the sampling range for SPAN packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sampling_range" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Sampling range: N = every Nth packet will be spanned</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="1023"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_monitor-local-dst_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="destination" minOccurs="1" type="destination_type_Cmd_eth_span_dest_int"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_dest_int"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="destination_type_Cmd_eth_span_dest_int">
+    <xs:annotation>
+      <xs:documentation>Destination configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_eth_span_dest_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_eth_span_dest_int">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface_range" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_dest_int">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="destination" minOccurs="1" type="destination_type_ecmld_Cmd_eth_span_dest_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="destination_type_ecmld_Cmd_eth_span_dest_int">
+    <xs:annotation>
+      <xs:documentation>Destination configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_ecmld_Cmd_eth_span_dest_int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_ecmld_Cmd_eth_span_dest_int">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface_range" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="type_type_Cmd_eth_span_create_erspan_src_session">
+    <xs:annotation>
+      <xs:documentation>Specify a session type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="erspan-source" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="__XML__MODE_config-monitor-erspan-src" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_config-monitor-erspan-src_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="erspan-destination" minOccurs="1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="__XML__MODE_config-monitor-erspan-dst" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_config-monitor-erspan-dst_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_config-monitor-erspan-src_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_config-monitor-erspan-src" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_eth_span_erspan_set_ttl"/>
+                <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_erspan_set_ttl"/>
+                <xs:element name="vrf" minOccurs="1" type="vrf_type_eccmes_Cmd_eth_span_erspan_config_vrf"/>
+                <xs:element name="destination" minOccurs="1" type="destination_type_eccmes_Cmd_eth_span_erspan_src_dst_ip"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_monitor-common" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-common_type"/>
+        <xs:element name="__XML__MODE_monitor-local-src-vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-src-vlan_type"/>
+        <xs:element name="__XML__MODE_monitor-local-src" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-src_type"/>
+        <xs:element name="__XML__MODE_monitor-erspan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-erspan_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_eth_span_erspan_set_ttl">
+    <xs:annotation>
+      <xs:documentation>Set ERSPAN IP options</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ttl" minOccurs="1" type="ttl_type_Cmd_eth_span_erspan_set_ttl"/>
+        <xs:element name="dscp" minOccurs="1" type="dscp_type_Cmd_eth_span_set_dscp"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ttl_type_Cmd_eth_span_erspan_set_ttl">
+    <xs:annotation>
+      <xs:documentation>Set the IP time-to-live value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ttl_value" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="255"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dscp_type_Cmd_eth_span_set_dscp">
+    <xs:annotation>
+      <xs:documentation>Set the IP DSCP value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dscp_value" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="63"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_erspan_set_ttl">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_eccmes_Cmd_eth_span_erspan_set_ttl"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_eth_span_erspan_config_vrf"/>
+        <xs:element name="destination" minOccurs="1" type="destination_type_Cmd_eth_span_erspan_src_dst_ip"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_eccmes_Cmd_eth_span_erspan_set_ttl">
+    <xs:annotation>
+      <xs:documentation>Set ERSPAN IP options</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ttl" minOccurs="1" type="ttl_type_eccmes_Cmd_eth_span_erspan_set_ttl"/>
+        <xs:element name="dscp" minOccurs="1" type="dscp_type_eccmes_Cmd_eth_span_set_dscp"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ttl_type_eccmes_Cmd_eth_span_erspan_set_ttl">
+    <xs:annotation>
+      <xs:documentation>Set the IP time-to-live value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ttl_value" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="255"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dscp_type_eccmes_Cmd_eth_span_set_dscp">
+    <xs:annotation>
+      <xs:documentation>Set the IP DSCP value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dscp_value" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="63"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_eth_span_erspan_config_vrf">
+    <xs:annotation>
+      <xs:documentation>set vrf membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_eth_span_erspan_config_vrf_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_eth_span_erspan_config_vrf_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_eth_span_erspan_config_vrf_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="destination_type_Cmd_eth_span_erspan_src_dst_ip">
+    <xs:annotation>
+      <xs:documentation>Destination configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_eth_span_erspan_src_dst_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_eth_span_erspan_src_dst_ip">
+    <xs:annotation>
+      <xs:documentation>Configure remote IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ipaddress" minOccurs="1" type="nxos:IPV4Address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_eccmes_Cmd_eth_span_erspan_config_vrf">
+    <xs:annotation>
+      <xs:documentation>set vrf membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_eth_span_erspan_config_vrf_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_eccmes_Cmd_eth_span_erspan_config_vrf_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_eccmes_Cmd_eth_span_erspan_config_vrf_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="destination_type_eccmes_Cmd_eth_span_erspan_src_dst_ip">
+    <xs:annotation>
+      <xs:documentation>Destination configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_eccmes_Cmd_eth_span_erspan_src_dst_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_eccmes_Cmd_eth_span_erspan_src_dst_ip">
+    <xs:annotation>
+      <xs:documentation>Configure remote IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ipaddress" minOccurs="1" type="nxos:IPV4Address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_monitor-erspan_type">
+    <xs:sequence minOccurs="0"/>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_config-monitor-erspan-dst_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_config-monitor-erspan-dst" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="source" minOccurs="1" type="source_type_Cmd_eth_span_erspan_dst_src_ip"/>
+                <xs:element name="no" minOccurs="1" type="no_type_Cmd_eth_span_erspan_dst_src_ip"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_monitor-common" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-common_type"/>
+        <xs:element name="__XML__MODE_monitor-local-dst" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-local-dst_type"/>
+        <xs:element name="__XML__MODE_monitor-erspan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_monitor-erspan_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_Cmd_eth_span_erspan_dst_src_ip">
+    <xs:annotation>
+      <xs:documentation>Source IP address configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_eth_span_erspan_dst_src_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_eth_span_erspan_dst_src_ip">
+    <xs:annotation>
+      <xs:documentation>Configure source IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ipaddress" minOccurs="1" type="nxos:IPV4Address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_eth_span_erspan_dst_src_ip">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="source" minOccurs="1" type="source_type_eccmed_Cmd_eth_span_erspan_dst_src_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_eccmed_Cmd_eth_span_erspan_dst_src_ip">
+    <xs:annotation>
+      <xs:documentation>Source IP address configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_eccmed_Cmd_eth_span_erspan_dst_src_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_eccmed_Cmd_eth_span_erspan_dst_src_ip">
+    <xs:annotation>
+      <xs:documentation>Configure source IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ipaddress" minOccurs="1" type="nxos:IPV4Address"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_eth_span_shut_session_all">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>All sessions</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="session_range" minOccurs="1" type="nxos:IntegerMRange"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="erspan_type_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet ERSPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="origin" minOccurs="1" type="origin_type_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="origin_type_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure the erspan origin ip address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip-address" minOccurs="1" type="ip-address_type_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure global origin IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:IPV4Address"/>
+      <xs:element name="__XML__OPT_Cmd_eth_span_erspan_global_origin_ip_global" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_eth_span_erspan_global_origin_ip_global" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_eth_span_erspan_global_origin_ip_global">
+    <xs:sequence>
+      <xs:element name="global" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure in default VDC across all VDCs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_eth_span_shut_session">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_eth_span_shut_session"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_logging_level"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_vlan_create_delete"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_eth_span_shut_session">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet SPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="session" minOccurs="1" type="session_type_Cmd_eth_span_shut_session"/>
+        <xs:element name="erspan" minOccurs="1" type="erspan_type_ec_Cmd_eth_span_erspan_global_origin_ip"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="session_type_Cmd_eth_span_shut_session">
+    <xs:annotation>
+      <xs:documentation>Configure session preferences</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_eth_span_shut_session_all">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_eth_span_shut_session_all" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_eth_span_shut_session_shut" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_eth_span_shut_session_shut" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_eth_span_shut_session_all">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>All sessions</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="session_range" minOccurs="1" type="nxos:IntegerMRange"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_eth_span_shut_session_shut">
+    <xs:sequence>
+      <xs:element name="shut" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Shut the selected session</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="erspan_type_ec_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure Ethernet ERSPAN sessions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="origin" minOccurs="1" type="origin_type_ec_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="origin_type_ec_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure the erspan origin ip address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip-address" minOccurs="1" type="ip-address_type_ec_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_ec_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:annotation>
+      <xs:documentation>Configure global origin IP address</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_eth_span_erspan_global_origin_ip"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_eth_span_erspan_global_origin_ip">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:IPV4Address"/>
+      <xs:element name="__XML__OPT_Cmd_eth_span_erspan_global_origin_ip_global" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_eth_span_erspan_global_origin_ip_global" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_eth_span_erspan_global_origin_ip_global">
+    <xs:sequence>
+      <xs:element name="global" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure in default VDC across all VDCs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="monitor_type_Cmd_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Set level for ethernet span syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_vlan_create_delete">
+    <xs:annotation>
+      <xs:documentation>Vlan commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id-create-delete" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>VLAN ID 1-4094 or range(s): 1-5, 10 or 2-5,7-19</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_unsignedInt">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="15"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="name" minOccurs="1" type="name_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resource_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Resource template name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor" minOccurs="1" type="monitor_type_ec_Cmd_logging_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor_type_ec_Cmd_logging_level">
+    <xs:annotation>
+      <xs:documentation>Set level for ethernet span syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_ec_Cmd_vlan_create_delete">
+    <xs:annotation>
+      <xs:documentation>Vlan commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id-create-delete" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>VLAN ID 1-4094 or range(s): 1-5, 10 or 2-5,7-19</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_CREATE_VDC_template" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_CREATE_VDC_template" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="__XML__OPT_Cmd_CREATE_VDC_hap" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:group ref="og_Cmd_CREATE_VDC_hap" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="__XML__MODE_vdc" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc_type"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1" type="vdc-id_type_Cmd_CREATE_VDC"/>
+        <xs:element name="__XML__OPT_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_CREATE_VDC_vdc-id" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC_1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vdc-id_type_Cmd_CREATE_VDC">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_CREATE_VDC_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_CREATE_VDC_name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:element name="vdc-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC_1">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_template">
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="template_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Resource template for this vdc</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_hap">
+    <xs:sequence>
+      <xs:element name="hap" minOccurs="1" type="hap_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hap_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Change HA policy for this VDC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_CREATE_VDC_bringdown">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_CREATE_VDC_bringdown" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_bringdown">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="bringdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="restart" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc, then bring the vdc back up</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="reset" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Reset the supervisor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_vdc_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_Cmd_monitor_lim_res"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_monitor_lim_res"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor-session" minOccurs="1" type="monitor-session_type_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor-session_type_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Monitor local/erspan-source session</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>minimum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_Cmd_monitor_lim_res">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum monitor local session value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="64"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>maximum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_monitor_lim_res_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_monitor_lim_res_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_monitor_lim_res_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum monitor local session value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="64"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecv_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecv_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor-session" minOccurs="1" type="monitor-session_type_ecv_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor-session_type_ecv_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Monitor local/erspan-source session</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_monitor_lim_res_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_monitor_lim_res_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_monitor_lim_res_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecv_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecv_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>minimum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecv_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecv_Cmd_monitor_lim_res">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum monitor local session value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="64"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecv_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecv_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>maximum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_monitor_lim_res_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecv_Cmd_monitor_lim_res_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecv_Cmd_monitor_lim_res_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum monitor local session value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="64"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Resource template name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="__XML__MODE_vdc-template" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc-template_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vdc-template_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_monitor_lim_res"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecvt_Cmd_monitor_lim_res"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor-session" minOccurs="1" type="monitor-session_type_ecvt_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor-session_type_ecvt_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Monitor local/erspan-source session</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_ecvt_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>minimum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecvt_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecvt_Cmd_monitor_lim_res">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum monitor local session value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="64"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_monitor_lim_res"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>maximum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_monitor_lim_res_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_monitor_lim_res_max-val" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_monitor_lim_res_max-val">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum monitor local session value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="64"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_ecvt_Cmd_monitor_lim_res">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_monitor_lim_res_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_monitor_lim_res_1">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="monitor-session" minOccurs="1" type="monitor-session_type_ecvt_Cmd_monitor_lim_res_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="monitor-session_type_ecvt_Cmd_monitor_lim_res_1">
+    <xs:annotation>
+      <xs:documentation>Monitor local/erspan-source session</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_monitor_lim_res_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvt_Cmd_monitor_lim_res_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvt_Cmd_monitor_lim_res_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_monitor_lim_res_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecvt_Cmd_monitor_lim_res_1">
+    <xs:annotation>
+      <xs:documentation>minimum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-val" minOccurs="1" type="min-val_type_ecvt_Cmd_monitor_lim_res_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-val_type_ecvt_Cmd_monitor_lim_res_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum monitor local session value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="64"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_monitor_lim_res_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_monitor_lim_res_1">
+    <xs:annotation>
+      <xs:documentation>maximum monitor local session to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_monitor_lim_res_max-val">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_monitor_lim_res_max-val_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_monitor_lim_res_max-val_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="max-val" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum monitor local session value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="64"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

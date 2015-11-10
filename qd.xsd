@@ -1,0 +1,2327 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:qd" targetNamespace="http://www.cisco.com/nxos:1.0:qd" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module qd</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_queuing_intf_all"/>
+  <xs:complexType name="show_type_Cmd_show_queuing_intf_all">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="queuing" minOccurs="1" type="queuing_type_Cmd_show_queuing_intf_all"/>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="queuing_type_Cmd_show_queuing_intf_all">
+    <xs:annotation>
+      <xs:documentation>Show interface queuing information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="interface" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show interface queuing information</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="internal" minOccurs="1" type="internal_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+        <xs:element name="__XML__OPT_Cmd_show_queuing_intf_interface" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_queuing_intf_interface" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_queuing_intf___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_queuing_intf___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="internal_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Internal system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="snmp" minOccurs="1" type="snmp_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="snmp_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Snmp information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="csqIfQosGroupStatsTable" minOccurs="1" type="csqIfQosGroupStatsTable_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+        <xs:element name="csqIfQosGroupInfoTable" minOccurs="1" type="csqIfQosGroupInfoTable_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="csqIfQosGroupStatsTable_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Qos Statistics MIB table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if-idx" minOccurs="1" type="if-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="if-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Table interface index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if" minOccurs="1" type="if_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="if_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="dir-idx" minOccurs="1" type="dir-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dir-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Table direction index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dir" minOccurs="1" type="dir_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dir_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="qg-idx" minOccurs="1" type="qg-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qg-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Table qos-group index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qg-id" minOccurs="1" type="qg-id_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qg-id_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="sts-idx" minOccurs="1" type="sts-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sts-idx_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Table statistic-id index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sts-id" minOccurs="1" type="sts-id_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sts-id_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="__XML__OPT_Cmd_show_queuing_internal_snmp_if_qg_stats_table___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_queuing_internal_snmp_if_qg_stats_table___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_queuing_internal_snmp_if_qg_stats_table___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>XML read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_csqIfQosGroupStatsTable" minOccurs="1" type="TABLE_csqIfQosGroupStatsTable_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_csqIfQosGroupStatsTable_type_Cmd_show_queuing_internal_snmp_if_qg_stats_table">
+    <xs:annotation>
+      <xs:documentation>Qos Statistics Table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_csqIfQosGroupStatsTable" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="if_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>IF index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="dir_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Dir index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="qg_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>QG index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sts_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Stats index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="stats_val" minOccurs="1" type="nxos:base_long">
+              <xs:annotation>
+                <xs:documentation>Stats value</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="csqIfQosGroupInfoTable_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>Qos Group Info MIB table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if-idx" minOccurs="1" type="if-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="if-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>Table interface index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if" minOccurs="1" type="if_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="if_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="dir-idx" minOccurs="1" type="dir-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dir-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>Table direction index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dir" minOccurs="1" type="dir_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dir_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="qg-idx" minOccurs="1" type="qg-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qg-idx_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>Table qos-group index</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qg-id" minOccurs="1" type="qg-id_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qg-id_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:base_unsignedInt"/>
+      <xs:element name="__XML__OPT_Cmd_show_queuing_internal_snmp_if_qg_info_table___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_queuing_internal_snmp_if_qg_info_table___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_queuing_internal_snmp_if_qg_info_table___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>XML read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_csqIfQosGroupInfoTable" minOccurs="1" type="TABLE_csqIfQosGroupInfoTable_type_Cmd_show_queuing_internal_snmp_if_qg_info_table"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_csqIfQosGroupInfoTable_type_Cmd_show_queuing_internal_snmp_if_qg_info_table">
+    <xs:annotation>
+      <xs:documentation>Qos Group Info Table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_csqIfQosGroupInfoTable" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="if_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>IF index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="dir_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Dir index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="qg_idx_o" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>QG index out</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hw_mtu" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>HW MTU</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mtu" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>MTU</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="drop_type" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Drop type</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xon" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>xon</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xoff" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>xoff</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sched_type" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Schedule type</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="oper_bw" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Band width</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="bw_unit" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Unit of BW</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_queuing_intf_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Show interface queuing information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_queuing_intf">
+    <xs:choice>
+      <xs:element name="fc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="bay" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="ext" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_show_queuing_intf">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_queuing_intf">
+        <xs:annotation>
+          <xs:documentation>Display queuing interface info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_queuing_intf___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_queuing_intf_TABLE_queuing_interface" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_queuing_intf_TABLE_queuing_interface">
+    <xs:sequence>
+      <xs:element name="TABLE_queuing_interface" minOccurs="1" type="TABLE_queuing_interface_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_queuing_interface_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Queuing information of an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_queuing_interface" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="if_name_str" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>interface name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="bg_Cmd_show_queuing_intf_TABLE_tx_queuing" maxOccurs="1"/>
+            <xs:group ref="bg_Cmd_show_queuing_intf_TABLE_rx_queuing" maxOccurs="1"/>
+            <xs:group ref="bg_Cmd_show_queuing_intf_rx_statistics" maxOccurs="1"/>
+            <xs:element name="wred_pkt_drops" minOccurs="1" type="nxos:base_long">
+              <xs:annotation>
+                <xs:documentation>Pkts drooped due to WRED</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_queuing_intf_TABLE_tx_queuing">
+    <xs:sequence>
+      <xs:element name="TABLE_tx_queuing" minOccurs="1" type="TABLE_tx_queuing_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_tx_queuing_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Tx Queuing</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_tx_queuing" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="qos_grp_tx" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>qos-group</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sched_type" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>sched-type</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="WRR"/>
+                    <xs:enumeration value="priority"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="oper_bw" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>oper-bandwidth</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="priority" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Priority level</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="shaper_min" minOccurs="1" type="nxos:base_long">
+              <xs:annotation>
+                <xs:documentation>shaper-min</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="shaper_max" minOccurs="1" type="nxos:base_long">
+              <xs:annotation>
+                <xs:documentation>shaper-max</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="shaper_unit" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>shaper-unit</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_queuing_intf_TABLE_rx_queuing">
+    <xs:sequence>
+      <xs:element name="TABLE_rx_queuing" minOccurs="1" type="TABLE_rx_queuing_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_rx_queuing_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Rx Queuing</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_rx_queuing" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="qos_grp_rx" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>qos-group</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hw_mtu" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>HW MTU</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mtu" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>MTU</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="drop_type" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>drop-type</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="drop"/>
+                    <xs:enumeration value="no-drop"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="xon" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>xon</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xoff" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>xoff</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="bg_Cmd_show_queuing_intf_statistics" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_queuing_intf_statistics">
+    <xs:sequence>
+      <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="statistics_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ucast_pkts_sent_over_port" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Ucast pkts sent over the port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ucast_bytes_sent_over_port" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Ucast bytes sent over the port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mcast_pkts_sent_over_port" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Mcast pkts sent over the port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mcast_bytes_sent_over_port" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Mcast bytes sent over the port</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ucast_pkts_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Ucast pkts dropped</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ucast_bytes_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Ucast bytes dropped</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mcast_pkts_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Mcast pkts dropped</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="mcast_bytes_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Mcast bytes dropped</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_queuing_intf_rx_statistics">
+    <xs:sequence>
+      <xs:element name="rx_statistics" minOccurs="1" type="rx_statistics_type_Cmd_show_queuing_intf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="rx_statistics_type_Cmd_show_queuing_intf">
+    <xs:annotation>
+      <xs:documentation>RX Statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rx_thresh_pkts_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Pkts dropped by RX thresholds</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="rx_thresh_bytes_dropped" minOccurs="1" type="nxos:base_long">
+        <xs:annotation>
+          <xs:documentation>Bytes dropped by RX thresholds</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_cmd_dbg_qd_trace"/>
+  <xs:complexType name="debug_type_Cmd_cmd_dbg_qd_trace">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qd" minOccurs="1" type="qd_type_Cmd_cmd_dbg_qd_trace"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qd_type_Cmd_cmd_dbg_qd_trace">
+    <xs:annotation>
+      <xs:documentation>Show information about qd</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_cmd_dbg_qd_trace"/>
+  <xs:complexType name="no_type_Cmd_cmd_dbg_qd_trace">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_cmd_dbg_qd_trace"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_cmd_dbg_qd_trace">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qd" minOccurs="1" type="qd_type_e_Cmd_cmd_dbg_qd_trace"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qd_type_e_Cmd_cmd_dbg_qd_trace">
+    <xs:annotation>
+      <xs:documentation>Show information about qd</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="wrr-queue" minOccurs="1" type="wrr-queue_type_Cmd_wrr_queue_cos"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_wrr_queue_cos"/>
+        <xs:element name="wred-queue" minOccurs="1" type="wred-queue_type_ec_Cmd_wred_queue_qosgroup"/>
+        <xs:element name="congestion-control" minOccurs="1" type="congestion-control_type_ec_Cmd_congestion_ctrl_global_buf"/>
+        <xs:element name="hardware" minOccurs="1" type="hardware_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="wrr" minOccurs="1" type="wrr_type_ec_Cmd_wrr_unicast_bandwidth"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wrr-queue_type_Cmd_wrr_queue_cos">
+    <xs:annotation>
+      <xs:documentation>Map traffic priority (QG) values to L3 Multicast Queues</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group-map" minOccurs="1" type="qos-group-map_type_Cmd_wrr_queue_cos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group-map_type_Cmd_wrr_queue_cos">
+    <xs:annotation>
+      <xs:documentation>Qid value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qid" minOccurs="1" type="qid_type_Cmd_wrr_queue_cos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qid_type_Cmd_wrr_queue_cos">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Provide qid value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="3"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_wrr_queue_cos_cos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_wrr_queue_cos_cos" maxOccurs="8"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_wrr_queue_cos_cos">
+    <xs:sequence>
+      <xs:element name="cos" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Provide qos-group-map value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_wrr_queue_cos">
+    <xs:annotation>
+      <xs:documentation>Negate the command</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="wrr-queue" minOccurs="1" type="wrr-queue_type_ec_Cmd_wrr_queue_cos"/>
+        <xs:element name="wred-queue" minOccurs="1" type="wred-queue_type_Cmd_wred_queue_qosgroup"/>
+        <xs:element name="congestion-control" minOccurs="1" type="congestion-control_type_Cmd_congestion_ctrl_global_buf"/>
+        <xs:element name="hardware" minOccurs="1" type="hardware_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="wrr" minOccurs="1" type="wrr_type_Cmd_wrr_unicast_bandwidth"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wrr-queue_type_ec_Cmd_wrr_queue_cos">
+    <xs:annotation>
+      <xs:documentation>Map traffic priority (QG) values to L3 Multicast Queues</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group-map" minOccurs="1" type="qos-group-map_type_ec_Cmd_wrr_queue_cos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group-map_type_ec_Cmd_wrr_queue_cos">
+    <xs:annotation>
+      <xs:documentation>Qid value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qid" minOccurs="1" type="qid_type_ec_Cmd_wrr_queue_cos"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qid_type_ec_Cmd_wrr_queue_cos">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Provide qid value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="3"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_wrr_queue_cos_cos">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_wrr_queue_cos_cos" maxOccurs="8"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_wrr_queue_cos_cos">
+    <xs:sequence>
+      <xs:element name="cos" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Provide qos-group-map value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="wred-queue_type_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Enable queue based ECN marking for specific qos-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group-map" minOccurs="1" type="qos-group-map_type_Cmd_wred_queue_qosgroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group-map_type_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Qid value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="queue-only" minOccurs="1" type="queue-only_type_Cmd_wred_queue_qosgroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queue-only_type_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Enable queue based ECN marking</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Provide qos-group value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="congestion-control_type_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Congestion control protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="random-detect" minOccurs="1" type="random-detect_type_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="random-detect_type_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Enable WRED protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="global-buffer" minOccurs="1" type="global-buffer_type_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="global-buffer_type_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>global buffer threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum-threshold" minOccurs="1" type="minimum-threshold_type_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum-threshold_type_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Specify minimum threshold for WRED</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_congestion_ctrl_global_buf_min-thresh">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_congestion_ctrl_global_buf_min-thresh" maxOccurs="1"/>
+            <xs:element name="maximum-threshold" minOccurs="1" type="maximum-threshold_type_Cmd_congestion_ctrl_global_buf"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_congestion_ctrl_global_buf_min-thresh">
+    <xs:sequence>
+      <xs:element name="min-thresh" minOccurs="1" type="min-thresh_type_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="min-thresh_type_Cmd_congestion_ctrl_global_buf">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="50000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_congestion_ctrl_global_buf_packets">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packets" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="kbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Kilo bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mega bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="maximum-threshold_type_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Specify maximum threshold for WRED</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_congestion_ctrl_global_buf_max-thresh">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_congestion_ctrl_global_buf_max-thresh" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_congestion_ctrl_global_buf_max-thresh">
+    <xs:sequence>
+      <xs:element name="max-thresh" minOccurs="1" type="max-thresh_type_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="max-thresh_type_Cmd_congestion_ctrl_global_buf">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="50000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_congestion_ctrl_global_buf_packets">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packets" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="kbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Kilo Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mega Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hardware_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>N3K</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="profile" minOccurs="1" type="profile_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_Cmd_disable_slow_port_pruning"/>
+        <xs:element name="unicast" minOccurs="1" type="unicast_type_Cmd_conf_unicast_voq_limit"/>
+        <xs:element name="ethernet" minOccurs="1" type="ethernet_type_Cmd_conf_ethernet_store_n_forward"/>
+        <xs:element name="random-detect" minOccurs="1" type="random-detect_type_Cmd_conf_hardware_ecn_feature"/>
+        <xs:element name="pq-drain" minOccurs="1" type="pq-drain_type_Cmd_conf_hardware_pq_drain_rate"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="profile_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Profile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="pfc" minOccurs="1" type="pfc_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_Cmd_wrr_multicast_slowdrop_port"/>
+        <xs:element name="buffer" minOccurs="1" type="buffer_type_Cmd_conf_buf_qos_group_threshold"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pfc_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>System level priority-flow-control settings</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mmu" minOccurs="1" type="mmu_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mmu_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Hardware memory management unit configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="buffer-reservation" minOccurs="1" type="buffer-reservation_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buffer-reservation_type_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Shared pool buffer reservation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of shared pool buffers to be reserved</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multicast_type_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Multicast protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="slow-receiver" minOccurs="1" type="slow-receiver_type_Cmd_wrr_multicast_slowdrop_port"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="slow-receiver_type_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Multicast slow receiver</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_Cmd_wrr_multicast_slowdrop_port"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port_type_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Port number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="48"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buffer_type_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="qosgroup" minOccurs="1" type="qosgroup_type_Cmd_conf_buf_qos_group_threshold"/>
+        <xs:element name="span-threshold" minOccurs="1" type="span-threshold_type_Cmd_conf_buf_span_threshold"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qosgroup_type_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Qos-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="groupid" minOccurs="1" type="groupid_type_Cmd_conf_buf_qos_group_threshold"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="groupid_type_Cmd_conf_buf_qos_group_threshold">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Group-id</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="4"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="threshold" minOccurs="1" type="threshold_type_Cmd_conf_buf_qos_group_threshold"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="threshold_type_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of maximum usage</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="span-threshold_type_Cmd_conf_buf_span_threshold">
+    <xs:annotation>
+      <xs:documentation>Span Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of maximum usage</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multicast_type_Cmd_disable_slow_port_pruning">
+    <xs:annotation>
+      <xs:documentation>multicast feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disable-slow-port-pruning" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Disable slow port pruning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unicast_type_Cmd_conf_unicast_voq_limit">
+    <xs:annotation>
+      <xs:documentation>unicast feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="voq-limit" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable VOQ limit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ethernet_type_Cmd_conf_ethernet_store_n_forward">
+    <xs:annotation>
+      <xs:documentation>Ethernet feature/traffic configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="store-and-fwd-switching" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable store and forward switching mode</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="random-detect_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Configure Random Early Detection</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-thresh" minOccurs="1" type="min-thresh_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-thresh_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Minimum Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Threshold for 10G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min10g" minOccurs="1" type="min10g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min10g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold Value for 10G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Threshold for 40G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min40g" minOccurs="1" type="min40g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min40g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold Value for 40G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="max-thresh" minOccurs="1" type="max-thresh_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max-thresh_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Maximum Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Threshold for 10G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max10g" minOccurs="1" type="max10g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max10g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold Value for 10G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Threshold for 40G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max40g" minOccurs="1" type="max40g_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max40g_type_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold Value for 40G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ecn" minOccurs="1" type="ecn_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ecn_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Explicit Congestion Notification feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group" minOccurs="1" type="qos-group_type_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group_type_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Qos Group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qosgroup" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Qos-Group Value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="5"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pq-drain_type_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>Configure Proxy Queue(PQ) Drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>10G port PQ drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate10g" minOccurs="1" type="rate10g_type_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rate10g_type_Cmd_conf_hardware_pq_drain_rate">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>10G port drain rate in mbps</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="20000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>40G port PQ drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate40g" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>40G port drain rate in mbps</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="80000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wrr_type_Cmd_wrr_unicast_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Configure Unicast Traffic Bandwidth Percentage</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast-bandwidth" minOccurs="1" type="unicast-bandwidth_type_Cmd_wrr_unicast_bandwidth"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unicast-bandwidth_type_Cmd_wrr_unicast_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Specify rate as percentage of interface data-rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bw" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Value in percentage (Default is set to 50)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wred-queue_type_ec_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Enable queue based ECN marking for specific qos-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group-map" minOccurs="1" type="qos-group-map_type_ec_Cmd_wred_queue_qosgroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group-map_type_ec_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Qid value</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="queue-only" minOccurs="1" type="queue-only_type_ec_Cmd_wred_queue_qosgroup"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queue-only_type_ec_Cmd_wred_queue_qosgroup">
+    <xs:annotation>
+      <xs:documentation>Enable queue based ECN marking</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Provide qos-group value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="congestion-control_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Congestion control protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="random-detect" minOccurs="1" type="random-detect_type_ec_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="random-detect_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Enable WRED protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="global-buffer" minOccurs="1" type="global-buffer_type_ec_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="global-buffer_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>global buffer threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum-threshold" minOccurs="1" type="minimum-threshold_type_ec_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum-threshold_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Specify minimum threshold for WRED</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_congestion_ctrl_global_buf_min-thresh">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_congestion_ctrl_global_buf_min-thresh" maxOccurs="1"/>
+            <xs:element name="maximum-threshold" minOccurs="1" type="maximum-threshold_type_ec_Cmd_congestion_ctrl_global_buf"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_congestion_ctrl_global_buf_min-thresh">
+    <xs:sequence>
+      <xs:element name="min-thresh" minOccurs="1" type="min-thresh_type_ec_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="min-thresh_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="50000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_congestion_ctrl_global_buf_packets_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_congestion_ctrl_global_buf_packets_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packets" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="kbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Kilo bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mega bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="maximum-threshold_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:annotation>
+      <xs:documentation>Specify maximum threshold for WRED</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_congestion_ctrl_global_buf_max-thresh">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_congestion_ctrl_global_buf_max-thresh" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_congestion_ctrl_global_buf_max-thresh">
+    <xs:sequence>
+      <xs:element name="max-thresh" minOccurs="1" type="max-thresh_type_ec_Cmd_congestion_ctrl_global_buf"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="max-thresh_type_ec_Cmd_congestion_ctrl_global_buf">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="50000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_congestion_ctrl_global_buf_packets" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_congestion_ctrl_global_buf_packets_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_congestion_ctrl_global_buf_packets_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packets" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="bytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="kbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Kilo Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mbytes" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mega Bytes</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hardware_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>N3K</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="profile" minOccurs="1" type="profile_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_ec_Cmd_disable_slow_port_pruning"/>
+        <xs:element name="unicast" minOccurs="1" type="unicast_type_ec_Cmd_conf_unicast_voq_limit"/>
+        <xs:element name="ethernet" minOccurs="1" type="ethernet_type_ec_Cmd_conf_ethernet_store_n_forward"/>
+        <xs:element name="random-detect" minOccurs="1" type="random-detect_type_ec_Cmd_conf_hardware_ecn_feature"/>
+        <xs:element name="pq-drain" minOccurs="1" type="pq-drain_type_ec_Cmd_conf_hardware_pq_drain_rate"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="profile_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Profile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="pfc" minOccurs="1" type="pfc_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+        <xs:element name="multicast" minOccurs="1" type="multicast_type_ec_Cmd_wrr_multicast_slowdrop_port"/>
+        <xs:element name="buffer" minOccurs="1" type="buffer_type_ec_Cmd_conf_buf_qos_group_threshold"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pfc_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>System level priority-flow-control settings</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mmu" minOccurs="1" type="mmu_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mmu_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Hardware memory management unit configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="buffer-reservation" minOccurs="1" type="buffer-reservation_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buffer-reservation_type_ec_Cmd_hardware_profile_pfc_mmu_shared_pool_buffer_reservation">
+    <xs:annotation>
+      <xs:documentation>Shared pool buffer reservation</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of shared pool buffers to be reserved</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multicast_type_ec_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Multicast protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="slow-receiver" minOccurs="1" type="slow-receiver_type_ec_Cmd_wrr_multicast_slowdrop_port"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="slow-receiver_type_ec_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Multicast slow receiver</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1" type="port_type_ec_Cmd_wrr_multicast_slowdrop_port"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port_type_ec_Cmd_wrr_multicast_slowdrop_port">
+    <xs:annotation>
+      <xs:documentation>Port</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Port number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="48"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="buffer_type_ec_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="qosgroup" minOccurs="1" type="qosgroup_type_ec_Cmd_conf_buf_qos_group_threshold"/>
+        <xs:element name="span-threshold" minOccurs="1" type="span-threshold_type_ec_Cmd_conf_buf_span_threshold"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qosgroup_type_ec_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Qos-group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="groupid" minOccurs="1" type="groupid_type_ec_Cmd_conf_buf_qos_group_threshold"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="groupid_type_ec_Cmd_conf_buf_qos_group_threshold">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Group-id</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="4"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="threshold" minOccurs="1" type="threshold_type_ec_Cmd_conf_buf_qos_group_threshold"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="threshold_type_ec_Cmd_conf_buf_qos_group_threshold">
+    <xs:annotation>
+      <xs:documentation>Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of maximum usage</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="span-threshold_type_ec_Cmd_conf_buf_span_threshold">
+    <xs:annotation>
+      <xs:documentation>Span Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage of maximum usage</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="multicast_type_ec_Cmd_disable_slow_port_pruning">
+    <xs:annotation>
+      <xs:documentation>multicast feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="disable-slow-port-pruning" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Disable slow port pruning</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unicast_type_ec_Cmd_conf_unicast_voq_limit">
+    <xs:annotation>
+      <xs:documentation>unicast feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="voq-limit" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable VOQ limit</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ethernet_type_ec_Cmd_conf_ethernet_store_n_forward">
+    <xs:annotation>
+      <xs:documentation>Ethernet feature/traffic configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="store-and-fwd-switching" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable store and forward switching mode</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="random-detect_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Configure Random Early Detection</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min-thresh" minOccurs="1" type="min-thresh_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min-thresh_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Minimum Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature_1">
+    <xs:annotation>
+      <xs:documentation>Threshold for 10G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min10g" minOccurs="1" type="min10g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min10g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold Value for 10G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature_1">
+    <xs:annotation>
+      <xs:documentation>Threshold for 40G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="min40g" minOccurs="1" type="min40g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="min40g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Minimum threshold Value for 40G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="max-thresh" minOccurs="1" type="max-thresh_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max-thresh_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Maximum Threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_ecn_feature_2">
+    <xs:annotation>
+      <xs:documentation>Threshold for 10G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max10g" minOccurs="1" type="max10g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max10g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold Value for 10G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_ecn_feature_2">
+    <xs:annotation>
+      <xs:documentation>Threshold for 40G ports</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="max40g" minOccurs="1" type="max40g_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="max40g_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum threshold Value for 40G port in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="67108863"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ecn" minOccurs="1" type="ecn_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ecn_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Explicit Congestion Notification feature</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qos-group" minOccurs="1" type="qos-group_type_ec_Cmd_conf_hardware_ecn_feature"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="qos-group_type_ec_Cmd_conf_hardware_ecn_feature">
+    <xs:annotation>
+      <xs:documentation>Qos Group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="qosgroup" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Qos-Group Value</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="5"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pq-drain_type_ec_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>Configure Proxy Queue(PQ) Drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__DIGIT10g" minOccurs="1" type="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT10g_type_ec_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>10G port PQ drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate10g" minOccurs="1" type="rate10g_type_ec_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="rate10g_type_ec_Cmd_conf_hardware_pq_drain_rate">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>10G port drain rate in mbps</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="20000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__DIGIT40g" minOccurs="1" type="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_pq_drain_rate"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__DIGIT40g_type_ec_Cmd_conf_hardware_pq_drain_rate">
+    <xs:annotation>
+      <xs:documentation>40G port PQ drain rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rate40g" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>40G port drain rate in mbps</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="80000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="wrr_type_ec_Cmd_wrr_unicast_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Configure Unicast Traffic Bandwidth Percentage</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast-bandwidth" minOccurs="1" type="unicast-bandwidth_type_ec_Cmd_wrr_unicast_bandwidth"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unicast-bandwidth_type_ec_Cmd_wrr_unicast_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Specify rate as percentage of interface data-rate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bw" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Value in percentage (Default is set to 50)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="remote-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-remote-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-remote-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vem-ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-l2-non-member_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="hardware" minOccurs="1" type="hardware_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hardware_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>FEX Card type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="N2248TP-E" minOccurs="1" type="N2248TP-E_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="N2248TP-E_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>Fabric Extender 48x1G 4x10G SFP+ Module</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="queue-limit" minOccurs="1" type="queue-limit_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queue-limit_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>Set queue-limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_val" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_val" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_val">
+    <xs:sequence>
+      <xs:element name="val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Queue limit in Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="32768"/>
+              <xs:maxInclusive value="33538048"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Egress direction</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Ingress direction</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>Negate the command</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="hardware" minOccurs="1" type="hardware_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hardware_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>FEX Card type</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="N2248TP-E" minOccurs="1" type="N2248TP-E_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="N2248TP-E_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>Fabric Extender 48x1G 4x10G SFP+ Module</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="queue-limit" minOccurs="1" type="queue-limit_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="queue-limit_type_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr">
+    <xs:annotation>
+      <xs:documentation>Set queue-limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecielnm_Cmd_conf_hardware_n2248tpe_if_queue_limitpr_tx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Egress direction</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Ingress direction</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-remote-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-l2-non-member" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-l2-non-member_type"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,1387 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:tm" targetNamespace="http://www.cisco.com/nxos:1.0:tm" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module tm</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="debug" type="debug_type_Cmd_some_cmd"/>
+  <xs:complexType name="debug_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure tunnel debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of tunnel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demux" minOccurs="1" type="demux_type_Cmd_some_cmd"/>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of tunnel error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="event_type_Cmd_some_cmd"/>
+        <xs:element name="ha" minOccurs="1" type="ha_type_Cmd_some_cmd"/>
+        <xs:element name="trace" minOccurs="1" type="trace_type_Cmd_some_cmd"/>
+        <xs:element name="warning" minOccurs="1" type="warning_type_Cmd_some_cmd"/>
+        <xs:element name="ppf" minOccurs="1" type="ppf_type_Cmd_some_cmd"/>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="demux_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel message demux</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_if0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_if0">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="event_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_fsm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_some_cmd_fsm" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_fsm">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="fsm" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of tunnel FSM Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="mts_type_Cmd_some_cmd"/>
+        <xs:element name="pss" minOccurs="1" type="pss_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mts_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel MTS Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="pss_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel PSS Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_if1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_if1">
+    <xs:sequence>
+      <xs:element name="if1" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ha_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel HA</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_1">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="trace_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel trace</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_2">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warning_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel warning</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_3">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ppf_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure PPF debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_warnings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_some_cmd_warnings" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_warnings">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnings" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF warnings</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="snmp_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure snmp debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_warnings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_some_cmd_warnings" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_some_cmd_warnings">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnings" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp warnings</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="no" type="no_type_Cmd_some_cmd"/>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure tunnel debug</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags of tunnel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="demux" minOccurs="1" type="demux_type_e_Cmd_some_cmd"/>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of tunnel error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="event_type_e_Cmd_some_cmd"/>
+        <xs:element name="ha" minOccurs="1" type="ha_type_e_Cmd_some_cmd"/>
+        <xs:element name="trace" minOccurs="1" type="trace_type_e_Cmd_some_cmd"/>
+        <xs:element name="warning" minOccurs="1" type="warning_type_e_Cmd_some_cmd"/>
+        <xs:element name="ppf" minOccurs="1" type="ppf_type_e_Cmd_some_cmd"/>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_e_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="demux_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel message demux</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_4">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="event_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_fsm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_some_cmd_fsm" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_some_cmd_fsm">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="fsm" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of tunnel FSM Events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="mts_type_e_Cmd_some_cmd"/>
+        <xs:element name="pss" minOccurs="1" type="pss_type_e_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mts_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel MTS Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_5">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="pss_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel PSS Events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if1">
+    <xs:sequence>
+      <xs:element name="if1" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ha_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel HA</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_6">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="trace_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel trace</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_7">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warning_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of tunnel warning</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_if0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_if0_8" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_if0_8">
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>Enter tunnel number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ppf_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure PPF debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_warnings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_some_cmd_warnings_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_some_cmd_warnings_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnings" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF warnings</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of PPF trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="snmp_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure snmp debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_warnings">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_some_cmd_warnings_2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_some_cmd_warnings_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnings" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp warnings</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of snmp trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="show" type="show_type_Cmd_some_cmd"/>
+  <xs:complexType name="show_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd_1"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_tunnel"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Show debugging flags of Tunnel</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="bypass" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show bypass flags of Tunnel</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_tunnel">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_tunnel"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_tunnel">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show tunnel logging settings</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ec_Cmd_some_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Set level for tunnel syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_some_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_ec_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_ec_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Set level for tunnel syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_i0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_i0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_i0">
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>Interface Name</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+            <xs:element name="__XML__MODE_if-tunnel-gre" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-tunnel-gre_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-tunnel-gre_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-any-tunnel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-any-tunnel_type"/>
+        <xs:element name="__XML__MODE_if-gre-tunnel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-gre-tunnel_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-any-tunnel_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tunnel" minOccurs="1" type="tunnel_type_Cmd_config_tunnel_mode"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_config_tunnel_mode"/>
+        <xs:element name="mtu" minOccurs="1" type="mtu_type_eciat_Cmd_config_mtu"/>
+        <xs:element name="description" minOccurs="1" type="description_type_eciat_Cmd_config_if_description"/>
+        <xs:element name="bandwidth" minOccurs="1" type="bandwidth_type_Cmd_config_if_bandwidth"/>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_eciat_Cmd_config_snmp_trap_link_status"/>
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shutdown tunnel interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>protocol-over-protocol tunneling</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="mode" minOccurs="1" type="mode_type_Cmd_config_tunnel_mode"/>
+        <xs:element name="use-vrf" minOccurs="1" type="use-vrf_type_Cmd_config_use_vrf"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mode_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>tunnel encapsulation method</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_config_tunnel_mode_gre">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_config_tunnel_mode_gre" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_config_tunnel_mode_gre">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="__XML__BLK_Cmd_config_tunnel_mode_gre">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_eciat_Cmd_config_tunnel_mode_gre" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_config_tunnel_mode_ipip">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_config_tunnel_mode_ipip" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_config_tunnel_mode_ipip_1">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_eciat_Cmd_config_tunnel_mode_ipip" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_eciat_Cmd_config_tunnel_mode_gre">
+    <xs:sequence>
+      <xs:element name="gre" minOccurs="1" type="gre_type_Cmd_config_tunnel_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="gre_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>generic route encapsulation protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_tunnel_mode_ip" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_config_tunnel_mode_ip" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_config_tunnel_mode_ip">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ip" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>over IP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_config_tunnel_mode_ipip">
+    <xs:sequence>
+      <xs:element name="ipip" minOccurs="1" type="ipip_type_Cmd_config_tunnel_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ipip_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>IP in IP protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_tunnel_mode_ip" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciat_Cmd_config_tunnel_mode_ip" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciat_Cmd_config_tunnel_mode_ip">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ip" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>over IP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_eciat_Cmd_config_tunnel_mode_ipip">
+    <xs:sequence>
+      <xs:element name="ipip" minOccurs="1" type="ipip_type_eciat_Cmd_config_tunnel_mode"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ipip_type_eciat_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>IP in IP protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="decapsulate-any" minOccurs="1" type="decapsulate-any_type_Cmd_config_tunnel_mode"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="decapsulate-any_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>decapsulate any</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_tunnel_mode_ip" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciat_Cmd_config_tunnel_mode_ip_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciat_Cmd_config_tunnel_mode_ip_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ip" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>over IP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="use-vrf_type_Cmd_config_use_vrf">
+    <xs:annotation>
+      <xs:documentation>set tunnel vrf membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_config_use_vrf_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_config_use_vrf_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_config_use_vrf_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="tunnel" minOccurs="1" type="tunnel_type_eciat_Cmd_config_tunnel_mode"/>
+        <xs:element name="mtu" minOccurs="1" type="mtu_type_Cmd_config_mtu"/>
+        <xs:element name="description" minOccurs="1" type="description_type_Cmd_config_if_description"/>
+        <xs:element name="bandwidth" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set bandwidth informational parameter</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snmp" minOccurs="1" type="snmp_type_Cmd_config_snmp_trap_link_status"/>
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shutdown tunnel interface(s)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_eciat_Cmd_config_tunnel_mode">
+    <xs:annotation>
+      <xs:documentation>protocol-over-protocol tunneling</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="mode" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>tunnel encapsulation method</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="use-vrf" minOccurs="1" type="use-vrf_type_eciat_Cmd_config_use_vrf"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="use-vrf_type_eciat_Cmd_config_use_vrf">
+    <xs:annotation>
+      <xs:documentation>set tunnel vrf membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_use_vrf_vrf-name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_config_use_vrf_vrf-name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_config_use_vrf_vrf-name">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_config_use_vrf_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_eciat_Cmd_config_use_vrf_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_eciat_Cmd_config_use_vrf_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mtu_type_Cmd_config_mtu">
+    <xs:annotation>
+      <xs:documentation>Configure MTU</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_mtu_mtu-val" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_config_mtu_mtu-val" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_config_mtu_mtu-val">
+    <xs:sequence>
+      <xs:element name="mtu-val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="64"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="description_type_Cmd_config_if_description">
+    <xs:annotation>
+      <xs:documentation>Enter description of maximum 80 characters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_if_description_desc_line" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_config_if_description_desc_line" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_config_if_description_desc_line">
+    <xs:sequence>
+      <xs:element name="desc_line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Description of maximum 80 characters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="snmp_type_Cmd_config_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Modify SNMP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="trap" minOccurs="1" type="trap_type_Cmd_config_snmp_trap_link_status"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trap_type_Cmd_config_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Allow a specific SNMP trap</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="link-status" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Allow SNMP LINKUP and LINKDOWN traps</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mtu_type_eciat_Cmd_config_mtu">
+    <xs:annotation>
+      <xs:documentation>Configure MTU</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_config_mtu_mtu-val" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_eciat_Cmd_config_mtu_mtu-val" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_eciat_Cmd_config_mtu_mtu-val">
+    <xs:sequence>
+      <xs:element name="mtu-val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Bytes</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="64"/>
+              <xs:maxInclusive value="65535"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="description_type_eciat_Cmd_config_if_description">
+    <xs:annotation>
+      <xs:documentation>Enter description of maximum 80 characters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="desc_line" minOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Description of maximum 80 characters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="bandwidth_type_Cmd_config_if_bandwidth">
+    <xs:annotation>
+      <xs:documentation>Set bandwidth informational parameter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="bandwidth_val" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Bandwidth in kilobits</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="10000000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="snmp_type_eciat_Cmd_config_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Modify SNMP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="trap" minOccurs="1" type="trap_type_eciat_Cmd_config_snmp_trap_link_status"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="trap_type_eciat_Cmd_config_snmp_trap_link_status">
+    <xs:annotation>
+      <xs:documentation>Allow a specific SNMP trap</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="link-status" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Allow SNMP LINKUP and LINKDOWN traps</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-gre-tunnel_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="tunnel" minOccurs="1" type="tunnel_type_Cmd_tunnel_src_cfg"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_tunnel_src_cfg"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_Cmd_tunnel_src_cfg">
+    <xs:annotation>
+      <xs:documentation>protocol-over-protocol tunneling</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="source" minOccurs="1" type="source_type_Cmd_tunnel_src_cfg"/>
+        <xs:element name="destination" minOccurs="1" type="destination_type_Cmd_tunnel_dst_cfg"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_Cmd_tunnel_src_cfg">
+    <xs:annotation>
+      <xs:documentation>source of tunnel packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tunnel_src_cfg_intf">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tunnel_src_cfg_intf" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tunnel_src_cfg_intf">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="intf" minOccurs="1" type="nxos:Interface">
+          <xs:annotation>
+            <xs:documentation>interface</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IPv4 address (A.B.C.D)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="destination_type_Cmd_tunnel_dst_cfg">
+    <xs:annotation>
+      <xs:documentation>destination of tunnel packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_tunnel_dst_cfg_host-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_tunnel_dst_cfg_host-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_tunnel_dst_cfg_host-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="host-name" minOccurs="1" type="nxos:base_string">
+          <xs:annotation>
+            <xs:documentation>host name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IPv4 address (A.B.C.D)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_tunnel_src_cfg">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="tunnel" minOccurs="1" type="tunnel_type_ecigt_Cmd_tunnel_src_cfg"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tunnel_type_ecigt_Cmd_tunnel_src_cfg">
+    <xs:annotation>
+      <xs:documentation>protocol-over-protocol tunneling</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="source" minOccurs="1" type="source_type_ecigt_Cmd_tunnel_src_cfg"/>
+        <xs:element name="destination" minOccurs="1" type="destination_type_ecigt_Cmd_tunnel_dst_cfg"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="source_type_ecigt_Cmd_tunnel_src_cfg">
+    <xs:annotation>
+      <xs:documentation>source of tunnel packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_tunnel_src_cfg_intf" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_tunnel_src_cfg_intf" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tunnel_src_cfg_intf">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="intf" minOccurs="1" type="nxos:Interface">
+          <xs:annotation>
+            <xs:documentation>interface</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IPv4 address (A.B.C.D)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="destination_type_ecigt_Cmd_tunnel_dst_cfg">
+    <xs:annotation>
+      <xs:documentation>destination of tunnel packets</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_tunnel_dst_cfg_host-name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_tunnel_dst_cfg_host-name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_tunnel_dst_cfg_host-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="host-name" minOccurs="1" type="nxos:base_string">
+          <xs:annotation>
+            <xs:documentation>host name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IPv4 address (A.B.C.D)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

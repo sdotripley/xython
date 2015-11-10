@@ -1,0 +1,1065 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ !
+ !      File:   nxos_common_types.xsd
+ !      Name:   Yong Chen
+ !
+ !      Description:
+ !       This file contains the definitions of common elements and datatypes.
+ !       It should be included by other schemas that reference these entities.
+ !
+ !
+ !      Copyright (c) 2006 by Cisco Systems.
+ !
+ !       ALL RIGHTS RESERVED. THESE SOURCE FILES ARE THE SOLE PROPERTY
+ !       OF CISCO SYSTEMS, Inc. AND CONTAIN CONFIDENTIAL  AND PROPRIETARY
+ !       INFORMATION.  REPRODUCTION OR DUPLICATION BY ANY MEANS OF ANY
+ !       PORTION OF THIS SOFTWARE WITHOUT PRIOR WRITTEN CONSENT OF
+ !       CISCO SYSTEMS, Inc. IS STRICTLY PROHIBITED.
+ !
+ !
+-->
+
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://www.cisco.com/nxos:1.0"
+             xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0"
+             targetNamespace="http://www.cisco.com/nxos:1.0"
+             elementFormDefault="qualified"
+             attributeFormDefault="unqualified"
+             xml:lang="en">
+
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+
+  <xs:simpleType name="IPV4Address">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV4 address in dotted decimal notation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))">
+        <xs:annotation>
+          <xs:documentation>
+            An IPv4 address should be of the form 129.29.83.45. This
+            datatype restricts the value of each field between 0
+            and 255, i.e. [0-255].[0-255].[0-255].[0-255]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+                                                                                
+  <xs:simpleType name="IPV4Prefix">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV4 address prefix
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))/(([0-9])|([0-2][0-9])|(3[0-2]))">
+        <xs:annotation>
+          <xs:documentation>
+            An ipv4 should have length 0-32
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+                                                                                
+  <xs:simpleType name="IPV6Address">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV6 address in standard notation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value= "(([0-9a-fA-F]+:){7}[0-9a-fA-F]+)|(([0-9a-fA-F]+:)*[0-9a-fA-F]+)?::(([0-9a-fA-F]+:)*[0-9a-fA-F]+)?">
+        <xs:annotation>
+          <xs:documentation>
+            An IPv6 address should be of the form
+            12:a3:3422:f332:43e:0:5a3:122. This datatype restricts the
+            value of each field between 0 and ffff, i.e.
+            [0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]
+            This pattern also allows for the abbreviated representation of
+            1::2 for example.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IPV6Prefix">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV6 address prefix
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([a-fA-F0-9]{1,4}:){7})([a-fA-F0-9]{1,4})/(([0-9])|([0-9][0-9])|(1[0-1][0-9])|(12[0-8]))">
+        <xs:annotation>
+          <xs:documentation>
+            An ipv6 should have length 0-128
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+                                                                                
+  <xs:simpleType name="Interface">
+    <xs:annotation>
+      <xs:documentation>
+        An interface name specifying an interface type and instance
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:annotation>
+            <xs:documentation>
+            Interface represents a string defining an interface type
+            and instance, e.g. MgmtEth0/4/CPU1/0
+            This is the kind of pattern representing the value:
+            Interface type(not case sensitive): 
+               cpp|eobc|fv|ethernet-port-channel|epo|eth|ethernet|ethernet-port-channel|faport|fc|fcip|fc-tunnel|gateway Port-Channel|gpc|
+               gigabitEthernet|gigE|ifc|ioa|ivr|isapi|iscsi|lc-eth0/loopback|Lo|mti|mgmt|mgmt0/|mgmt0 on slot|mti|overlay|peer-id|int po|
+               internal port-channel|repl|replicator|internal san-port-channel|sdm|sdv|sme|svc|int spo|sup-eth|sup-fc|tunnel|tunnel-te|veth|
+               vethernet|vfc|vfc-po|vfc-veth|vlan|vsan| Null0|Virtual Layer-3|sup-diag0|vl3 
+            Ranges: 
+               %d, %d/%d, %d/%d.%d, %d/%d/%d, %d:%d, %d:%d:%d, %d/%d/%d.%d, %d.%d 
+            </xs:documentation>
+        </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InterfaceRange">
+    <xs:annotation>
+      <xs:documentation>
+        An interface name specifying an interface type and instance
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Interface represents a string defining an interface type
+            and instance, e.g. MgmtEth0/4/CPU1/0
+            This follows the same pattern as interface plus a range represented as -%d.
+          </xs:documentation>
+        </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="InterfaceMRange">
+    <xs:annotation>
+      <xs:documentation>
+        An interface name specifying an interface type and instance
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+        <xs:annotation>
+          <xs:documentation>
+            Interface represents a string defining an interface type
+            and instance, e.g. ethernet 2/1 - 4 
+            This follows the same pattern as interface but the ranges can be followed by - %d, (%d -%d)*.
+         </xs:documentation>
+        </xs:annotation>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="InterfaceMRange_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="InterfaceMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="InterfaceMRange_oper">
+    <xs:simpleContent>
+      <xs:extension base="InterfaceMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="InterfaceMRange_key">
+    <xs:simpleContent>
+      <xs:extension base="InterfaceMRange">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="IntegerRange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+([-][0-9]+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IntegerMRange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9]+([-][0-9]+)?)([,]([0-9]+([-][0-9]+)?))*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="IntegerMRange_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="IntegerMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="IntegerMRange_oper">
+    <xs:simpleContent>
+      <xs:extension base="IntegerMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="IntegerMRange_key">
+    <xs:simpleContent>
+      <xs:extension base="IntegerMRange">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="Vsan">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="0"/>
+      <xs:maxInclusive value="4096"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VsanRange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+([-][0-9]+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="VsanMRange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9]+[-,]?)+"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ASN">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[1-9][0-9]*(\.*[0-9]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="bool_enabled">
+    <xs:annotation>
+      <xs:documentation>
+        The boolean type of enabled/disabled
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="enabled">
+        <xs:annotation>
+          <xs:documentation>
+            The enabled string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="disabled">
+        <xs:annotation>
+          <xs:documentation>
+            The disabled string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bool_enabled_oper">
+    <xs:simpleContent>
+      <xs:extension base="bool_enabled">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_enabled_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_enabled">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_enabled_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_enabled">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bool_inservice">
+    <xs:annotation>
+      <xs:documentation>
+        The boolean type of in service/out of service
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="in service">
+        <xs:annotation>
+          <xs:documentation>
+            The in service string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="out of service">
+        <xs:annotation>
+          <xs:documentation>
+            The out of service string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bool_inservice_oper">
+    <xs:simpleContent>
+      <xs:extension base="bool_inservice">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_inservice_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_inservice">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_inservice_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_inservice">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="bool_true">
+    <xs:annotation>
+      <xs:documentation>
+        The boolean type of true/false
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true">
+        <xs:annotation>
+          <xs:documentation>
+            The true string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="false">
+        <xs:annotation>
+          <xs:documentation>
+            The false string
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="bool_true_oper">
+    <xs:simpleContent>
+      <xs:extension base="bool_true">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_true_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_true">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="bool_true_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="bool_true">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vlan_id">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="4094"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vlan_id_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_id_oper">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_id_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vlan_id_range">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+([-][0-9]+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vlan_id_range_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id_range">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_id_range_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_id_range_oper">
+    <xs:simpleContent>
+      <xs:extension base="vlan_id">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vlan_idMRange">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9]+([-][0-9]+)?)([,]([0-9]+([-][0-9]+)?))*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="vlan_idMRange_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_idMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_idMRange_oper">
+    <xs:simpleContent>
+      <xs:extension base="vlan_idMRange">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="vlan_idMRange_key">
+    <xs:simpleContent>
+      <xs:extension base="vlan_idMRange">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="vrf">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="4096"/>
+      <xs:minLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="base_integer">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_integer_oper">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_integer_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_integer_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:integer">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_unsignedInt">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_unsignedInt_oper">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_unsignedInt_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_unsignedInt_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:unsignedInt">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_long">
+    <xs:simpleContent>
+      <xs:extension base="xs:long"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_long_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_long_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_long_oper">
+    <xs:simpleContent>
+      <xs:extension base="xs:long">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_string">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_string_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_string_key">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="base_string_oper">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="Ethernet">
+    <xs:annotation>
+      <xs:documentation>
+        A MAC address in standard notation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([a-fA-F0-9]{1,4}\.){2})([a-fA-F0-9]{1,4})">
+        <xs:annotation>
+          <xs:documentation>
+            A MAC address should be of the form a4.0.ff21. This datatype
+            restricts the value of each field between 0 and ffff, i.e.
+            [0-ffff].[0-ffff].[0-ffff]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="active" type="xs:string"/>
+
+  <xs:element name="active_oper">
+     <xs:complexType>
+       <xs:simpleContent>
+         <xs:extension base="xs:string">
+           <xs:attribute name="operation" type="nf:editOperationType"/>
+         </xs:extension>
+       </xs:simpleContent>
+     </xs:complexType>
+  </xs:element>
+
+  <xs:element name="detail" type="xs:string"/>
+
+  <xs:element name="detail_oper">
+     <xs:complexType>
+       <xs:simpleContent>
+         <xs:extension base="xs:string">
+           <xs:attribute name="operation" type="nf:editOperationType"/>
+         </xs:extension>
+       </xs:simpleContent>
+     </xs:complexType>
+  </xs:element>
+
+  <xs:element name="brief" type="xs:string"/>
+
+  <xs:element name="brief_oper">
+     <xs:complexType>
+       <xs:simpleContent>
+         <xs:extension base="xs:string">
+           <xs:attribute name="operation" type="nf:editOperationType"/>
+         </xs:extension>
+       </xs:simpleContent>
+     </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="Xbar_str">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Xbar_drv">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="port_channel">
+    <xs:restriction base="xs:unsignedInt">
+      <xs:minInclusive value="1"/>
+      <xs:maxInclusive value="4096"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="port_channel_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="port_channel">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="port_channel_key">
+    <xs:simpleContent>
+      <xs:extension base="port_channel">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="port_channel_oper">
+    <xs:simpleContent>
+      <xs:extension base="port_channel">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="port_channel_range">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+([-][0-9]+)?"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="port_channel_range_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="port_channel_range">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="port_channel_range_key">
+    <xs:simpleContent>
+      <xs:extension base="port_channel">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="port_channel_range_oper">
+    <xs:simpleContent>
+      <xs:extension base="port_channel">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="PortMChannel">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+(\.[0-9]+)*([-][0-9]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="portmchannel_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="PortMChannel">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="portmchannel_key">
+    <xs:simpleContent>
+      <xs:extension base="PortMChannel">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="portmchannel_oper">
+    <xs:simpleContent>
+      <xs:extension base="PortMChannel">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="SlotPort">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+/[0-9]+(\.[0-9]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="slotport_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="SlotPort">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slotport_key">
+    <xs:simpleContent>
+      <xs:extension base="SlotPort">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slotport_oper">
+    <xs:simpleContent>
+      <xs:extension base="SlotPort">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="slot_port_range">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+/[0-9]+(\.[0-9]+)*([-][0-9]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="slot_port_range_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="slot_port_range">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slot_port_range_key">
+    <xs:simpleContent>
+      <xs:extension base="slot_port_range">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slot_port_range_oper">
+    <xs:simpleContent>
+      <xs:extension base="slot_port_range">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="SlotMPort">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[0-9]+/[0-9]+(\.[0-9]+)*([-][0-9]+)*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="slotmport_oper_key">
+    <xs:simpleContent>
+      <xs:extension base="SlotMPort">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slotmport_key">
+    <xs:simpleContent>
+      <xs:extension base="SlotMPort">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="slotmport_oper">
+    <xs:simpleContent>
+      <xs:extension base="SlotMPort">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="Userdef">
+    <xs:simpleContent>
+      <xs:extension base="xs:string"/>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:simpleType name="ipMaskOrLen">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^((((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])) ((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])))|(((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))/(([0-9])|([0-2][0-9])|(3[0-2]))))$"/>
+      <xs:maxLength value="255"/>
+      <xs:minLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="nameOrIP">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="^(((([a-zA-Z0-9]|[a-zA-Z0-9][-a-zA-Z0-9]*[a-zA-Z0-9])\.)*([a-zA-Z0-9]|[a-zA-Z0-9][-a-zA-Z0-9]*[A-Za-z0-9]))|((([a-zA-Z0-9]|[a-zA-Z0-9][-a-zA-Z0-9]*[a-zA-Z0-9])\.)*([a-zA-Z0-9]|[a-zA-Z][-a-zA-Z0-9]*[A-Za-z0-9]))|((([a-fA-F0-9]{1,4}:){7})([a-fA-F0-9]{1,4})))$"/>
+      <xs:maxLength value="255"/>
+      <xs:minLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DNS">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-z0-9][-a-z0-9]{0,62}(\.[a-z0-9][-a-z0-9]{0,62})*\.?"/>
+      <xs:maxLength value="255"/>
+      <xs:minLength value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="DNSIPV4IPV6">
+    <xs:union memberTypes="DNS IPV4Address IPV6Address"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="IPV4Mask">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV4 mask in dotted decimal notation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))">
+        <xs:annotation>
+          <xs:documentation>
+            An IPv4 mask should be of the form 129.29.83.45. This
+            datatype restricts the value of each field between 0 
+            and 255, i.e. [0-255].[0-255].[0-255].[0-255]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IPV4Wildcard">
+    <xs:annotation>
+      <xs:documentation>
+        A mask with the same semantics and validation as IPV4Mask, but
+        the value will have its bits flipped before doing the IPV4Mask
+        style validations. An IPV4 wildcard mask specifies the bits which
+        are not be be matched, rather than the bits that are.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="((([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\.){3}([1-9]?[0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5]))">
+        <xs:annotation>
+          <xs:documentation>
+            An IPv4 wildcard mask should be of the form 129.29.83.45.
+            This datatype restricts the value of each field between 0 
+            and 255, i.e. [0-255].[0-255].[0-255].[0-255]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IPV6Mask">
+    <xs:annotation>
+      <xs:documentation>
+        An IPV6 mask in standard notation
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([a-fA-F0-9]{1,4}:){7})([a-fA-F0-9]{1,4})">
+        <xs:annotation> 
+          <xs:documentation>
+            An IPv6 mask should be of the form
+            12:a3:3422:f332:43e:0:5a3:122.  This datatype restricts the
+            value of each field between 0 and ffff, i.e.
+            [0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="IPV6Wildcard">
+    <xs:annotation>
+      <xs:documentation>
+        A mask with the same semantics and validation as IPV6Mask, but
+        the value will have its bits flipped before doing the IPV6Mask
+        style validations. An IPV6 wildcard mask specifies the bits which
+        are not be be matched, rather than the bits that are.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([a-fA-F0-9]{1,4}:){7})([a-fA-F0-9]{1,4})">
+        <xs:annotation> 
+          <xs:documentation>
+            An IPv6 wildcard mask should be of the form
+            12:a3:3422:f332:43e:0:5a3:122. This datatype restricts the
+            value of each field between 0 and ffff, i.e.
+            [0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]:[0-ffff]
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="empty_element">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="empty_element_oper">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="empty_element_key">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="empty_element_oper_key">
+    <xs:complexContent>
+      <xs:restriction base="xs:anyType">
+        <xs:attribute name="operation" type="nf:editOperationType"/>
+        <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+      </xs:restriction>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="duration">
+    <xs:annotation>
+      <xs:documentation>
+        NX-OS duration
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(([0-9] year(s)*)*([1-12] month(s)*)*([1-31] day(s)*)*([1-24] hour(s)*)*([1-60] minute(s)*)*([1-60] second(s)*)*){1}|(0 seconds)">
+        <xs:annotation>
+          <xs:documentation>
+            A duration should be of the form: xx year(s) mm month(s) dd day(s) hh hour(s) mm minute(s) ss second(s).  Any but one of the keywords(year, month, etc) can be omitted from the string if it has a value of 0 but at least one keyword will be present on the string.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="utc_asc_date_time">
+    <xs:annotation>
+      <xs:documentation>
+        NX-OS UTC date time format. 
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(( )*(Mon|Tue|Wed|Thu|Fri|Sat|Sun)( )*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)( )*(([1-9])|([12][0-9])|(3[01]))( )*(([01][0-9])|(2[0-3]))[ ]*(:[0-5][0-9]){2}( )*((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))(\s))">
+        <xs:annotation>
+          <xs:documentation>
+            An NX-OS UTC date time format should be of the form:" {weekday} {month_name} {month-day} {hh}:{mm}:{ss} {yyyy}\n"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:pattern>
+    </xs:restriction>
+  </xs:simpleType>
+
+
+</xs:schema>

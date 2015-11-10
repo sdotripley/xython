@@ -1,0 +1,1334 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:pvlan" targetNamespace="http://www.cisco.com/nxos:1.0:pvlan" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module pvlan</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_debug_pvlan"/>
+  <xs:complexType name="show_type_Cmd_show_debug_pvlan">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_show_debug_pvlan"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_show_pvlan"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_pvlan"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_show_debug_pvlan">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show all debugging flags for private VLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_show_pvlan">
+    <xs:annotation>
+      <xs:documentation>VLAN status</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_pvlan_id">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_pvlan_id" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_show_pvlan"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_pvlan_id">
+    <xs:sequence>
+      <xs:element name="id" minOccurs="1" type="id_type_Cmd_show_pvlan"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="id_type_Cmd_show_pvlan">
+    <xs:annotation>
+      <xs:documentation>VLAN status by VLAN id</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>VLAN ID 1-4094 or range(s): 1-5, 10 or 2-5,7-19</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_show_pvlan">
+    <xs:annotation>
+      <xs:documentation>Private VLAN information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_pvlan___readonly__" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_pvlan___readonly__" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="type" minOccurs="1" type="type_type_Cmd_show_pvlan_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_pvlan___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_pvlan"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_pvlan">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Start</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="primary" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Primary VLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="secondary" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Secondary VLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pvlan-type" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="isolated">
+                <xs:annotation>
+                  <xs:documentation>Isolated PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="community">
+                <xs:annotation>
+                  <xs:documentation>Community PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary">
+                <xs:annotation>
+                  <xs:documentation>Primary PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="non-operational">
+                <xs:annotation>
+                  <xs:documentation>Non-operational PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ports" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Port list</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="type_type_Cmd_show_pvlan_type">
+    <xs:annotation>
+      <xs:documentation>Private VLAN type information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_pvlan_type___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_pvlan_type___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_pvlan_type___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_pvlan_type"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_pvlan_type">
+    <xs:annotation>
+      <xs:documentation>Read Only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="start" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Start</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="vlan" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>vlan</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pvlan-type" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="isolated">
+                <xs:annotation>
+                  <xs:documentation>Isolated PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="community">
+                <xs:annotation>
+                  <xs:documentation>Community PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="primary">
+                <xs:annotation>
+                  <xs:documentation>Primary PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="non-operational">
+                <xs:annotation>
+                  <xs:documentation>Non-operational PVLAN</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="normal">
+                <xs:annotation>
+                  <xs:documentation>normal</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="primary" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>associated to primary</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_pvlan">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_pvlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_pvlan">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show interface-vlan logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_debug_pvlan_all"/>
+  <xs:complexType name="debug_type_Cmd_debug_pvlan_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_debug_pvlan_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_debug_pvlan_all">
+    <xs:annotation>
+      <xs:documentation>Configure debug flags for private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags for private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="mts_type_Cmd_debug_pvlan_mts"/>
+        <xs:element name="enable_file_tracing" minOccurs="1" type="enable_file_tracing_type_Cmd_debug_pvlan_enable_file_tracing"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mts_type_Cmd_debug_pvlan_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of private VLAN mts message</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pkt" minOccurs="1" type="pkt_type_Cmd_debug_pvlan_mts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkt_type_Cmd_debug_pvlan_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of private VLAN mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_debug_pvlan_mts_rx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_debug_pvlan_mts_rx" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_debug_pvlan_mts_rx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="both" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted/Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="enable_file_tracing_type_Cmd_debug_pvlan_enable_file_tracing">
+    <xs:annotation>
+      <xs:documentation>start recording traces in a file</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_debug_pvlan_enable_file_tracing_bootup" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_debug_pvlan_enable_file_tracing_bootup" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_debug_pvlan_enable_file_tracing_bootup">
+    <xs:sequence>
+      <xs:element name="bootup" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>enable file tracing on switch bootup/issu</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="no" type="no_type_Cmd_debug_pvlan_all"/>
+  <xs:complexType name="no_type_Cmd_debug_pvlan_all">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_debug_pvlan_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_debug_pvlan_all">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_e_Cmd_debug_pvlan_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_e_Cmd_debug_pvlan_all">
+    <xs:annotation>
+      <xs:documentation>Configure debug flags for private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure all debug flags for private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="error" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN error</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="warning" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN warning</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN HA</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="trace" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure debugging of private VLAN trace</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="mts_type_e_Cmd_debug_pvlan_mts"/>
+        <xs:element name="enable_file_tracing" minOccurs="1" type="enable_file_tracing_type_e_Cmd_debug_pvlan_enable_file_tracing"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mts_type_e_Cmd_debug_pvlan_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of private VLAN mts message</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pkt" minOccurs="1" type="pkt_type_e_Cmd_debug_pvlan_mts"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pkt_type_e_Cmd_debug_pvlan_mts">
+    <xs:annotation>
+      <xs:documentation>Configure debugging of private VLAN mts messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_debug_pvlan_mts_rx">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_debug_pvlan_mts_rx" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_debug_pvlan_mts_rx">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="rx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tx" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="both" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Transmitted/Received messages</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="enable_file_tracing_type_e_Cmd_debug_pvlan_enable_file_tracing">
+    <xs:annotation>
+      <xs:documentation>start recording traces in a file</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_debug_pvlan_enable_file_tracing_bootup" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_debug_pvlan_enable_file_tracing_bootup" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_debug_pvlan_enable_file_tracing_bootup">
+    <xs:sequence>
+      <xs:element name="bootup" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>enable file tracing on switch bootup/issu</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_pvlan_config_term_log_facility"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_pvlan_config_term_log_facility"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_ec_Cmd_vlan_create_delete"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_pvlan_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_pvlan_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Set level for private VLAN syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_pvlan_config_term_log_facility"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+        <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_vlan_create_delete"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_pvlan_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_ec_Cmd_pvlan_config_term_log_facility"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_ec_Cmd_pvlan_config_term_log_facility">
+    <xs:annotation>
+      <xs:documentation>Set level for private VLAN syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_Cmd_vlan_create_delete">
+    <xs:annotation>
+      <xs:documentation>Vlan commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id-create-delete" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>VLAN ID 1-4094 or range(s): 1-5, 10 or 2-5,7-19</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel-switch_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vlan" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:vlan_idMRange_key"/>
+              <xs:element name="__XML__MODE_if-vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vlan_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+                <xs:element name="__XML__MODE_if-ether-sub-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ether-sub-switch_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-eth-port-channel-switch" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="switchport" minOccurs="1" type="switchport_type_Cmd_pchn_switchport_mode_private_vlan"/>
+                <xs:element name="no" minOccurs="1" type="no_type_Cmd_pchn_switchport_mode_private_vlan"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_if-switching" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-switching_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mode_type_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Enter the port mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Set port mode to private-vlan host or promiscuous or trunk-promiscuous or trunk-isolated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pvlan_mode" minOccurs="1" type="pvlan_mode_type_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pvlan_mode_type_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>private vlan mode</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="host">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan host</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="promiscuous">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan promiscuous</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="switchport" minOccurs="1" type="switchport_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mode_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Enter the port mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>Set port mode to private-vlan host or promiscuous or trunk-promiscuous or trunk-isolated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_pchn_switchport_mode_private_vlan_pvlan_mode" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_pchn_switchport_mode_private_vlan_pvlan_mode" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_pchn_switchport_mode_private_vlan_pvlan_mode">
+    <xs:sequence>
+      <xs:element name="pvlan_mode" minOccurs="1" type="pvlan_mode_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="pvlan_mode_type_eciepcs_Cmd_pchn_switchport_mode_private_vlan">
+    <xs:annotation>
+      <xs:documentation>private vlan mode</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="host">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan host</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="promiscuous">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan promiscuous</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-switching_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="switchport" minOccurs="1" type="switchport_type_Cmd_switchport_set_pvlan_host_association"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_switchport_set_pvlan_host_association"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_switchport_set_pvlan_host_association"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="host-association" minOccurs="1" type="host-association_type_Cmd_switchport_set_pvlan_host_association"/>
+        <xs:element name="mapping" minOccurs="1" type="mapping_type_Cmd_switchport_set_pvlan_mapping"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host-association_type_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN host association</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="primary-vlan" minOccurs="1" type="primary-vlan_type_Cmd_switchport_set_pvlan_host_association"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="primary-vlan_type_Cmd_switchport_set_pvlan_host_association">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:vlan_id">
+        <xs:annotation>
+          <xs:documentation>Primary VLAN ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="secondary-vlan" minOccurs="1" type="nxos:vlan_id">
+        <xs:annotation>
+          <xs:documentation>Secondary VLAN ID</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mapping_type_Cmd_switchport_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN access/trunk promiscuous mapping</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="primary-vlan" minOccurs="1" type="primary-vlan_type_Cmd_switchport_set_pvlan_mapping"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="primary-vlan_type_Cmd_switchport_set_pvlan_mapping">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:vlan_id">
+        <xs:annotation>
+          <xs:documentation>Primary private VLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_switchport_set_pvlan_mapping_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_switchport_set_pvlan_mapping_add" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+              <xs:annotation>
+                <xs:documentation>Secondary VLAN IDs</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_switchport_set_pvlan_mapping_add">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_switchport_set_pvlan_mapping_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_switchport_set_pvlan_mapping_add" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_switchport_set_pvlan_mapping_add">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="add" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Add a VLAN to private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="remove" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Remove a VLAN from private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="switchport" minOccurs="1" type="switchport_type_ecis_Cmd_switchport_set_pvlan_host_association"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_ecis_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_ecis_Cmd_switchport_set_pvlan_host_association"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_ecis_Cmd_switchport_set_pvlan_host_association">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="host-association" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Set the private VLAN host association</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mapping" minOccurs="1" type="mapping_type_ecis_Cmd_switchport_set_pvlan_mapping"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mapping_type_ecis_Cmd_switchport_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN access/trunk promiscuous mapping</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_switchport_set_pvlan_mapping_primary-vlan" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_switchport_set_pvlan_mapping_primary-vlan" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_switchport_set_pvlan_mapping_primary-vlan">
+    <xs:sequence>
+      <xs:element name="primary-vlan" minOccurs="1" type="primary-vlan_type_ecis_Cmd_switchport_set_pvlan_mapping"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="primary-vlan_type_ecis_Cmd_switchport_set_pvlan_mapping">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:vlan_id">
+        <xs:annotation>
+          <xs:documentation>Primary private VLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Secondary VLAN IDs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vlan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_set_pvlan_mapping"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_set_pvlan_mapping"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Configure a private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mapping" minOccurs="1" type="mapping_type_Cmd_set_pvlan_mapping"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mapping_type_Cmd_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN interface mapping</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_set_pvlan_mapping_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_set_pvlan_mapping_add" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+              <xs:annotation>
+                <xs:documentation>Secondary VLAN IDs of the private VLAN interface mapping</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_set_pvlan_mapping_add">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_set_pvlan_mapping_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_set_pvlan_mapping_add" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_set_pvlan_mapping_add">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="add" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Add a VLAN to private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="remove" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Remove a VLAN from private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_eciv_Cmd_set_pvlan_mapping"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_eciv_Cmd_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Configure a private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mapping" minOccurs="1" type="mapping_type_eciv_Cmd_set_pvlan_mapping"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mapping_type_eciv_Cmd_set_pvlan_mapping">
+    <xs:annotation>
+      <xs:documentation>Set the private VLAN interface mapping</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_set_pvlan_mapping_secondary_vlans" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_set_pvlan_mapping_secondary_vlans" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_set_pvlan_mapping_secondary_vlans">
+    <xs:sequence>
+      <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>Secondary VLAN IDs of the private VLAN interface mapping</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence minOccurs="0">
+              <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:element name="switchport" minOccurs="1" type="switchport_type_Cmd_switchport_mode_ethernet"/>
+                <xs:element name="no" minOccurs="1" type="no_type_Cmd_switchport_mode_ethernet"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_if-switching" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-switching_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mode_type_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Enter the port mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Set port mode to private-vlan host or promiscuous or trunk-promiscuous or trunk-isolated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pvlan_mode" minOccurs="1" type="pvlan_mode_type_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pvlan_mode_type_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>private vlan mode</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="host">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan host</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="promiscuous">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan promiscuous</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="switchport" minOccurs="1" type="switchport_type_ecies_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="switchport_type_ecies_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Configure switchport parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="mode" minOccurs="1" type="mode_type_ecies_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mode_type_ecies_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Enter the port mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_ecies_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_ecies_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>Set port mode to private-vlan host or promiscuous or trunk-promiscuous or trunk-isolated</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_switchport_mode_ethernet_pvlan_mode" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_switchport_mode_ethernet_pvlan_mode" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_switchport_mode_ethernet_pvlan_mode">
+    <xs:sequence>
+      <xs:element name="pvlan_mode" minOccurs="1" type="pvlan_mode_type_ecies_Cmd_switchport_mode_ethernet"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="pvlan_mode_type_ecies_Cmd_switchport_mode_ethernet">
+    <xs:annotation>
+      <xs:documentation>private vlan mode</xs:documentation>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="host">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan host</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="promiscuous">
+          <xs:annotation>
+            <xs:documentation>port mode pvlan promiscuous</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+        <xs:element name="__XML__MODE_if-switching" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-switching_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ether-sub-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-switching" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-switching_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vlan_type_ec_Cmd_vlan_create_delete">
+    <xs:annotation>
+      <xs:documentation>Vlan commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id-create-delete" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value" type="nxos:vlan_idMRange">
+              <xs:annotation>
+                <xs:documentation>VLAN ID 1-4094 or range(s): 1-5, 10 or 2-5,7-19</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="__XML__MODE_vlan" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vlan_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vlan_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_Cmd_set_pvlan_type"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_set_pvlan_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_Cmd_set_pvlan_type">
+    <xs:annotation>
+      <xs:documentation>Configure a private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="pvlan-type" minOccurs="1" type="pvlan-type_type_Cmd_set_pvlan_type"/>
+        <xs:element name="association" minOccurs="1" type="association_type_Cmd_set_pvlan_association"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pvlan-type_type_Cmd_set_pvlan_type">
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="isolated">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as isolated private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="community">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as community private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="primary">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as primary private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="association_type_Cmd_set_pvlan_association">
+    <xs:annotation>
+      <xs:documentation>Configure association between private VLANs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_set_pvlan_association_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_set_pvlan_association_add" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+              <xs:annotation>
+                <xs:documentation>VLAN IDs of the private VLANs to be configured</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_set_pvlan_association_add">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_set_pvlan_association_add">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_set_pvlan_association_add" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_set_pvlan_association_add">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="add" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Add a VLAN to private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="remove" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Remove a VLAN from private VLAN list</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_set_pvlan_type">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="private-vlan" minOccurs="1" type="private-vlan_type_ecv_Cmd_set_pvlan_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="private-vlan_type_ecv_Cmd_set_pvlan_type">
+    <xs:annotation>
+      <xs:documentation>Configure a private VLAN</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="pvlan-type" minOccurs="1" type="pvlan-type_type_ecv_Cmd_set_pvlan_type"/>
+        <xs:element name="association" minOccurs="1" type="association_type_ecv_Cmd_set_pvlan_association"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pvlan-type_type_ecv_Cmd_set_pvlan_type">
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="isolated">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as isolated private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="community">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as community private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="primary">
+          <xs:annotation>
+            <xs:documentation>Configure the VLAN as primary private VLAN</xs:documentation>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="association_type_ecv_Cmd_set_pvlan_association">
+    <xs:annotation>
+      <xs:documentation>Configure association between private VLANs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_set_pvlan_association_secondary_vlans" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_set_pvlan_association_secondary_vlans" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_set_pvlan_association_secondary_vlans">
+    <xs:sequence>
+      <xs:element name="secondary_vlans" minOccurs="1" type="nxos:vlan_idMRange">
+        <xs:annotation>
+          <xs:documentation>VLAN IDs of the private VLANs to be configured</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>

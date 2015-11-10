@@ -1,0 +1,2216 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:arp" targetNamespace="http://www.cisco.com/nxos:1.0:arp" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module arp</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_clis_show_debug_cmd"/>
+  <xs:complexType name="show_type_Cmd_clis_show_debug_cmd">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_clis_show_debug_cmd"/>
+        <xs:element name="debug-filter" minOccurs="1" type="debug-filter_type_Cmd_clis_show_debug_filters_cmd"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_clis"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_run_clis"/>
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_show_adj_cmd"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_arp_show_tech_support_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_arp_show_logging_level_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_clis_show_debug_cmd">
+    <xs:annotation>
+      <xs:documentation>Display debugging status</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display arp debug flags</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug-filter_type_Cmd_clis_show_debug_filters_cmd">
+    <xs:annotation>
+      <xs:documentation>Display debug filters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display arp debug-filters</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current operating configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_show_run_clis"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display arp information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_e_Cmd_show_run_clis"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display arp information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="ip_type_Cmd_arp_show_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display IP information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_show_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_show_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display ARP table and statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_ip-address" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_arp_show_adj_cmd_ip-address" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_arp_show_adj_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="off-list" minOccurs="1" type="off-list_type_Cmd_arp_show_off_list_entry_cmd"/>
+        <xs:element name="vpc-statistics" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show vPC global statistics</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tunnel-statistics" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP statistics for tunneled packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_arp_show_stats_cmd"/>
+        <xs:element name="client" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP Client table</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_ip-address">
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_ip-address" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_arp_show_adj_cmd_ip-address" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_vrf" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_arp_show_adj_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_arp_show_adj_cmd_ip-address">
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_ip-address" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_arp_show_adj_cmd_ip-address_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_arp_show_adj_cmd_ip-address_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ip-address" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_sync-entries" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_arp_show_adj_cmd_sync-entries" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_detail" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_arp_show_adj_cmd_detail" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="static" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display Static ARP entries</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP adjacency summary</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_arp_show_adj_cmd_summary">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_arp_show_adj_cmd_summary" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__INTF_interface" minOccurs="1" type="interface_type_Cmd_arp_show_adj_cmd"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_sync-entries">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="sync-entries" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP table learnt only due to arp table sync</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="fhrp-non-active-learn" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP table learnt only due to request for non-active FHRP address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_detail">
+    <xs:sequence>
+      <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display detailed information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_summary">
+    <xs:sequence>
+      <xs:element name="summary" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display ARP adjacency summary</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_arp_show_adj_cmd">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="loopback" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="vlan" maxOccurs="unbounded" type="nxos:vlan_id"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_arp_show_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_arp_show_adj_cmd">
+        <xs:annotation>
+          <xs:documentation>ARP interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_arp_show_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_arp_show_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_show_adj_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_show_adj_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_show_adj_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP entries for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_arp_show_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_arp_show_adj_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_vrf" minOccurs="1" type="TABLE_vrf_type_Cmd_arp_show_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_vrf_type_Cmd_arp_show_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_vrf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vrf-name-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_cnt-resolved" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_cnt-incomplete" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_cnt-thrtld-incomplete" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_cnt-unknown" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_cnt-total" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_TABLE_adj" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_cnt-resolved">
+    <xs:sequence>
+      <xs:element name="cnt-resolved" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_cnt-incomplete">
+    <xs:sequence>
+      <xs:element name="cnt-incomplete" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_cnt-thrtld-incomplete">
+    <xs:sequence>
+      <xs:element name="cnt-thrtld-incomplete" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_cnt-unknown">
+    <xs:sequence>
+      <xs:element name="cnt-unknown" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_cnt-total">
+    <xs:sequence>
+      <xs:element name="cnt-total" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_TABLE_adj">
+    <xs:sequence>
+      <xs:element name="TABLE_adj" minOccurs="1" type="TABLE_adj_type_Cmd_arp_show_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_adj_type_Cmd_arp_show_adj_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_adj" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="intf-out" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="ip-addr-out" minOccurs="1">
+              <xs:complexType>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:IPV4Address">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_time-stamp" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="mac" minOccurs="1" type="nxos:Ethernet"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_phy-intf" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_unknown" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_arp_show_adj_cmd_incomplete" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_time-stamp">
+    <xs:sequence>
+      <xs:element name="time-stamp" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_phy-intf">
+    <xs:sequence>
+      <xs:element name="phy-intf" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_unknown">
+    <xs:sequence>
+      <xs:element name="unknown" minOccurs="1" type="nxos:bool_enabled"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_adj_cmd_incomplete">
+    <xs:sequence>
+      <xs:element name="incomplete" minOccurs="1" type="nxos:bool_enabled"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="off-list_type_Cmd_arp_show_off_list_entry_cmd">
+    <xs:annotation>
+      <xs:documentation>Show adjacencies in off-list arp database</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_show_off_list_entry_cmd_vlan" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_show_off_list_entry_cmd_vlan" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_off_list_entry_cmd_vlan">
+    <xs:sequence>
+      <xs:element name="vlan" minOccurs="1" type="vlan_type_Cmd_arp_show_off_list_entry_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vlan_type_Cmd_arp_show_off_list_entry_cmd">
+    <xs:annotation>
+      <xs:documentation>Vlan id</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vlan-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Show information for specified vlan</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statistics_type_Cmd_arp_show_stats_cmd">
+    <xs:annotation>
+      <xs:documentation>Display ARP statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_show_stats_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_show_stats_cmd_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_arp_show_stats_cmd_interface-all" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_arp_show_stats_cmd_interface-all" minOccurs="0" maxOccurs="1"/>
+                  <xs:element name="__XML__OPT_Cmd_arp_show_stats_cmd_vrf" minOccurs="0">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:group ref="og_Cmd_arp_show_stats_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                        <xs:element name="__XML__OPT_Cmd_arp_show_stats_cmd___readonly__" minOccurs="0">
+                          <xs:complexType>
+                            <xs:sequence>
+                              <xs:group ref="og_Cmd_arp_show_stats_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                            </xs:sequence>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_stats_cmd_interface">
+    <xs:sequence>
+      <xs:element name="__XML__INTF_interface" minOccurs="1" type="interface_type_Cmd_arp_show_stats_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_arp_show_stats_cmd">
+    <xs:choice>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="loopback" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="vlan" maxOccurs="unbounded" type="nxos:vlan_id"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_arp_show_stats_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_arp_show_stats_cmd">
+        <xs:annotation>
+          <xs:documentation>ARP interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_stats_cmd_interface-all">
+    <xs:sequence>
+      <xs:element name="interface-all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display ARP statistics for all interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_stats_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_arp_show_stats_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_arp_show_stats_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_show_stats_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_show_stats_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_show_stats_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display ARP statistics for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_show_stats_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_arp_show_stats_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_arp_show_stats_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_vrf" minOccurs="1" type="TABLE_vrf_type_Cmd_arp_show_stats_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_vrf_type_Cmd_arp_show_stats_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_vrf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vrf-name-out1" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="TABLE_stat" minOccurs="1" type="TABLE_stat_type_Cmd_arp_show_stats_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_stat_type_Cmd_arp_show_stats_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_stat" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tx-total" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-req" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-reply" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-req-l2" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-reply-l2" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-grat" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-tunnel" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-drop" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tx-mbuf-fail" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-total" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-req" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-reply" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-req-l2" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-reply-l2" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-proxy" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-local-proxy" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-tunnel" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-fastpath" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-snoop" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="rx-drop" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="bad-if" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="bad-len" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-prot" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-ctxt" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="ctxt-not-crtd" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-l2" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-l3" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-sip" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="our-sip" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="arp-if-no-mem" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="subnet-mismatch" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="dir-bcast" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-dip" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="non-local-dst" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="non-active-fhrp" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="invalid-smac" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="our-smac" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="not-init" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="l2-prxy-en" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="l2-port-untrusted" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="stdby-fhrp-vip" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="grat-prxy-en" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="arp-req-ignore" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="l2-intf" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="l2fm-query-fail" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tunnel_fail" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="adds" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="dels" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="timeouts" minOccurs="1" type="nxos:base_unsignedInt"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tech-support_type_Cmd_arp_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_show_tech_support_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Display ARP information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_show_tech_support_cmd_brief" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_show_tech_support_cmd_brief" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_show_tech_support_cmd_brief">
+    <xs:sequence>
+      <xs:element name="brief" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Brief information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_arp_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_arp_show_logging_level_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_arp_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show arp logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="clear" type="clear_type_Cmd_arp_clear_adj_cmd"/>
+  <xs:complexType name="clear_type_Cmd_arp_clear_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Reset functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_clear_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_arp_clear_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear IP commands</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_clear_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_clear_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear ARP table and statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_arp_clear_adj_cmd_interface" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_arp_clear_adj_cmd_interface" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_arp_clear_adj_cmd_vrf" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_arp_clear_adj_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="__XML__OPT_Cmd_arp_clear_adj_cmd_force-delete" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:group ref="og_Cmd_arp_clear_adj_cmd_force-delete" minOccurs="0" maxOccurs="1"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="statistics" minOccurs="1" type="statistics_type_Cmd_arp_clear_stats_cmd"/>
+        <xs:element name="vpc-statistics" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Clear ARP vPC statistics</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="tunnel-statistics" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Clear ARP statistics for tunneled packets</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event-history" minOccurs="1" type="event-history_type_Cmd_arp_clear_history_log_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_clear_adj_cmd_interface">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+          <xs:annotation>
+            <xs:documentation>ARP interface</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-address" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_clear_adj_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_arp_clear_adj_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_arp_clear_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_clear_adj_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_clear_adj_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_clear_adj_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Clear ARP entries for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_clear_adj_cmd_force-delete">
+    <xs:sequence>
+      <xs:element name="force-delete" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Clear the entries from ARP table without refresh</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="statistics_type_Cmd_arp_clear_stats_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear ARP statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_clear_stats_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_clear_stats_cmd_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_arp_clear_stats_cmd_vrf" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_arp_clear_stats_cmd_vrf" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_clear_stats_cmd_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>ARP interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_arp_clear_stats_cmd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_arp_clear_stats_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_arp_clear_stats_cmd">
+    <xs:annotation>
+      <xs:documentation>Display per-VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_clear_stats_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_clear_stats_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_clear_stats_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Clear ARP statistics for all vrfs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="event-history_type_Cmd_arp_clear_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear the event history buffers</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_clear_history_log_cmd_packet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_clear_history_log_cmd_packet" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_clear_history_log_cmd_packet">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packet" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst packet logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Internal event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="sync-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CFS and MCECM related event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="control" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP control event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>HA and GR logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snmp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>SNMP logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="cli" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>clear cli logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>All event history buffers </xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="debug-filter" type="debug-filter_type_Cmd_arp_dfilter_if_cmd"/>
+  <xs:complexType name="debug-filter_type_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable filtering for debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_dfilter_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>IP events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_dfilter_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_arp_dfilter_if_cmd"/>
+        <xs:element name="address" minOccurs="1" type="address_type_Cmd_arp_dfilter_ip_addr_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Interface filter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>ARP interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address_type_Cmd_arp_dfilter_ip_addr_cmd">
+    <xs:annotation>
+      <xs:documentation>IP address filter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip-address" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_arp_dfilter_if_cmd"/>
+  <xs:complexType name="no_type_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug-filter" minOccurs="1" type="debug-filter_type_e_Cmd_arp_dfilter_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug-filter_type_e_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable filtering for debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_e_Cmd_arp_dfilter_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_e_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>IP events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_e_Cmd_arp_dfilter_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_e_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_arp_dfilter_if_cmd"/>
+        <xs:element name="address" minOccurs="1" type="address_type_e_Cmd_arp_dfilter_ip_addr_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_e_Cmd_arp_dfilter_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Interface filter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_dfilter_if_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_dfilter_if_cmd_interface" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_dfilter_if_cmd_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="nxos:Interface">
+        <xs:annotation>
+          <xs:documentation>ARP interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="address_type_e_Cmd_arp_dfilter_ip_addr_cmd">
+    <xs:annotation>
+      <xs:documentation>IP address filter</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_arp_dfilter_ip_addr_cmd_ip-address" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_dfilter_ip_addr_cmd_ip-address" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_dfilter_ip_addr_cmd_ip-address">
+    <xs:sequence>
+      <xs:element name="ip-address" minOccurs="1" type="nxos:IPV4Address">
+        <xs:annotation>
+          <xs:documentation>IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_timeout_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_arp_timeout_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_arp_syslog_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_ec_Cmd_vpc_domain_id"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_timeout_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_Cmd_arp_timeout_cmd"/>
+        <xs:element name="syslog-threshold" minOccurs="1" type="syslog-threshold_type_Cmd_arp_threshold_cmd"/>
+        <xs:element name="event-history" minOccurs="1" type="event-history_type_Cmd_arp_history_log_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP timeout</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time-out value in seconds</xs:documentation>
+            <xs:appinfo>
+              <default_value>1500</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="60"/>
+              <xs:maxInclusive value="28800"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="syslog-threshold_type_Cmd_arp_threshold_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP table syslog threshold</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="percentage" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Percentage</xs:documentation>
+            <xs:appinfo>
+              <default_value>90</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="event-history_type_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>log debug events into event history buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_history_log_cmd_packet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_history_log_cmd_packet" maxOccurs="1"/>
+            <xs:element name="size" minOccurs="1" type="size_type_Cmd_arp_history_log_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_history_log_cmd_packet">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packet" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst packet logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Internal event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="sync-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CFS and MCECM related event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="control" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP control event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>HA and GR logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snmp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>SNMP logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="cli" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>cli logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="size_type_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the size of the event-hist buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_history_log_cmd_size_in_text">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_arp_history_log_cmd_size_in_text" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_arp_history_log_cmd_size_in_text">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="size_in_text" minOccurs="1" type="size_in_text_type_Cmd_arp_history_log_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="size_in_text_type_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>Buffer size</xs:documentation>
+      <xs:appinfo>
+        <default_value>small</default_value>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="small">
+          <xs:annotation>
+            <xs:documentation>Small buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="medium">
+          <xs:annotation>
+            <xs:documentation>Medium buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="large">
+          <xs:annotation>
+            <xs:documentation>Large buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="disabled">
+          <xs:annotation>
+            <xs:documentation>Disabled</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_ec_Cmd_arp_timeout_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_arp_syslog_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+        <xs:element name="vpc" minOccurs="1" type="vpc_type_Cmd_vpc_domain_id"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ec_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_ec_Cmd_arp_timeout_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ec_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="timeout" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP timeout</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="syslog-threshold" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP table syslog threshold</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event-history" minOccurs="1" type="event-history_type_ec_Cmd_arp_history_log_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="event-history_type_ec_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>log debug events into event history buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_history_log_cmd_packet">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_arp_history_log_cmd_packet" maxOccurs="1"/>
+            <xs:element name="size" minOccurs="1" type="size_type_ec_Cmd_arp_history_log_cmd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_arp_history_log_cmd_packet">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="packet" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst packet logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Internal event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="sync-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CFS and MCECM related event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="control" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP control event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ha" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>HA and GR logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>inst error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="lcache-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>lcache_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-event" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_event logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="client-errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Client_error logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="snmp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>SNMP logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="cli" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>cli logs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="size_type_ec_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure the size of the event-hist buffer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_arp_history_log_cmd_size_in_text">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_arp_history_log_cmd_size_in_text" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_arp_history_log_cmd_size_in_text">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="size_in_text" minOccurs="1" type="size_in_text_type_ec_Cmd_arp_history_log_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="size_in_text_type_ec_Cmd_arp_history_log_cmd">
+    <xs:annotation>
+      <xs:documentation>Buffer size</xs:documentation>
+      <xs:appinfo>
+        <default_value>small</default_value>
+      </xs:appinfo>
+    </xs:annotation>
+    <xs:simpleContent>
+      <xs:restriction base="nxos:base_string">
+        <xs:enumeration value="small">
+          <xs:annotation>
+            <xs:documentation>Small buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="medium">
+          <xs:annotation>
+            <xs:documentation>Medium buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="large">
+          <xs:annotation>
+            <xs:documentation>Large buffer</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+        <xs:enumeration value="disabled">
+          <xs:annotation>
+            <xs:documentation>Disabled</xs:documentation>
+            <xs:appinfo>
+              <default_value>small</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+        </xs:enumeration>
+      </xs:restriction>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_arp_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for ARP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain" minOccurs="1" type="domain_type_Cmd_vpc_domain_id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="domain_type_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Specify domain</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain_id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>domain id</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="1000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_arp_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_ec_Cmd_arp_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ec_Cmd_arp_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for ARP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:element name="__XML__MODE_if-eth-port-channel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mgmt" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:element name="__XML__MODE_if-mgmt-ether" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-mgmt-ether_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="loopback" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:element name="__XML__MODE_if-loopback" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-loopback_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-igp" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-igp_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-igp_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_ecii_Cmd_arp_timeout_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecii_Cmd_arp_timeout_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ecii_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="arp" minOccurs="1" type="arp_type_ecii_Cmd_arp_timeout_cmd"/>
+        <xs:element name="proxy-arp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure proxy ARP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="local-proxy-arp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure local proxy ARP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ecii_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="timeout" minOccurs="1" type="timeout_type_ecii_Cmd_arp_timeout_cmd"/>
+        <xs:element name="ip-address" minOccurs="1" type="ip-address_type_Cmd_arp_ip_adj_cmd"/>
+        <xs:element name="gratuitous" minOccurs="1" type="gratuitous_type_Cmd_arp_if_grat_arp_upd_cache_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timeout_type_ecii_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP timeout</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="time-out" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Time-out value in seconds</xs:documentation>
+            <xs:appinfo>
+              <default_value>1500</default_value>
+            </xs:appinfo>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="60"/>
+              <xs:maxInclusive value="28800"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_Cmd_arp_ip_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:IPV4Address">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mac-address" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>MAC address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gratuitous_type_Cmd_arp_if_grat_arp_upd_cache_cmd">
+    <xs:annotation>
+      <xs:documentation>gratuitous</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="update" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable arp cache updates for gratuitous arp</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable sending grat. arp request when duplicate address detected</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="hsrp" minOccurs="1" type="hsrp_type_Cmd_arp_if_grat_arp_hsrp_dup_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hsrp_type_Cmd_arp_if_grat_arp_hsrp_dup_cmd">
+    <xs:annotation>
+      <xs:documentation>hsrp</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="duplicate" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>duplicate address detection</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ecii_Cmd_arp_timeout_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_ecii_Cmd_arp_timeout_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ecii_Cmd_arp_timeout_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="arp" minOccurs="1" type="arp_type_ecii_Cmd_arp_timeout_cmd_1"/>
+        <xs:element name="proxy-arp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure proxy ARP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="local-proxy-arp" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure local proxy ARP</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ecii_Cmd_arp_timeout_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="timeout" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>ARP timeout</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ip-address" minOccurs="1" type="ip-address_type_ecii_Cmd_arp_ip_adj_cmd"/>
+        <xs:element name="gratuitous" minOccurs="1" type="gratuitous_type_ecii_Cmd_arp_if_grat_arp_upd_cache_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_ecii_Cmd_arp_ip_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:IPV4Address">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_arp_ip_adj_cmd_mac-address" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_arp_ip_adj_cmd_mac-address" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_arp_ip_adj_cmd_mac-address">
+    <xs:sequence>
+      <xs:element name="mac-address" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>MAC address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="gratuitous_type_ecii_Cmd_arp_if_grat_arp_upd_cache_cmd">
+    <xs:annotation>
+      <xs:documentation>gratuitous</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="update" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable arp cache updates for gratuitous arp</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable sending grat. arp request when duplicate address detected</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="hsrp" minOccurs="1" type="hsrp_type_ecii_Cmd_arp_if_grat_arp_hsrp_dup_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hsrp_type_ecii_Cmd_arp_if_grat_arp_hsrp_dup_cmd">
+    <xs:annotation>
+      <xs:documentation>hsrp</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="duplicate" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>duplicate address detection</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-mgmt-ether_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-mgmt-config" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-mgmt-config_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-mgmt-config_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_ip_adj_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_arp_ip_adj_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_arp_ip_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_ip_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_ip_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip-address" minOccurs="1" type="ip-address_type_ecimc_Cmd_arp_ip_adj_cmd"/>
+        <xs:element name="gratuitous" minOccurs="1" type="gratuitous_type_ecimc_Cmd_arp_if_grat_arp_upd_cache_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_ecimc_Cmd_arp_ip_adj_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:IPV4Address">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mac-address" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>MAC address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="gratuitous_type_ecimc_Cmd_arp_if_grat_arp_upd_cache_cmd">
+    <xs:annotation>
+      <xs:documentation>gratuitous</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="update" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable arp cache updates for gratuitous arp</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable sending grat. arp request when duplicate address detected</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="hsrp" minOccurs="1" type="hsrp_type_ecimc_Cmd_arp_if_grat_arp_hsrp_dup_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hsrp_type_ecimc_Cmd_arp_if_grat_arp_hsrp_dup_cmd">
+    <xs:annotation>
+      <xs:documentation>hsrp</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="duplicate" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>duplicate address detection</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_arp_ip_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_ecimc_Cmd_arp_ip_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ecimc_Cmd_arp_ip_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_ecimc_Cmd_arp_ip_adj_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ecimc_Cmd_arp_ip_adj_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure ARP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip-address" minOccurs="1" type="ip-address_type_ecimc_Cmd_arp_ip_adj_cmd_1"/>
+        <xs:element name="gratuitous" minOccurs="1" type="gratuitous_type_ecimc_Cmd_arp_if_grat_arp_upd_cache_cmd_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip-address_type_ecimc_Cmd_arp_ip_adj_cmd_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>IP address</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:IPV4Address">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_arp_ip_adj_cmd_mac-address" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecimc_Cmd_arp_ip_adj_cmd_mac-address" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecimc_Cmd_arp_ip_adj_cmd_mac-address">
+    <xs:sequence>
+      <xs:element name="mac-address" minOccurs="1" type="nxos:Ethernet">
+        <xs:annotation>
+          <xs:documentation>MAC address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="gratuitous_type_ecimc_Cmd_arp_if_grat_arp_upd_cache_cmd_1">
+    <xs:annotation>
+      <xs:documentation>gratuitous</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="update" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable arp cache updates for gratuitous arp</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="request" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/Disable sending grat. arp request when duplicate address detected</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="hsrp" minOccurs="1" type="hsrp_type_ecimc_Cmd_arp_if_grat_arp_hsrp_dup_cmd_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hsrp_type_ecimc_Cmd_arp_if_grat_arp_hsrp_dup_cmd_1">
+    <xs:annotation>
+      <xs:documentation>hsrp</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="duplicate" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>duplicate address detection</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-loopback_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-igp" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-igp_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpc_type_ec_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Virtual Port Channel configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain" minOccurs="1" type="domain_type_ec_Cmd_vpc_domain_id"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="domain_type_ec_Cmd_vpc_domain_id">
+    <xs:annotation>
+      <xs:documentation>Specify domain</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="domain_id" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>domain id</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_unsignedInt">
+                    <xs:minInclusive value="1"/>
+                    <xs:maxInclusive value="1000"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="__XML__MODE_vpc-domain" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vpc-domain_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vpc-domain_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ip" minOccurs="1" type="ip_type_Cmd_arp_set_cfs_enable_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_arp_set_cfs_enable_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_Cmd_arp_set_cfs_enable_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_Cmd_arp_set_cfs_enable_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_Cmd_arp_set_cfs_enable_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="synchronize" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>CFS synchronize</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_arp_set_cfs_enable_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ip" minOccurs="1" type="ip_type_ecvd_Cmd_arp_set_cfs_enable_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ip_type_ecvd_Cmd_arp_set_cfs_enable_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IP features</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="arp" minOccurs="1" type="arp_type_ecvd_Cmd_arp_set_cfs_enable_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="arp_type_ecvd_Cmd_arp_set_cfs_enable_cmd">
+    <xs:annotation>
+      <xs:documentation>ARP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="synchronize" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>CFS synchronize</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

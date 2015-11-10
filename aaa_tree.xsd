@@ -1,0 +1,4388 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:aaa_tree" targetNamespace="http://www.cisco.com/nxos:1.0:aaa_tree" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module aaa_tree</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="clear" type="clear_type_Cmd_clear_accounting_log"/>
+  <xs:complexType name="clear_type_Cmd_clear_accounting_log">
+    <xs:annotation>
+      <xs:documentation>Reset functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="accounting" minOccurs="1" type="accounting_type_Cmd_clear_accounting_log"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accounting_type_Cmd_clear_accounting_log">
+    <xs:annotation>
+      <xs:documentation>Clear accounting log(s) in all vdcs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="log" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Clear the accounting log(s) in all vdcs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_debug_aaa_aaa_requests"/>
+  <xs:complexType name="debug_type_Cmd_debug_aaa_aaa_requests">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_debug_aaa_aaa_requests"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_debug_aaa_aaa_requests">
+    <xs:annotation>
+      <xs:documentation>Enable debugging for aaa</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa-requests" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa request debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable all the debug flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="conf-events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa configuration events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa events debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure Tx/Rx packets of MTS</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_debug_aaa_aaa_requests"/>
+  <xs:complexType name="no_type_Cmd_debug_aaa_aaa_requests">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_debug_aaa_aaa_requests"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_debug_aaa_aaa_requests">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_e_Cmd_debug_aaa_aaa_requests"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_e_Cmd_debug_aaa_aaa_requests">
+    <xs:annotation>
+      <xs:documentation>Enable debugging for aaa</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa-requests" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa request debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable all the debug flags</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="conf-events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa configuration events</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="errors" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa errors</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="events" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>aaa events debug</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mts" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure Tx/Rx packets of MTS</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="show" type="show_type_Cmd_show_aaa_accounting"/>
+  <xs:complexType name="show_type_Cmd_show_aaa_accounting">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_show_aaa_accounting"/>
+        <xs:element name="accounting" minOccurs="1" type="accounting_type_Cmd_show_accounting_log_all"/>
+        <xs:element name="debug" minOccurs="1" type="debug_type_Cmd_show_debug_aaa"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_show_logging_level_aaa"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_aaa"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_start_aaa"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_show_aaa_tech_support"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_show_aaa_accounting">
+    <xs:annotation>
+      <xs:documentation>Show aaa information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="accounting" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show accounting configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="authentication" minOccurs="1" type="authentication_type_Cmd_show_aaa_authentication"/>
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_Cmd_show_aaa_authorization"/>
+        <xs:element name="user" minOccurs="1" type="user_type_Cmd_show_aaa_user_default-role"/>
+        <xs:element name="groups" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show configured groups</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="authentication_type_Cmd_show_aaa_authentication">
+    <xs:annotation>
+      <xs:documentation>Show authentication configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0">
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="login" minOccurs="1" type="login_type_Cmd_show_aaa_authentication_login_error_enable"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login_type_Cmd_show_aaa_authentication_login_error_enable">
+    <xs:annotation>
+      <xs:documentation>Show authentication login error message configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="error-enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show authentication login error message enable configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_show_aaa_authentication_login_mschap_mschap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_show_aaa_authentication_login_mschap_mschap" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ascii-authentication" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show ascii-authentication configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_aaa_authentication_login_mschap_mschap">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mschap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show authentication login MSCHAP enable configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mschapv2" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show authentication login MSCHAP V2 enable configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="chap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show authentication login CHAP enable configuration</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="authorization_type_Cmd_show_aaa_authorization">
+    <xs:annotation>
+      <xs:documentation>Show authorization configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_aaa_authorization_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_aaa_authorization_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_aaa_authorization_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show all(include defaults configurations) authorization info</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="user_type_Cmd_show_aaa_user_default-role">
+    <xs:annotation>
+      <xs:documentation>Remotely authenticated user</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="default-role" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Default role assigned by aaa-admin for remote authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accounting_type_Cmd_show_accounting_log_all">
+    <xs:annotation>
+      <xs:documentation>Show accounting configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="log" minOccurs="1" type="log_type_Cmd_show_accounting_log_all"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="log_type_Cmd_show_accounting_log_all">
+    <xs:annotation>
+      <xs:documentation>Show Accounting Log </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display accounting log including show commands (Use &lt;terminal log-all&gt; to enable show command accounting)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="last-index" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show accounting log last index information</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__OPT_Cmd_show_accounting_log_i0_i0" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_accounting_log_i0_i0" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="start-seqnum" minOccurs="1" type="start-seqnum_type_Cmd_show_accounting_log_seq"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_accounting_log_i0_i0">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_show_accounting_log_i0_i0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_show_accounting_log_i0_i0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_accounting_log_i0_i0">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="i0" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Log Size(in bytes)</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="250000"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="start-time" minOccurs="1" type="start-time_type_Cmd_show_accounting_log_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="start-time_type_Cmd_show_accounting_log_i0">
+    <xs:annotation>
+      <xs:documentation>Show messages from a given start-time</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SYYYY" minOccurs="1" type="SYYYY_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SYYYY_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter year in YYYY format</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1970"/>
+              <xs:maxInclusive value="2030"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SMonth" minOccurs="1" type="SMonth_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SMonth_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Month as Jan, Feb, Mar, ..., Oct, Nov, or Dec</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="3"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SDate" minOccurs="1" type="SDate_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SDate_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter day of month in dd format</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="31"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="STime" minOccurs="1" type="STime_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="STime_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter hour, minutes, seconds as HH:MM:SS</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="8"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_accounting_log_i0_end-time" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_accounting_log_i0_end-time" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_accounting_log_i0_end-time">
+    <xs:sequence>
+      <xs:element name="end-time" minOccurs="1" type="end-time_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="end-time_type_Cmd_show_accounting_log_i0">
+    <xs:annotation>
+      <xs:documentation>Show messages from a given end-time</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EYYYY" minOccurs="1" type="EYYYY_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EYYYY_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter year in YYYY format</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1970"/>
+              <xs:maxInclusive value="2030"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EMonth" minOccurs="1" type="EMonth_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EMonth_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Month as Jan, Feb, Mar, ..., Oct, Nov, or Dec</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="3"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="EDate" minOccurs="1" type="EDate_type_Cmd_show_accounting_log_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EDate_type_Cmd_show_accounting_log_i0">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter day of month in dd format</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="31"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ETime" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter hour, minutes, seconds as HH:MM:SS</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="8"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="start-seqnum_type_Cmd_show_accounting_log_seq">
+    <xs:annotation>
+      <xs:documentation>Show messages starting from a given sequence number</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SSEQNUM" minOccurs="1" type="SSEQNUM_type_Cmd_show_accounting_log_seq"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SSEQNUM_type_Cmd_show_accounting_log_seq">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter Starting Sequence Number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="2000000000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_accounting_log_seq_end-seqnum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_accounting_log_seq_end-seqnum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_accounting_log_seq_end-seqnum">
+    <xs:sequence>
+      <xs:element name="end-seqnum" minOccurs="1" type="end-seqnum_type_Cmd_show_accounting_log_seq"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="end-seqnum_type_Cmd_show_accounting_log_seq">
+    <xs:annotation>
+      <xs:documentation>Show messages ending with a given sequence number</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ESEQNUM" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Starting Sequence Number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="2000000000"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_Cmd_show_debug_aaa">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show debugging flags of AAA</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_show_logging_level_aaa">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_show_logging_level_aaa"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_show_logging_level_aaa">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show aaa logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_aaa">
+    <xs:annotation>
+      <xs:documentation>show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_show_run_aaa"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_show_run_aaa">
+    <xs:annotation>
+      <xs:documentation>Display aaa configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_aaa_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_aaa_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_aaa_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_start_aaa">
+    <xs:annotation>
+      <xs:documentation>show startup system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display aaa configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tech-support_type_Cmd_show_aaa_tech_support">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display aaa information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="test" type="test_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+  <xs:complexType name="test_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>test command</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>aaa authentication</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_test_aaa_server_rt_host_vrf_upwd_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_test_aaa_server_rt_host_vrf_upwd_group" maxOccurs="1"/>
+            <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_test_aaa_server_rt_host_vrf_upwd_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+        <xs:element name="server" minOccurs="1" type="server_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>aaa group</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="grpname" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>aaa server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="server_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>aaa server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="radius" minOccurs="1" type="radius_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="radius_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>RADIUS server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="host" minOccurs="1" type="host_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="host_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:DNSIPV4IPV6">
+        <xs:annotation>
+          <xs:documentation>DNS name or IP address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_test_aaa_server_rt_host_vrf_upwd_vrf">
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_test_aaa_server_rt_host_vrf_upwd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:annotation>
+      <xs:documentation>vrf to use for the server</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_test_aaa_server_rt_host_vrf_upwd_management">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_test_aaa_server_rt_host_vrf_upwd_management" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_test_aaa_server_rt_host_vrf_upwd_management">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="management" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>management vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>default vrf</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf_name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>vrf name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s0_type_Cmd_test_aaa_server_rt_host_vrf_upwd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="s1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>user password</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="32"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence minOccurs="0">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_logging_level_aaa_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure aaa functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="accounting" minOccurs="1" type="accounting_type_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+        <xs:element name="authentication" minOccurs="1" type="authentication_type_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="user" minOccurs="1" type="user_type_Cmd_aaa_user_default-role"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accounting_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure accounting methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="default" minOccurs="1" type="default_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="default_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure default methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_accounting_default_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_accounting_default_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_accounting_default_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local accounting</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups to redirect the accounting logs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s1" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_local" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s1">
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s2" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s2">
+    <xs:sequence>
+      <xs:element name="s2" minOccurs="1" type="s2_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s3" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s3">
+    <xs:sequence>
+      <xs:element name="s3" minOccurs="1" type="s3_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s4" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s4">
+    <xs:sequence>
+      <xs:element name="s4" minOccurs="1" type="s4_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s5" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s5">
+    <xs:sequence>
+      <xs:element name="s5" minOccurs="1" type="s5_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s6" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s6">
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1" type="s6_type_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s7" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_accounting_default_group_local_none_s7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_s7">
+    <xs:sequence>
+      <xs:element name="s7" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_aaa_accounting_default_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local accounting</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="authorization_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure authorization methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey" maxOccurs="1"/>
+            <xs:element name="default" minOccurs="1" type="default_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ssh-publickey" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure ssh publickey</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ssh-certificate" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure ssh certificate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="default_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure default ssh methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authorize_ssh_default_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authorize_ssh_default_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authorize_ssh_default_group_local_none_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_1">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_2">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_3">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_3" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_3">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_4">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_5">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_5" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_5">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_6">
+    <xs:sequence>
+      <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Use local username authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="authentication_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure authentication methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="login" minOccurs="1" type="login_type_Cmd_aaa_authen_login_console_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure methods for login</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="console" minOccurs="1" type="console_type_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="default" minOccurs="1" type="default_type_Cmd_aaa_authen_login_default_group_local"/>
+        <xs:element name="__XML__BLK_Cmd_aaa_authen_login_server_unreachable_fallback_default">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_aaa_authen_login_server_unreachable_fallback_default" maxOccurs="1"/>
+              <xs:element name="fallback" minOccurs="1" type="fallback_type_Cmd_aaa_authen_login_server_unreachable_fallback"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="error-enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable display of error message on login failures</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_aaa_authen_login_mschap_enable_mschap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_aaa_authen_login_mschap_enable_mschap" maxOccurs="1"/>
+              <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+                <xs:annotation>
+                  <xs:documentation>enable the authentication for login</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ascii-authentication" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable ascii authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="console_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure console methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authen_login_console_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authen_login_console_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_aaa_authen_login_console_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_authen_login_console_group_local_none_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authen_login_console_group_local_none_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authen_login_console_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_1">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_2">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_3">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_3" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_3">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_4">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_5">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_5" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_5">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_6">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_6" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_6">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="default_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:annotation>
+      <xs:documentation>Configure default methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authen_login_default_group_local_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authen_login_default_group_local_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_Cmd_aaa_authen_login_default_group_local"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_aaa_authen_login_default_group_local"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_aaa_authen_login_default_group_local_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_aaa_authen_login_default_group_local_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authen_login_default_group_local_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_1">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_2">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_3">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_3" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_3">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_4">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_5">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_5" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_5">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_6">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_6" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_6">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_aaa_authen_login_server_unreachable_fallback_default">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure default methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="console" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure console methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="fallback_type_Cmd_aaa_authen_login_server_unreachable_fallback">
+    <xs:annotation>
+      <xs:documentation>Configure fallback behavior</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="error" minOccurs="1" type="error_type_Cmd_aaa_authen_login_server_unreachable_fallback"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error_type_Cmd_aaa_authen_login_server_unreachable_fallback">
+    <xs:annotation>
+      <xs:documentation>Fallback in case all AAA servers configured for remote authentication are unreachable (Authentication error)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Fallback to local authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_aaa_authen_login_mschap_enable_mschap">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mschap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>MSCHAP authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mschapv2" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>MSCHAP V2 authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="chap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CHAP authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="user_type_Cmd_aaa_user_default-role">
+    <xs:annotation>
+      <xs:documentation>Remotely authenticated user</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="default-role" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Default role assigned by aaa-admin for remote authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="aaa" minOccurs="1" type="aaa_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_logging_level_aaa_i0"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure aaa functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="accounting" minOccurs="1" type="accounting_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="authorization" minOccurs="1" type="authorization_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+        <xs:element name="authentication" minOccurs="1" type="authentication_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="user" minOccurs="1" type="user_type_ec_Cmd_aaa_user_default-role"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="accounting_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure accounting methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="default" minOccurs="1" type="default_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="default_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure default methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_accounting_default_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_accounting_default_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_accounting_default_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local accounting</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups to redirect the accounting logs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s1" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_local" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_local" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s1">
+    <xs:sequence>
+      <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s2" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s2">
+    <xs:sequence>
+      <xs:element name="s2" minOccurs="1" type="s2_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s3" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s3">
+    <xs:sequence>
+      <xs:element name="s3" minOccurs="1" type="s3_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s4" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s4">
+    <xs:sequence>
+      <xs:element name="s4" minOccurs="1" type="s4_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s5" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s5">
+    <xs:sequence>
+      <xs:element name="s5" minOccurs="1" type="s5_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s6" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s6">
+    <xs:sequence>
+      <xs:element name="s6" minOccurs="1" type="s6_type_ec_Cmd_aaa_accounting_default_group_local_none"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_ec_Cmd_aaa_accounting_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_accounting_default_group_local_none_s7" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_accounting_default_group_local_none_s7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_s7">
+    <xs:sequence>
+      <xs:element name="s7" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_ec_Cmd_aaa_accounting_default_group_local_none_local">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local accounting</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="authorization_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure authorization methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey" maxOccurs="1"/>
+            <xs:element name="default" minOccurs="1" type="default_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_ssh-publickey">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ssh-publickey" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure ssh publickey</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ssh-certificate" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure ssh certificate</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="default_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure default ssh methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_7">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_6" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_6">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_8" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_8">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_7" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_7">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_9" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_9">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_8" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_8">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_10" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_10">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_9" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_9">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_11" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_11">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_10" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_10">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_12" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_12">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_11" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_11">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_13" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_13">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authorize_ssh_default_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_12" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_12">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_ec_Cmd_aaa_authorize_ssh_default_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authorize_ssh_default_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_14" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authorize_ssh_default_group_local_none_local_14">
+    <xs:sequence>
+      <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Use local username authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="authentication_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure authentication methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="login" minOccurs="1" type="login_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="login_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure methods for login</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="console" minOccurs="1" type="console_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="default" minOccurs="1" type="default_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+        <xs:element name="__XML__BLK_Cmd_aaa_authen_login_server_unreachable_fallback_default">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_aaa_authen_login_server_unreachable_fallback_default" maxOccurs="1"/>
+              <xs:element name="fallback" minOccurs="1" type="fallback_type_ec_Cmd_aaa_authen_login_server_unreachable_fallback"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="error-enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable display of error message on login failures</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="__XML__BLK_Cmd_aaa_authen_login_mschap_enable_mschap">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_aaa_authen_login_mschap_enable_mschap" maxOccurs="1"/>
+              <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+                <xs:annotation>
+                  <xs:documentation>enable the authentication for login</xs:documentation>
+                </xs:annotation>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ascii-authentication" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>enable ascii authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="console_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Configure console methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_7">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_7" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_7">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_8" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_8">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_8" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_8">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_9" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_9">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_9" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_9">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_10" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_10">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_10" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_10">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_11" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_11">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_11" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_11">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_12" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_12">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_12" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_12">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_13" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_13">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_13" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_13">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_ec_Cmd_aaa_authen_login_console_group_local_none"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_ec_Cmd_aaa_authen_login_console_group_local_none">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_console_group_local_none_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_14" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_console_group_local_none_local_14">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_console_group_local_none_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_14" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_console_group_local_none_local_14">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="default_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:annotation>
+      <xs:documentation>Configure default methods</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_group">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_group" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_group">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="group" minOccurs="1" type="group_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="group_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:annotation>
+      <xs:documentation>Specify server groups</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1" type="s0_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="s0_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_7">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_7" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_7">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s1" minOccurs="1" type="s1_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s1_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_8" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_8">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_8" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_8">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s2" minOccurs="1" type="s2_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s2_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_9" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_9">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_9" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_9">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s3" minOccurs="1" type="s3_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s3_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_10" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_10">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_10" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_10">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s4" minOccurs="1" type="s4_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s4_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_11" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_11">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_11" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_11">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s5" minOccurs="1" type="s5_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s5_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_12" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_12">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_12" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_12">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s6" minOccurs="1" type="s6_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s6_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_13" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_13">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_13" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_13">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="s7" minOccurs="1" type="s7_type_ec_Cmd_aaa_authen_login_default_group_local"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s7_type_ec_Cmd_aaa_authen_login_default_group_local">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Server group name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string_key">
+              <xs:maxLength value="127"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_aaa_authen_login_default_group_local_local" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ec_Cmd_aaa_authen_login_default_group_local_local_14" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ec_Cmd_aaa_authen_login_default_group_local_local_14">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_aaa_authen_login_default_group_local_local">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_aaa_authen_login_default_group_local_local_14" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_default_group_local_local_14">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Use local username authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="none" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>No authentication</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_server_unreachable_fallback_default">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="default" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure default methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="console" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Configure console methods</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="fallback_type_ec_Cmd_aaa_authen_login_server_unreachable_fallback">
+    <xs:annotation>
+      <xs:documentation>Configure fallback behavior</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="error" minOccurs="1" type="error_type_ec_Cmd_aaa_authen_login_server_unreachable_fallback"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="error_type_ec_Cmd_aaa_authen_login_server_unreachable_fallback">
+    <xs:annotation>
+      <xs:documentation>Fallback in case all AAA servers configured for remote authentication are unreachable (Authentication error)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="local" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Fallback to local authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_aaa_authen_login_mschap_enable_mschap">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mschap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>MSCHAP authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="mschapv2" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>MSCHAP V2 authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="chap" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CHAP authentication for login</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="user_type_ec_Cmd_aaa_user_default-role">
+    <xs:annotation>
+      <xs:documentation>Remotely authenticated user</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="default-role" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Default role assigned by aaa-admin for remote authentication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_logging_level_aaa_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_Cmd_logging_level_aaa_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Set level for aaa syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_logging_level_aaa_i0_i0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_logging_level_aaa_i0_i0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_logging_level_aaa_i0_i0">
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_ec_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_logging_level_aaa_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="aaa" minOccurs="1" type="aaa_type_ec_Cmd_logging_level_aaa_i0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="aaa_type_ec_Cmd_logging_level_aaa_i0">
+    <xs:annotation>
+      <xs:documentation>Set level for aaa syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

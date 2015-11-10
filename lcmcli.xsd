@@ -1,0 +1,929 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:lcmcli" targetNamespace="http://www.cisco.com/nxos:1.0:lcmcli" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module lcmcli</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="purge" type="purge_type_Cmd_some_cmd"/>
+  <xs:complexType name="purge_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Deletes unused data</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Purge configuration for non-existent modules</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_e_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter module number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="running-config" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>purge running configuration for non-existent modules</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="show" type="show_type_Cmd_show_module"/>
+  <xs:complexType name="show_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="module" minOccurs="1" type="module_type_Cmd_show_module"/>
+        <xs:element name="version" minOccurs="1" type="version_type_Cmd_some_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="module_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Show module information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_module_module" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_module_module" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_module___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_module___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="uptime" minOccurs="1" type="uptime_type_Cmd_show_module_uptime"/>
+        <xs:element name="module" minOccurs="1" type="module_type_e_Cmd_some_cmd_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_module">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="module" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter module number</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="0"/>
+                <xs:maxInclusive value="2147483647"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="s0" minOccurs="1" type="s0_type_Cmd_show_module"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="s0_type_Cmd_show_module">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:Xbar_str">
+        <xs:annotation>
+          <xs:documentation>Show xbar information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_module_santa-cruz-range" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_module_santa-cruz-range" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_santa-cruz-range">
+    <xs:sequence>
+      <xs:element name="santa-cruz-range" minOccurs="1" type="nxos:IntegerRange">
+        <xs:annotation>
+          <xs:documentation>please enter the xbar number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_module___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_module">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_module_TABLE_modinfo" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_show_module_TABLE_modpwrinfo" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_modwwninfo" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_show_module_TABLE_modapplinfo" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_modmacinfo" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_moddiaginfo" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_xbarinfo" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_show_module_TABLE_xbarpwrinfo" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_xbarwwninfo" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_module_TABLE_xbarmacinfo" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_modinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_modinfo" minOccurs="1" type="TABLE_modinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_modinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Show Module info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_modinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="modinf" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ports" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Num Ports</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="modtype" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Module Type</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="model" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Model</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="status" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="Unsupported(poweroff)"/>
+                    <xs:enumeration value="removed"/>
+                    <xs:enumeration value="online"/>
+                    <xs:enumeration value="Offline"/>
+                    <xs:enumeration value="powered-up"/>
+                    <xs:enumeration value="powered-dn"/>
+                    <xs:enumeration value="err-pwd-dn"/>
+                    <xs:enumeration value="testing"/>
+                    <xs:enumeration value="initializing"/>
+                    <xs:enumeration value="failure"/>
+                    <xs:enumeration value="registrn_failure"/>
+                    <xs:enumeration value="upgrading"/>
+                    <xs:enumeration value="SRG_failure"/>
+                    <xs:enumeration value="HA_Seqno_failure"/>
+                    <xs:enumeration value="inserted"/>
+                    <xs:enumeration value="initializing(Gsync)"/>
+                    <xs:enumeration value="battery-powered"/>
+                    <xs:enumeration value="pwr-denied"/>
+                    <xs:enumeration value="absent"/>
+                    <xs:enumeration value="pwr-cycld"/>
+                    <xs:enumeration value="unknown"/>
+                    <xs:enumeration value="active"/>
+                    <xs:enumeration value="active *"/>
+                    <xs:enumeration value="standby"/>
+                    <xs:enumeration value="ha-standby"/>
+                    <xs:enumeration value="initializing(vdc)"/>
+                    <xs:enumeration value="ok"/>
+                    <xs:enumeration value="ok(partial failure)"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_TABLE_modpwrinfo">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_module_TABLE_modpwrinfo" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_module_TABLE_modpwrinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_modpwrinfo" minOccurs="1" type="TABLE_modpwrinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_modpwrinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Mod Pwr Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_modpwrinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="modpwr" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="pwrstat" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Power Status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="Unsupported(poweroff)"/>
+                    <xs:enumeration value="removed"/>
+                    <xs:enumeration value="online"/>
+                    <xs:enumeration value="Offline"/>
+                    <xs:enumeration value="powered-up"/>
+                    <xs:enumeration value="powered-dn"/>
+                    <xs:enumeration value="err-pwd-dn"/>
+                    <xs:enumeration value="testing"/>
+                    <xs:enumeration value="initializing"/>
+                    <xs:enumeration value="failure"/>
+                    <xs:enumeration value="registrn_failure"/>
+                    <xs:enumeration value="upgrading"/>
+                    <xs:enumeration value="SRG_failure"/>
+                    <xs:enumeration value="HA_Seqno_failure"/>
+                    <xs:enumeration value="inserted"/>
+                    <xs:enumeration value="initializing(Gsync)"/>
+                    <xs:enumeration value="battery-powered"/>
+                    <xs:enumeration value="pwr-denied"/>
+                    <xs:enumeration value="absent"/>
+                    <xs:enumeration value="pwr-cycld"/>
+                    <xs:enumeration value="unknown"/>
+                    <xs:enumeration value="active"/>
+                    <xs:enumeration value="standby"/>
+                    <xs:enumeration value="ha-standby"/>
+                    <xs:enumeration value="ok"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="reason" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Reason</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_modwwninfo">
+    <xs:sequence>
+      <xs:element name="TABLE_modwwninfo" minOccurs="1" type="TABLE_modwwninfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_modwwninfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Mod WWN Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_modwwninfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="modwwn" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="sw" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>SW Ver</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hw" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>HW Ver</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="wwn" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>WWN</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_TABLE_modapplinfo">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_module_TABLE_modapplinfo" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_module_TABLE_modapplinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_modapplinfo" minOccurs="1" type="TABLE_modapplinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_modapplinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Mod Appl image info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_modapplinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="modappl" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="desc" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Image desc</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="applver" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Version</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_modmacinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_modmacinfo" minOccurs="1" type="TABLE_modmacinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_modmacinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Mod MAC Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_modmacinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="modmac" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="mac" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>MAC</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="serialnum" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Serial Num</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_moddiaginfo">
+    <xs:sequence>
+      <xs:element name="TABLE_moddiaginfo" minOccurs="1" type="TABLE_moddiaginfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_moddiaginfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Mod diag info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_moddiaginfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="mod" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="diagstatus" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Diag status</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_xbarinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_xbarinfo" minOccurs="1" type="TABLE_xbarinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_xbarinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Show xbar info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_xbarinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="xbarinf" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarports" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Num Ports</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbartype" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Module Type</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarmodel" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Model</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarstatus" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="Unsupported(poweroff)"/>
+                    <xs:enumeration value="removed"/>
+                    <xs:enumeration value="online"/>
+                    <xs:enumeration value="Offline"/>
+                    <xs:enumeration value="powered-up"/>
+                    <xs:enumeration value="powered-dn"/>
+                    <xs:enumeration value="err-pwd-dn"/>
+                    <xs:enumeration value="testing"/>
+                    <xs:enumeration value="initializing"/>
+                    <xs:enumeration value="failure"/>
+                    <xs:enumeration value="registrn_failure"/>
+                    <xs:enumeration value="upgrading"/>
+                    <xs:enumeration value="SRG_failure"/>
+                    <xs:enumeration value="HA_Seqno_failure"/>
+                    <xs:enumeration value="inserted"/>
+                    <xs:enumeration value="initializing(Gsync)"/>
+                    <xs:enumeration value="battery-powered"/>
+                    <xs:enumeration value="pwr-denied"/>
+                    <xs:enumeration value="absent"/>
+                    <xs:enumeration value="pwr-cycld"/>
+                    <xs:enumeration value="unknown"/>
+                    <xs:enumeration value="active"/>
+                    <xs:enumeration value="active *"/>
+                    <xs:enumeration value="standby"/>
+                    <xs:enumeration value="ha-standby"/>
+                    <xs:enumeration value="initializing(vdc)"/>
+                    <xs:enumeration value="ok"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_TABLE_xbarpwrinfo">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_module_TABLE_xbarpwrinfo" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_module_TABLE_xbarpwrinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_xbarpwrinfo" minOccurs="1" type="TABLE_xbarpwrinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_xbarpwrinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Xbar Pwr Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_xbarpwrinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="xbarpwr" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarpwrstat" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Power Status</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="Unsupported(poweroff)"/>
+                    <xs:enumeration value="removed"/>
+                    <xs:enumeration value="online"/>
+                    <xs:enumeration value="Offline"/>
+                    <xs:enumeration value="powered-up"/>
+                    <xs:enumeration value="powered-dn"/>
+                    <xs:enumeration value="err-pwd-dn"/>
+                    <xs:enumeration value="testing"/>
+                    <xs:enumeration value="initializing"/>
+                    <xs:enumeration value="failure"/>
+                    <xs:enumeration value="registrn_failure"/>
+                    <xs:enumeration value="upgrading"/>
+                    <xs:enumeration value="SRG_failure"/>
+                    <xs:enumeration value="HA_Seqno_failure"/>
+                    <xs:enumeration value="inserted"/>
+                    <xs:enumeration value="initializing(Gsync)"/>
+                    <xs:enumeration value="battery-powered"/>
+                    <xs:enumeration value="pwr-denied"/>
+                    <xs:enumeration value="absent"/>
+                    <xs:enumeration value="pwr-cycld"/>
+                    <xs:enumeration value="unknown"/>
+                    <xs:enumeration value="active"/>
+                    <xs:enumeration value="active *"/>
+                    <xs:enumeration value="standby"/>
+                    <xs:enumeration value="ha-standby"/>
+                    <xs:enumeration value="initializing(vdc)"/>
+                    <xs:enumeration value="ok"/>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="xbarreason" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Reason</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_xbarwwninfo">
+    <xs:sequence>
+      <xs:element name="TABLE_xbarwwninfo" minOccurs="1" type="TABLE_xbarwwninfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_xbarwwninfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Xbar WWN Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_xbarwwninfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="xbarwwn" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarsw" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>SW Ver</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarhw" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>HW Ver</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarwwnstr" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>WWN</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_TABLE_xbarmacinfo">
+    <xs:sequence>
+      <xs:element name="TABLE_xbarmacinfo" minOccurs="1" type="TABLE_xbarmacinfo_type_Cmd_show_module"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_xbarmacinfo_type_Cmd_show_module">
+    <xs:annotation>
+      <xs:documentation>Xbar MAC Info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_xbarmacinfo" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="xbarmac" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Module</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarmacaddr" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>MAC</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="xbarserialnum" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Serial Num</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uptime_type_Cmd_show_module_uptime">
+    <xs:annotation>
+      <xs:documentation>Show how long the module has been up and running</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_module_uptime___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_module_uptime___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_module_uptime___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_module_uptime"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_module_uptime">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_module_uptime_TABLE_uptimeinf" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_module_uptime_TABLE_uptimeinf">
+    <xs:sequence>
+      <xs:element name="TABLE_uptimeinf" minOccurs="1" type="TABLE_uptimeinf_type_Cmd_show_module_uptime"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_uptimeinf_type_Cmd_show_module_uptime">
+    <xs:annotation>
+      <xs:documentation>Show uptime info</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_uptimeinf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="slot" minOccurs="1" type="nxos:base_string_key">
+              <xs:annotation>
+                <xs:documentation>Slot</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="starttime" minOccurs="1" type="nxos:utc_asc_date_time">
+              <xs:annotation>
+                <xs:documentation>Start Time</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="daysup" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Days Up</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="hoursup" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Hours Up</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="minutesup" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Minutes Up</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="secondsup" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Seconds Up</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_e_Cmd_some_cmd_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Enter module number</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_bandwidth-fairness">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_some_cmd_bandwidth-fairness" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_bandwidth-fairness">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="bandwidth-fairness" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show bandwidth fairness status</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="recovery-steps" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show recovery-steps to bring up module</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="version_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show the software version</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_e_Cmd_some_cmd_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_e_Cmd_some_cmd_2">
+    <xs:annotation>
+      <xs:documentation>Show the software version of a Module</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter module number</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="2147483647"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show module(linecard) manager logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_debug_module_unlock"/>
+  <xs:complexType name="debug_type_Cmd_debug_module_unlock">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_Cmd_debug_module_unlock"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_Cmd_debug_module_unlock">
+    <xs:annotation>
+      <xs:documentation>Configure LC Manager debugging</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unlock-modins" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>unlock pfm-mod-ins lock</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_some_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_ec_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_ec_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Set level for module(linecard) manager syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="module" minOccurs="1" type="module_type_ec_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="module_type_ec_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Set level for module(linecard) manager syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

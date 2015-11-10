@@ -1,0 +1,2464 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:cdpd" targetNamespace="http://www.cisco.com/nxos:1.0:cdpd" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module cdpd</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="clear" type="clear_type_Cmd_some_cmd"/>
+  <xs:complexType name="clear_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Reset functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Cisco Discovery Protocol</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_counters">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_some_cmd_counters" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_counters">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="counters" minOccurs="1" type="counters_type_Cmd_some_cmd"/>
+        <xs:element name="table" minOccurs="1" type="table_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="counters_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear CDP counters on all interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_some_cmd_interface" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_some_cmd_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear CDP counters on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="table_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear CDP cache on all interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Clear CDP cache on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if1" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="debug" type="debug_type_Cmd_some_cmd"/>
+  <xs:complexType name="debug_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure CDP debugging</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="all_type_Cmd_some_cmd"/>
+        <xs:element name="errors" minOccurs="1" type="errors_type_Cmd_some_cmd"/>
+        <xs:element name="events" minOccurs="1" type="events_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="all_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable/disable all debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_1">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Enable/disable all debugs on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errors_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>All CDP errors</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_2">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_2">
+    <xs:annotation>
+      <xs:documentation>All CDP errors on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="events_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable/disable event debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_mts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_some_cmd_mts" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_mts">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mts" minOccurs="1" type="mts_type_Cmd_some_cmd"/>
+        <xs:element name="packets" minOccurs="1" type="packets_type_Cmd_some_cmd"/>
+        <xs:element name="pss" minOccurs="1" type="pss_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mts_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP MTS events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_3">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_3"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_3">
+    <xs:annotation>
+      <xs:documentation>CDP MTS events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="packets_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP Packet events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_4">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_4"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_4">
+    <xs:annotation>
+      <xs:documentation>CDP Packet events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if1" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pss_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP PSS events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_5">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_5"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_5">
+    <xs:annotation>
+      <xs:documentation>CDP PSS events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if2" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="no" type="no_type_Cmd_some_cmd"/>
+  <xs:complexType name="no_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Debugging functions</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_e_Cmd_some_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Configure CDP debugging</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="all" minOccurs="1" type="all_type_e_Cmd_some_cmd"/>
+        <xs:element name="errors" minOccurs="1" type="errors_type_e_Cmd_some_cmd"/>
+        <xs:element name="events" minOccurs="1" type="events_type_e_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="all_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable/disable all debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_6">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_6"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_6">
+    <xs:annotation>
+      <xs:documentation>Enable/disable all debugs on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="errors_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>All CDP errors</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_7" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_7">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_7"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_7">
+    <xs:annotation>
+      <xs:documentation>All CDP errors on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="events_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Enable/disable event debugs</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_some_cmd_mts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_e_Cmd_some_cmd_mts" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_e_Cmd_some_cmd_mts">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mts" minOccurs="1" type="mts_type_e_Cmd_some_cmd"/>
+        <xs:element name="packets" minOccurs="1" type="packets_type_e_Cmd_some_cmd"/>
+        <xs:element name="pss" minOccurs="1" type="pss_type_e_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="mts_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP MTS events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_8" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_8">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_8"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_8">
+    <xs:annotation>
+      <xs:documentation>CDP MTS events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if0" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="packets_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP Packet events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_9" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_9">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_9"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_9">
+    <xs:annotation>
+      <xs:documentation>CDP Packet events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if1" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pss_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>CDP PSS events</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_some_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_some_cmd_interface_10" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_some_cmd_interface_10">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_10"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_10">
+    <xs:annotation>
+      <xs:documentation>CDP PSS events on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="if2" minOccurs="1" type="nxos:Interface"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="show" type="show_type_Cmd_some_cmd"/>
+  <xs:complexType name="show_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="debug" minOccurs="1" type="debug_type_e_Cmd_some_cmd_1"/>
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_show_cdp_internal_global-info"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_some_cmd"/>
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_cdp"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_show_tech_support_cdp"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_startup_cdp"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="debug_type_e_Cmd_some_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Show debug flags</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show CDP debug flags</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Show Cisco Discovery Protocol information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="internal" minOccurs="1" type="internal_type_Cmd_show_cdp_internal_global-info"/>
+        <xs:element name="__XML__BLK_Cmd_some_cmd_all">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_some_cmd_all" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="entry" minOccurs="1" type="entry_type_e_Cmd_some_cmd"/>
+        <xs:element name="neighbors" minOccurs="1" type="neighbors_type_Cmd_show_cdp_neighbors"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="internal_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Commands for internal use</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="global-info" minOccurs="1" type="global-info_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="global-info_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>globally stored data</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_cdp_internal_global-info___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_cdp_internal_global-info___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_internal_global-info___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_system_name" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_domain_name" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_fqdn" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_system_location" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_device_info" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_cdpd_info" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_svi_info" maxOccurs="1"/>
+      <xs:group ref="og_Cmd_show_cdp_internal_global-info_TABLE_interface" minOccurs="0" maxOccurs="1"/>
+      <xs:group ref="bg_Cmd_show_cdp_internal_global-info_fabric_port" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_system_name">
+    <xs:sequence>
+      <xs:element name="system_name" minOccurs="1" type="system_name_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="system_name_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>System Name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sys_name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Name of the system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sys_valid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>status of the system name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_domain_name">
+    <xs:sequence>
+      <xs:element name="domain_name" minOccurs="1" type="domain_name_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="domain_name_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Domain Name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dom_name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Name of the domain</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dom_valid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>status of the domain name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_fqdn">
+    <xs:sequence>
+      <xs:element name="fqdn" minOccurs="1" type="fqdn_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="fqdn_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Fully Qualified Domain Name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="fqdn_val" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Name of the fqdn</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_system_location">
+    <xs:sequence>
+      <xs:element name="system_location" minOccurs="1" type="system_location_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="system_location_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>System Location</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="sys_loc" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Name of the system location</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="sys_loc_valid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>status of the system location</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_device_info">
+    <xs:sequence>
+      <xs:element name="device_info" minOccurs="1" type="device_info_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="device_info_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Device Details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="dev_ser" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Device Serial Number</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="dev_mac" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Device MAC Address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_cdpd_info">
+    <xs:sequence>
+      <xs:element name="cdpd_info" minOccurs="1" type="cdpd_info_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="cdpd_info_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>CDPD Details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="pktmgr_reg" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>pktmgr register done</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vtp_up" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>VTP status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vtp_dom_valid" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>VTP Domain Name Valid</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="vlan_mgr_up" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>VLAN mgr status</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="no"/>
+              <xs:enumeration value="yes"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_svi_info">
+    <xs:sequence>
+      <xs:element name="svi_info" minOccurs="1" type="svi_info_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="svi_info_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>SVI Details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="num_svi" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>No of SVIs</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_internal_global-info_TABLE_interface">
+    <xs:sequence>
+      <xs:element name="TABLE_interface" minOccurs="1" type="TABLE_interface_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_interface_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Details of SVI interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_interface" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="if_index" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>if_index</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="inet_addr" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>inet_addr</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_show_cdp_internal_global-info_fabric_port">
+    <xs:sequence>
+      <xs:element name="fabric_port" minOccurs="1" type="fabric_port_type_Cmd_show_cdp_internal_global-info"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="fabric_port_type_Cmd_show_cdp_internal_global-info">
+    <xs:annotation>
+      <xs:documentation>Fabric Port Details</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="rx_val" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Fabric Port RX</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="tx_val" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>Fabric {Port TX</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_some_cmd_all">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show all interfaces in CDP database</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_11"/>
+        <xs:element name="traffic" minOccurs="1" type="traffic_type_Cmd_some_cmd"/>
+        <xs:element name="global" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Show CDP global parameters</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="entry" minOccurs="1" type="entry_type_Cmd_some_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_11">
+    <xs:annotation>
+      <xs:documentation>Show CDP parameters for an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if0" minOccurs="1" type="if0_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_some_cmd">
+    <xs:choice>
+      <xs:element name="gigabitethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="veth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if0_type_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="traffic_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show CDP traffic statistics</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_e_Cmd_some_cmd_12"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_e_Cmd_some_cmd_12">
+    <xs:annotation>
+      <xs:documentation>Show CDP traffic statistics on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if2" minOccurs="1" type="if2_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_e_Cmd_some_cmd">
+    <xs:choice>
+      <xs:element name="gigabitethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="veth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if2_type_Cmd_some_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_e_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entry_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show CDP entries in database</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="name_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show a specific CDP entry matching a name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="s0" minOccurs="1">
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:maxLength value="256"/>
+              <xs:minLength value="1"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="entry_type_e_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show CDP entries in database</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show all CDP entries in database</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="neighbors_type_Cmd_show_cdp_neighbors">
+    <xs:annotation>
+      <xs:documentation>Show CDP neighbors</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1" minOccurs="0">
+        <xs:element name="__XML__OPT_Cmd_show_cdp_neighbors_interface" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_cdp_neighbors_interface" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_show_cdp_neighbors___readonly__" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_show_cdp_neighbors___readonly__" minOccurs="0" maxOccurs="1"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="nxos:detail" minOccurs="1"/>
+        <xs:element name="__XML__OPT_Cmd_show_cdp_neighbors_detail___readonly__" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_show_cdp_neighbors_detail___readonly__" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_cdp_neighbors_detail"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_neighbors_interface">
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_show_cdp_neighbors"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_cdp_neighbors">
+    <xs:annotation>
+      <xs:documentation>Show CDP neighbors on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if" minOccurs="1" type="if_type_Cmd_show_cdp_neighbors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_cdp_neighbors">
+    <xs:choice>
+      <xs:element name="gigabitethernet" maxOccurs="unbounded" type="nxos:SlotMPort"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:IntegerMRange"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotMPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if_type_Cmd_show_cdp_neighbors">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_cdp_neighbors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_neighbors___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_cdp_neighbors"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_cdp_neighbors">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_cdp_neighbor_brief_info" minOccurs="1" type="TABLE_cdp_neighbor_brief_info_type_Cmd_show_cdp_neighbors"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_cdp_neighbor_brief_info_type_Cmd_show_cdp_neighbors">
+    <xs:annotation>
+      <xs:documentation>output of show cdp neighbor - in breif</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_cdp_neighbor_brief_info" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ifindex" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Interface index</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="device_id" minOccurs="1" type="nxos:base_string_key">
+              <xs:annotation>
+                <xs:documentation>System Name (or) Device Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="intf_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Interface Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ttl" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Hold Time</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="capability" minOccurs="1" maxOccurs="10">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Capability</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="router">
+                      <xs:annotation>
+                        <xs:documentation>performing level-3 routing</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="tb-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 transparent bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="sr-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 source route bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="switch">
+                      <xs:annotation>
+                        <xs:documentation>Provides layer-2 and/or layer-3 switching</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="host">
+                      <xs:annotation>
+                        <xs:documentation>Host</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="IGMP_cnd_filtering">
+                      <xs:annotation>
+                        <xs:documentation>IGMP conditional filtering</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Repeater">
+                      <xs:annotation>
+                        <xs:documentation>Provides level-1 functionality</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="VoIP_Phone">
+                      <xs:annotation>
+                        <xs:documentation>Provides voice or data telephony capability</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Remotely_managed-device">
+                      <xs:annotation>
+                        <xs:documentation>Remotely-Managed Device</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Supports-STP-Dispute">
+                      <xs:annotation>
+                        <xs:documentation>Supports-STP-Dispute</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="platform_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Platform Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="port_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Port Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_show_cdp_neighbors_detail"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_show_cdp_neighbors_detail">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_cdp_neighbor_detail_info" minOccurs="1" type="TABLE_cdp_neighbor_detail_info_type_Cmd_show_cdp_neighbors_detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_cdp_neighbor_detail_info_type_Cmd_show_cdp_neighbors_detail">
+    <xs:annotation>
+      <xs:documentation>output of show cdp neighbor detail</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_cdp_neighbor_detail_info" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ifindex" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Interface index</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="device_id" minOccurs="1" type="nxos:base_string_key">
+              <xs:annotation>
+                <xs:documentation>Device Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_sysname" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_vtpname" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="numaddr" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>No of IP Address configured</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="bg_Cmd_show_cdp_neighbors_detail_v4addr" maxOccurs="8"/>
+            <xs:element name="platform_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Platform Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="capability" minOccurs="1" maxOccurs="9">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Capability</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="router">
+                      <xs:annotation>
+                        <xs:documentation>performing level-3 routing</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="tb-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 transparent bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="sr-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 source route bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="switch">
+                      <xs:annotation>
+                        <xs:documentation>Provides layer-2 and/or layer-3 switching</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="host">
+                      <xs:annotation>
+                        <xs:documentation>Host</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="IGMP_cnd_filtering">
+                      <xs:annotation>
+                        <xs:documentation>IGMP conditional filtering</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Repeater">
+                      <xs:annotation>
+                        <xs:documentation>Provides level-1 functionality</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="VoIP_Phone">
+                      <xs:annotation>
+                        <xs:documentation>Provides voice or data telephony capability</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Remotely_managed-device">
+                      <xs:annotation>
+                        <xs:documentation>Remotely-Managed Device</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="intf_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Interface Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="port_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Port Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ttl" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Hold Time</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="version" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Software Version</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="version_no" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>CDP version number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="v1">
+                      <xs:annotation>
+                        <xs:documentation>CDP version 1</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="v2">
+                      <xs:annotation>
+                        <xs:documentation>CDP version 2</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_nativevlan" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_duplexmode" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_mtu" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_syslocation" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_show_cdp_neighbors_detail_num_mgmtaddr" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_sysname">
+    <xs:sequence>
+      <xs:element name="sysname" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>System Name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_vtpname">
+    <xs:sequence>
+      <xs:element name="vtpname" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Vtp Management Domain Name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_cdp_neighbors_detail_v4addr">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v4addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>Interface IP V4 Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v6addr" minOccurs="1" type="nxos:IPV6Address">
+          <xs:annotation>
+            <xs:documentation>Interface IP V6 Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_nativevlan">
+    <xs:sequence>
+      <xs:element name="nativevlan" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>NativeVLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_duplexmode">
+    <xs:sequence>
+      <xs:element name="duplexmode" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Duplex Mode</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="half">
+                <xs:annotation>
+                  <xs:documentation>half duplex mode</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="full">
+                <xs:annotation>
+                  <xs:documentation>full duplex mode</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_mtu">
+    <xs:sequence>
+      <xs:element name="mtu" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>MTU</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_syslocation">
+    <xs:sequence>
+      <xs:element name="syslocation" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>System Location</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_show_cdp_neighbors_detail_num_mgmtaddr">
+    <xs:sequence>
+      <xs:element name="num_mgmtaddr" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>No of Mgmt Address configured</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_Cmd_show_cdp_neighbors_detail_v4mgmtaddr" maxOccurs="8"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_show_cdp_neighbors_detail_v4mgmtaddr">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v4mgmtaddr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IP V4 Mgmt Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v6mgmtaddr" minOccurs="1" type="nxos:IPV6Address">
+          <xs:annotation>
+            <xs:documentation>IP V6 Mgmt Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_show_cdp_neighbors_detail">
+    <xs:annotation>
+      <xs:documentation>Show CDP neighbors on an interface</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__INTF_if" minOccurs="1" type="if_type_Cmd_show_cdp_neighbors_detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interfaceExpanding_Cmd_show_cdp_neighbors_detail">
+    <xs:choice>
+      <xs:element name="gigabitethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="veth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="if_type_Cmd_show_cdp_neighbors_detail">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_show_cdp_neighbors_detail"/>
+      <xs:element ref="nxos:detail" minOccurs="1"/>
+      <xs:element name="__XML__OPT_Cmd_show_cdp_neighbors_detail___readonly__" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail___readonly__" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_e_Cmd_show_cdp_neighbors_detail"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_e_Cmd_show_cdp_neighbors_detail">
+    <xs:annotation>
+      <xs:documentation>Read only</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="TABLE_cdp_neighbor_detail_info" minOccurs="1" type="TABLE_cdp_neighbor_detail_info_type_e_Cmd_show_cdp_neighbors_detail"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_cdp_neighbor_detail_info_type_e_Cmd_show_cdp_neighbors_detail">
+    <xs:annotation>
+      <xs:documentation>output of show cdp neighbor detail</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ROW_cdp_neighbor_detail_info" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ifindex" minOccurs="1" type="nxos:base_unsignedInt_key">
+              <xs:annotation>
+                <xs:documentation>Interface index</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="device_id" minOccurs="1" type="nxos:base_string_key">
+              <xs:annotation>
+                <xs:documentation>Device Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_sysname" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_vtpname" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="numaddr" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>No of IP Address configured</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:group ref="bg_e_Cmd_show_cdp_neighbors_detail_v4addr" maxOccurs="8"/>
+            <xs:element name="platform_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Platform Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="capability" minOccurs="1" maxOccurs="10">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>Capability</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="router">
+                      <xs:annotation>
+                        <xs:documentation>performing level-3 routing</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="tb-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 transparent bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="sr-bridge">
+                      <xs:annotation>
+                        <xs:documentation>performing level-2 source route bridging</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="switch">
+                      <xs:annotation>
+                        <xs:documentation>Provides layer-2 and/or layer-3 switching</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="host">
+                      <xs:annotation>
+                        <xs:documentation>Host</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="IGMP_cnd_filtering">
+                      <xs:annotation>
+                        <xs:documentation>IGMP conditional filtering</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Repeater">
+                      <xs:annotation>
+                        <xs:documentation>Provides level-1 functionality</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="VoIP_Phone">
+                      <xs:annotation>
+                        <xs:documentation>Provides voice or data telephony capability</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Remotely_managed-device">
+                      <xs:annotation>
+                        <xs:documentation>Remotely-Managed Device</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="Supports-STP-Dispute">
+                      <xs:annotation>
+                        <xs:documentation>Supports-STP-Dispute</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="intf_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Interface Id</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="port_id" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Port Identifier</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="ttl" minOccurs="1" type="nxos:base_unsignedInt">
+              <xs:annotation>
+                <xs:documentation>Hold Time</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="version" minOccurs="1" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Software Version</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="version_no" minOccurs="1">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>CDP version number</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:restriction base="nxos:base_string">
+                    <xs:enumeration value="v1">
+                      <xs:annotation>
+                        <xs:documentation>CDP version 1</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                    <xs:enumeration value="v2">
+                      <xs:annotation>
+                        <xs:documentation>CDP version 2</xs:documentation>
+                      </xs:annotation>
+                    </xs:enumeration>
+                  </xs:restriction>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_nativevlan" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_duplexmode" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_mtu" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_syslocation" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_e_Cmd_show_cdp_neighbors_detail_num_mgmtaddr" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_sysname">
+    <xs:sequence>
+      <xs:element name="sysname" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>System Name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_vtpname">
+    <xs:sequence>
+      <xs:element name="vtpname" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Vtp Management Domain Name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_e_Cmd_show_cdp_neighbors_detail_v4addr">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v4addr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>Interface IP V4 Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v6addr" minOccurs="1" type="nxos:IPV6Address">
+          <xs:annotation>
+            <xs:documentation>Interface IP V6 Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_nativevlan">
+    <xs:sequence>
+      <xs:element name="nativevlan" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>NativeVLAN</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_duplexmode">
+    <xs:sequence>
+      <xs:element name="duplexmode" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Duplex Mode</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:enumeration value="half">
+                <xs:annotation>
+                  <xs:documentation>half duplex mode</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+              <xs:enumeration value="full">
+                <xs:annotation>
+                  <xs:documentation>full duplex mode</xs:documentation>
+                </xs:annotation>
+              </xs:enumeration>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_mtu">
+    <xs:sequence>
+      <xs:element name="mtu" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>MTU</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_syslocation">
+    <xs:sequence>
+      <xs:element name="syslocation" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>System Location</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_e_Cmd_show_cdp_neighbors_detail_num_mgmtaddr">
+    <xs:sequence>
+      <xs:element name="num_mgmtaddr" minOccurs="1" type="nxos:base_unsignedInt">
+        <xs:annotation>
+          <xs:documentation>No of Mgmt Address configured</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:group ref="bg_e_Cmd_show_cdp_neighbors_detail_v4mgmtaddr" maxOccurs="8"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_e_Cmd_show_cdp_neighbors_detail_v4mgmtaddr">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v4mgmtaddr" minOccurs="1" type="nxos:IPV4Address">
+          <xs:annotation>
+            <xs:documentation>IP V4 Mgmt Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v6mgmtaddr" minOccurs="1" type="nxos:IPV6Address">
+          <xs:annotation>
+            <xs:documentation>IP V6 Mgmt Address</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_some_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_some_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show CDP logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_cdp">
+    <xs:annotation>
+      <xs:documentation>show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_show_run_cdp"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_show_run_cdp">
+    <xs:annotation>
+      <xs:documentation>Display cdp configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_cdp_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_cdp_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_cdp_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show running config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="tech-support_type_Cmd_show_tech_support_cdp">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Gather information for CDP trouble shooting</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="startup-config_type_Cmd_show_startup_cdp">
+    <xs:annotation>
+      <xs:documentation>show system startup configuration information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_show_startup_cdp"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_show_startup_cdp">
+    <xs:annotation>
+      <xs:documentation>Display cdp configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_startup_cdp_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_startup_cdp_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_startup_cdp_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>show startup config with defaults</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_cdp_logg_level"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_cdp_logg_level"/>
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_ec_Cmd_cdp_advertise"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_cdp_logg_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_cdp_logg_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Set level for CDP syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_cdp_logg_level"/>
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_cdp_advertise"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_cdp_logg_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_ec_Cmd_cdp_logg_level"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_ec_Cmd_cdp_logg_level">
+    <xs:annotation>
+      <xs:documentation>Set level for CDP syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_cdp_logg_level_i0" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_cdp_logg_level_i0" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_cdp_logg_level_i0">
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="cdp_type_Cmd_cdp_advertise">
+    <xs:annotation>
+      <xs:documentation>Configure CDP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="advertise" minOccurs="1" type="advertise_type_Cmd_cdp_advertise"/>
+        <xs:element name="format" minOccurs="1" type="format_type_Cmd_cdp_format_dev"/>
+        <xs:element name="holdtime" minOccurs="1" type="holdtime_type_Cmd_cdp_holdtime"/>
+        <xs:element name="timer" minOccurs="1" type="timer_type_Cmd_cdp_timer"/>
+        <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/disable CDP on all interfaces</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="advertise_type_Cmd_cdp_advertise">
+    <xs:annotation>
+      <xs:documentation>Highest CDP version supported on the switch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_cdp_advertise_v1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_cdp_advertise_v1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_cdp_advertise_v1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v1" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CDP Version 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v2" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CDP Version 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="format_type_Cmd_cdp_format_dev">
+    <xs:annotation>
+      <xs:documentation>Device ID format for CDP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device-id" minOccurs="1" type="device-id_type_Cmd_cdp_format_dev"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="device-id_type_Cmd_cdp_format_dev">
+    <xs:annotation>
+      <xs:documentation>Device ID format for CDP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_cdp_format_dev_mac-address">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_cdp_format_dev_mac-address" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_cdp_format_dev_mac-address">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mac-address" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mac-address of the Chassis</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="serial-number" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Chassis Serial Number/OUI</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="system-name" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>System name/Fully Qualified Domain Name (Default)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="holdtime_type_Cmd_cdp_holdtime">
+    <xs:annotation>
+      <xs:documentation>CDP hold time advertised (in seconds)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>CDP hold time advertised (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="10"/>
+              <xs:maxInclusive value="255"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timer_type_Cmd_cdp_timer">
+    <xs:annotation>
+      <xs:documentation>CDP refresh time interval (in seconds)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>CDP refresh time interval (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="5"/>
+              <xs:maxInclusive value="254"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_ec_Cmd_cdp_advertise">
+    <xs:annotation>
+      <xs:documentation>Configure CDP parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="advertise" minOccurs="1" type="advertise_type_ec_Cmd_cdp_advertise"/>
+        <xs:element name="format" minOccurs="1" type="format_type_ec_Cmd_cdp_format_dev"/>
+        <xs:element name="holdtime" minOccurs="1" type="holdtime_type_ec_Cmd_cdp_holdtime"/>
+        <xs:element name="timer" minOccurs="1" type="timer_type_ec_Cmd_cdp_timer"/>
+        <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Enable/disable CDP on all interfaces</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="advertise_type_ec_Cmd_cdp_advertise">
+    <xs:annotation>
+      <xs:documentation>Highest CDP version supported on the switch</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_cdp_advertise_v1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_cdp_advertise_v1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_cdp_advertise_v1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="v1" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CDP Version 1</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="v2" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>CDP Version 2</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="format_type_ec_Cmd_cdp_format_dev">
+    <xs:annotation>
+      <xs:documentation>Device ID format for CDP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="device-id" minOccurs="1" type="device-id_type_ec_Cmd_cdp_format_dev"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="device-id_type_ec_Cmd_cdp_format_dev">
+    <xs:annotation>
+      <xs:documentation>Device ID format for CDP</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_cdp_format_dev_mac-address">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ec_Cmd_cdp_format_dev_mac-address" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_cdp_format_dev_mac-address">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mac-address" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Mac-address of the Chassis</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="serial-number" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Chassis Serial Number/OUI</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="system-name" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>System name/Fully Qualified Domain Name (Default)</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="holdtime_type_ec_Cmd_cdp_holdtime">
+    <xs:annotation>
+      <xs:documentation>CDP hold time advertised (in seconds)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i0" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>CDP hold time advertised (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="10"/>
+              <xs:maxInclusive value="255"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="timer_type_ec_Cmd_cdp_timer">
+    <xs:annotation>
+      <xs:documentation>CDP refresh time interval (in seconds)</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="i1" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>CDP refresh time interval (in seconds)</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="5"/>
+              <xs:maxInclusive value="254"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="mgmt" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:element name="__XML__MODE_if-mgmt-ether" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-mgmt-ether_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:slotmport_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-m_type"/>
+                <xs:element name="__XML__MODE_if-ethernet-switch-m" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-ethernet-switch-m_type"/>
+                <xs:element name="__XML__MODE_if-vem-ethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vem-ethernet_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vethernet" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="__XML__MODE_if-veth" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-veth_type"/>
+                <xs:element name="__XML__MODE_if-vethernet" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-vethernet_type"/>
+                <xs:element name="__XML__MODE_if-veth-all" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-veth-all_type"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-mgmt-ether_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_Cmd_cdp_enable"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_cdp_enable"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_ecime_Cmd_cdp_enable"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_ecime_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-base_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_ecieb_Cmd_cdp_enable"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecieb_Cmd_cdp_enable"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_ecieb_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ecieb_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_ecieb_Cmd_cdp_enable_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_ecieb_Cmd_cdp_enable_1">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-ethernet-switch-m_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vem-ethernet_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-eth-base" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-base_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-veth_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-veth-any" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-veth-any_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-veth-any_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_eciva_Cmd_cdp_enable"/>
+        <xs:element name="no" minOccurs="1" type="no_type_eciva_Cmd_cdp_enable"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciva_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_eciva_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_eciva_Cmd_cdp_enable_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciva_Cmd_cdp_enable_1">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-vethernet_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="cdp" minOccurs="1" type="cdp_type_eciv_Cmd_cdp_enable"/>
+        <xs:element name="no" minOccurs="1" type="no_type_eciv_Cmd_cdp_enable"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciv_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_eciv_Cmd_cdp_enable">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_eciv_Cmd_cdp_enable_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciv_Cmd_cdp_enable_1">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-veth-all_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__MODE_if-veth-all" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:choice maxOccurs="unbounded">
+                <xs:element name="cdp" minOccurs="1" type="cdp_type_eciva_Cmd_cdp_enable_2"/>
+                <xs:element name="no" minOccurs="1" type="no_type_eciva_Cmd_cdp_enable_1"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="__XML__MODE_if-veth-any" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-veth-any_type"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciva_Cmd_cdp_enable_2">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_eciva_Cmd_cdp_enable_1">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="cdp" minOccurs="1" type="cdp_type_eciva_Cmd_cdp_enable_3"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cdp_type_eciva_Cmd_cdp_enable_3">
+    <xs:annotation>
+      <xs:documentation>Configure CDP interface parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="enable" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Enable/disable CDP on the interface</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

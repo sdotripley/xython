@@ -1,0 +1,2420 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns="http://www.cisco.com/nxos:1.0:l3vm" targetNamespace="http://www.cisco.com/nxos:1.0:l3vm" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:documentation>CISCO DC3 XML SCHEMA FILE</xs:documentation>
+    <xs:appinfo>For Module l3vm</xs:appinfo>
+  </xs:annotation>
+  <xs:import namespace="urn:ietf:params:xml:ns:netconf:base:1.0" schemaLocation="netconf.xsd"/>
+  <xs:import namespace="http://www.cisco.com/nxos:1.0" schemaLocation="nxos_common_types.xsd"/>
+  <xs:element name="show" type="show_type_Cmd_show_run_clis"/>
+  <xs:complexType name="show_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Show running system information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="running-config" minOccurs="1" type="running-config_type_Cmd_show_run_clis"/>
+        <xs:element name="startup-config" minOccurs="1" type="startup-config_type_Cmd_show_run_clis"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_l3vm_show_vrf_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_l3vm_show_logging_level_cmd"/>
+        <xs:element name="tech-support" minOccurs="1" type="tech-support_type_Cmd_l3vm_show_tech_support_cmd"/>
+        <xs:element name="routing-context" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display the current routing context</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="xpath-filter" type="xs:string"/>
+    <xs:attribute name="uses-namespace" type="nxos:bool_true"/>
+  </xs:complexType>
+  <xs:complexType name="running-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current operationg configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="l3vm" minOccurs="1" type="l3vm_type_Cmd_show_run_clis"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_show_run_clis"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="l3vm_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display l3vm information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="default" minOccurs="1" type="default_type_Cmd_show_run_clis"/>
+        <xs:element name="management" minOccurs="1" type="management_type_Cmd_show_run_clis"/>
+        <xs:element name="vrf-known-name" minOccurs="1" type="vrf-known-name_type_Cmd_show_run_clis"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="default_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Known VRF name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="management_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Known VRF name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_1">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf-known-name_type_Cmd_show_run_clis">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>Known VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_2">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="startup-config_type_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Current startup configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="l3vm" minOccurs="1" type="l3vm_type_e_Cmd_show_run_clis"/>
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_e_Cmd_show_run_clis"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="l3vm_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display l3vm information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_3" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_3">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Display VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="1">
+        <xs:element name="default" minOccurs="1" type="default_type_e_Cmd_show_run_clis"/>
+        <xs:element name="management" minOccurs="1" type="management_type_e_Cmd_show_run_clis"/>
+        <xs:element name="vrf-known-name" minOccurs="1" type="vrf-known-name_type_e_Cmd_show_run_clis"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="default_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Known VRF name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_4">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="management_type_e_Cmd_show_run_clis">
+    <xs:annotation>
+      <xs:documentation>Known VRF name</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_5" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_5">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf-known-name_type_e_Cmd_show_run_clis">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>Known VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_show_run_clis_all" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_e_Cmd_show_run_clis_all_6" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_e_Cmd_show_run_clis_all_6">
+    <xs:sequence>
+      <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display running config with defaults clis</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vrf_type_Cmd_l3vm_show_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Display VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_show_vrf_cmd_vrf-name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_vrf-name" minOccurs="0" maxOccurs="1"/>
+            <xs:sequence maxOccurs="1">
+              <xs:choice minOccurs="0">
+                <xs:element name="__XML__OPT_Cmd_l3vm_show_vrf_cmd_detail" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_detail" minOccurs="0" maxOccurs="1"/>
+                      <xs:element name="__XML__OPT_Cmd_l3vm_show_vrf_cmd___readonly__" minOccurs="0">
+                        <xs:complexType>
+                          <xs:sequence>
+                            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                          </xs:sequence>
+                        </xs:complexType>
+                      </xs:element>
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="interface" minOccurs="1" type="interface_type_Cmd_l3vm_show_if_cmd"/>
+              </xs:choice>
+            </xs:sequence>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+          <xs:annotation>
+            <xs:documentation>Known VRF name</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="all" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Display VRF information for all VRFs</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_detail">
+    <xs:sequence>
+      <xs:element name="detail" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Display VRF detail information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_l3vm_show_vrf_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_l3vm_show_vrf_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_vrf" minOccurs="1" type="TABLE_vrf_type_Cmd_l3vm_show_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_vrf_type_Cmd_l3vm_show_vrf_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_vrf" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="vrf_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="vrf_id" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="vrf_state" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_vrf_reason" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_vrf_pend" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_vpnid" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_TABLE_tib" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_vrf_reason">
+    <xs:sequence>
+      <xs:element name="vrf_reason" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_vrf_pend">
+    <xs:sequence>
+      <xs:element name="vrf_pend" minOccurs="1" type="nxos:bool_enabled"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_vpnid">
+    <xs:sequence>
+      <xs:element name="vpnid" minOccurs="1" type="nxos:base_string"/>
+      <xs:element name="rd" minOccurs="1" type="nxos:base_string"/>
+      <xs:element name="max_routes" minOccurs="1" type="nxos:base_unsignedInt"/>
+      <xs:element name="mid_threshold" minOccurs="1" type="nxos:base_unsignedInt"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_TABLE_tib">
+    <xs:sequence>
+      <xs:group ref="bg_Cmd_l3vm_show_vrf_cmd_TABLE_tib" maxOccurs="1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_l3vm_show_vrf_cmd_TABLE_tib">
+    <xs:sequence>
+      <xs:element name="TABLE_tib" minOccurs="1" type="TABLE_tib_type_Cmd_l3vm_show_vrf_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="TABLE_tib_type_Cmd_l3vm_show_vrf_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_tib" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="tib_id" minOccurs="1" type="nxos:base_unsignedInt_key"/>
+            <xs:element name="tib_af" minOccurs="1" type="nxos:base_string"/>
+            <xs:element name="tib_nonce" minOccurs="1" type="nxos:base_unsignedInt"/>
+            <xs:element name="tib_state" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_tib_reason" minOccurs="0" maxOccurs="1"/>
+            <xs:group ref="og_Cmd_l3vm_show_vrf_cmd_tib_pend" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_tib_reason">
+    <xs:sequence>
+      <xs:element name="tib_reason" minOccurs="1" type="nxos:base_string"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="og_Cmd_l3vm_show_vrf_cmd_tib_pend">
+    <xs:sequence>
+      <xs:element name="tib_pend" minOccurs="1" type="nxos:bool_enabled"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interface_type_Cmd_l3vm_show_if_cmd">
+    <xs:annotation>
+      <xs:documentation>Display interface VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_show_if_cmd_interface" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_show_if_cmd_interface" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="__XML__OPT_Cmd_l3vm_show_if_cmd___readonly__" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:group ref="og_Cmd_l3vm_show_if_cmd___readonly__" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_if_cmd_interface">
+    <xs:sequence>
+      <xs:element name="__XML__INTF_interface" minOccurs="1" type="interface_type_e_Cmd_l3vm_show_if_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="interfaceExpanding_Cmd_l3vm_show_if_cmd">
+    <xs:choice>
+      <xs:element name="fc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="gigabitethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vsan" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="iscsi" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="cpp" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="fcip" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="mgmt" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="fv" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="fa" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="svc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="fc-tunnel" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="ipc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="loopback" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="vlan" maxOccurs="unbounded" type="nxos:vlan_id"/>
+      <xs:element name="sme" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="bay" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="ext" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="san-port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="ethernet-port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="tunnel" maxOccurs="unbounded" type="nxos:base_integer"/>
+      <xs:element name="ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vfc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="remote-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="ioa" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="overlay" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="lveth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="veth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vem-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="tunnel-te" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="mti" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="control" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="data" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vfc-veth" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vfc-port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="plc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="serial" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="cellular" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="dialer" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="pseudowire" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="wimax" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="efp-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="efp-ethernet-port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="vfi" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="shadow-pc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="shadow-fabpc" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="wpan" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="wifi" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="glt" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vni" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vsi-ethernet" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="vsi-ethernet-port-channel" maxOccurs="unbounded" type="nxos:port_channel"/>
+      <xs:element name="vtep" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="bdi" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="IPStorage" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="nve" maxOccurs="unbounded" type="nxos:SlotPort"/>
+      <xs:element name="__XML__INTF_output" maxOccurs="1" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Element used on the response indicating the interfaces used.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:choice>
+  </xs:complexType>
+  <xs:complexType name="interface_type_e_Cmd_l3vm_show_if_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value" type="interfaceExpanding_Cmd_l3vm_show_if_cmd">
+        <xs:annotation>
+          <xs:documentation>Display interface VRF information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_if_cmd___readonly__">
+    <xs:sequence>
+      <xs:element name="__readonly__" minOccurs="1" type="__readonly___type_Cmd_l3vm_show_if_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__readonly___type_Cmd_l3vm_show_if_cmd">
+    <xs:sequence>
+      <xs:element name="TABLE_if" minOccurs="1" type="TABLE_if_type_Cmd_l3vm_show_if_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TABLE_if_type_Cmd_l3vm_show_if_cmd">
+    <xs:sequence>
+      <xs:element name="ROW_if" maxOccurs="unbounded" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="if_name" minOccurs="1" type="nxos:base_string_key"/>
+            <xs:element name="vrf_name" minOccurs="1" type="nxos:base_string"/>
+            <xs:group ref="bg_Cmd_l3vm_show_if_cmd_vrf_id" maxOccurs="1"/>
+            <xs:element name="soo" minOccurs="1" type="nxos:base_string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_l3vm_show_if_cmd_vrf_id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf_id" minOccurs="1" type="nxos:base_unsignedInt"/>
+        <xs:element name="fwd_ref" minOccurs="1" type="nxos:base_string"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_l3vm_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show logging configuration and contents of logfile</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_l3vm_show_logging_level_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_l3vm_show_logging_level_cmd">
+    <xs:annotation>
+      <xs:documentation>Show facility logging configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="l3vm" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Show L3VM logging configuration</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tech-support_type_Cmd_l3vm_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Gather information for troubleshooting</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="l3vm" minOccurs="1" type="l3vm_type_Cmd_l3vm_show_tech_support_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="l3vm_type_Cmd_l3vm_show_tech_support_cmd">
+    <xs:annotation>
+      <xs:documentation>Display VRF information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_show_tech_support_cmd_brief" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_show_tech_support_cmd_brief" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_show_tech_support_cmd_brief">
+    <xs:sequence>
+      <xs:element name="brief" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Brief information</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:element name="routing-context" type="routing-context_type_Cmd_clic_route_context"/>
+  <xs:complexType name="routing-context_type_Cmd_clic_route_context">
+    <xs:annotation>
+      <xs:documentation>Set the routing context</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_clic_route_context"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_clic_route_context">
+    <xs:annotation>
+      <xs:documentation>The new routing-context VRF</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-known-name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>Known VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="configure">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="__XML__MODE__exec_configure" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE__exec_configure_type"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="__XML__MODE__exec_configure_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_l3vm_vrf_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_l3vm_vrf_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_ec_Cmd_l3vm_syslog_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_interface_cmd"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_ec_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_l3vm_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="context" minOccurs="1" type="context_type_Cmd_l3vm_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="context_type_Cmd_l3vm_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Create VRF and enter VRF mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-name-known-name" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value">
+              <xs:complexType>
+                <xs:annotation>
+                  <xs:documentation>VRF name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleContent>
+                  <xs:extension base="nxos:vrf">
+                    <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+                  </xs:extension>
+                </xs:simpleContent>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="__XML__MODE_vrf" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vrf_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vrf_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shutdown current VRF</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_l3vm_vrf_shutdown_cmd"/>
+        <xs:element name="address-family" minOccurs="1" type="address-family_type_ecv_Cmd_l3vm_vrf_af_ipv4_cmd"/>
+        <xs:element name="vpn" minOccurs="1" type="vpn_type_ecv_Cmd_l3vm_vrf_vpnid_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_l3vm_vrf_shutdown_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="shutdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Shutdown current VRF</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="address-family" minOccurs="1" type="address-family_type_Cmd_l3vm_vrf_af_ipv4_cmd"/>
+        <xs:element name="vpn" minOccurs="1" type="vpn_type_Cmd_l3vm_vrf_vpnid_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="address-family_type_Cmd_l3vm_vrf_af_ipv4_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ipv4" minOccurs="1" type="ipv4_type_Cmd_l3vm_vrf_af_ipv4_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_Cmd_l3vm_vrf_af_ipv6_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv4_type_Cmd_l3vm_vrf_af_ipv4_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv4 address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure Unicast address family</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_Cmd_l3vm_vrf_af_ipv6_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast" minOccurs="1" type="nxos:empty_element">
+        <xs:annotation>
+          <xs:documentation>Configure Unicast address family</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpn_type_Cmd_l3vm_vrf_vpnid_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VPN ID in rfc2685 format</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="1" type="id_type_Cmd_l3vm_vrf_vpnid_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="id_type_Cmd_l3vm_vrf_vpnid_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VPN ID in rfc2685 format</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_vrf_vpnid_cmd_vpn-id" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_vrf_vpnid_cmd_vpn-id" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_vrf_vpnid_cmd_vpn-id">
+    <xs:sequence>
+      <xs:element name="vpn-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>OUI:VPN-Index, format (hex) &lt;3 bytes OUI:4 bytes VPN-Index&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:pattern value="^[0-9a-fA-F]+:[0-9a-fA-F]+$"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="address-family_type_ecv_Cmd_l3vm_vrf_af_ipv4_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="ipv4" minOccurs="1" type="ipv4_type_ecv_Cmd_l3vm_vrf_af_ipv4_cmd"/>
+        <xs:element name="ipv6" minOccurs="1" type="ipv6_type_ecv_Cmd_l3vm_vrf_af_ipv6_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv4_type_ecv_Cmd_l3vm_vrf_af_ipv4_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv4 address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_vrf-af-ipv4" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vrf-af-ipv4_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vrf-af-ipv4_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_l3vm_max_routes_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_l3vm_max_routes_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Set a limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="routes" minOccurs="1" type="routes_type_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routes_type_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Maximum number of routes allowed in this routing table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_Cmd_l3vm_max_routes_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum number of routes allowed</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4294967295"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_max_routes_cmd_warnlevel">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnlevel" minOccurs="1" type="warnlevel_type_Cmd_l3vm_max_routes_cmd"/>
+        <xs:element name="warning-only" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Only give a warning message if limit is exceeded</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warnlevel_type_Cmd_l3vm_max_routes_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Threshold value (%) at which to generate a warning msg</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_max_routes_cmd_reinstall">
+    <xs:sequence>
+      <xs:element name="reinstall" minOccurs="1" type="reinstall_type_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reinstall_type_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Reinstall previous rejected route due to over maximum route limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="threshold" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Threshold value (%) at which to reinstall routes back to VRF</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Set a limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="routes" minOccurs="1" type="routes_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routes_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Maximum number of routes allowed in this routing table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum number of routes allowed</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4294967295"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnlevel" minOccurs="1" type="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+        <xs:element name="warning-only" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Only give a warning message if limit is exceeded</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Threshold value (%) at which to generate a warning msg</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall">
+    <xs:sequence>
+      <xs:element name="reinstall" minOccurs="1" type="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Reinstall previous rejected route due to over maximum route limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="threshold" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Threshold value (%) at which to reinstall routes back to VRF</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ipv6_type_ecv_Cmd_l3vm_vrf_af_ipv6_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure IPv6 address family</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="unicast" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__MODE_vrf-af-ipv6" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vrf-af-ipv6_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vrf-af-ipv6_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd_1"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecvai_Cmd_l3vm_max_routes_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Set a limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="routes" minOccurs="1" type="routes_type_ecvai_Cmd_l3vm_max_routes_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routes_type_ecvai_Cmd_l3vm_max_routes_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Maximum number of routes allowed in this routing table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_ecvai_Cmd_l3vm_max_routes_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_ecvai_Cmd_l3vm_max_routes_cmd_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum number of routes allowed</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4294967295"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnlevel" minOccurs="1" type="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd_1"/>
+        <xs:element name="warning-only" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Only give a warning message if limit is exceeded</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Threshold value (%) at which to generate a warning msg</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall_1" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall_1">
+    <xs:sequence>
+      <xs:element name="reinstall" minOccurs="1" type="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Reinstall previous rejected route due to over maximum route limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="threshold" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Threshold value (%) at which to reinstall routes back to VRF</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ecvai_Cmd_l3vm_max_routes_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvai_Cmd_l3vm_max_routes_cmd_2">
+    <xs:annotation>
+      <xs:documentation>Set a limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="routes" minOccurs="1" type="routes_type_ecvai_Cmd_l3vm_max_routes_cmd_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="routes_type_ecvai_Cmd_l3vm_max_routes_cmd_2">
+    <xs:annotation>
+      <xs:documentation>Maximum number of routes allowed in this routing table</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit" minOccurs="1" type="limit_type_ecvai_Cmd_l3vm_max_routes_cmd_2"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit_type_ecvai_Cmd_l3vm_max_routes_cmd_2">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Maximum number of routes allowed</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="4294967295"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_warnlevel" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_warnlevel_2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="warnlevel" minOccurs="1" type="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd_2"/>
+        <xs:element name="warning-only" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Only give a warning message if limit is exceeded</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="warnlevel_type_ecvai_Cmd_l3vm_max_routes_cmd_2">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>Threshold value (%) at which to generate a warning msg</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_l3vm_max_routes_cmd_reinstall" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall_2" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvai_Cmd_l3vm_max_routes_cmd_reinstall_2">
+    <xs:sequence>
+      <xs:element name="reinstall" minOccurs="1" type="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd_2"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="reinstall_type_ecvai_Cmd_l3vm_max_routes_cmd_2">
+    <xs:annotation>
+      <xs:documentation>Reinstall previous rejected route due to over maximum route limit</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="threshold" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Threshold value (%) at which to reinstall routes back to VRF</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="100"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vpn_type_ecv_Cmd_l3vm_vrf_vpnid_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VPN ID in rfc2685 format</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="id" minOccurs="1" type="id_type_ecv_Cmd_l3vm_vrf_vpnid_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="id_type_ecv_Cmd_l3vm_vrf_vpnid_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VPN ID in rfc2685 format</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vpn-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>OUI:VPN-Index, format (hex) &lt;3 bytes OUI:4 bytes VPN-Index&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_string">
+              <xs:pattern value="^[0-9a-fA-F]+:[0-9a-fA-F]+$"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_l3vm_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_ec_Cmd_l3vm_vrf_cmd"/>
+        <xs:element name="logging" minOccurs="1" type="logging_type_Cmd_l3vm_syslog_cmd"/>
+        <xs:element name="interface" minOccurs="1" type="interface_type_Cmd__cli_im_no_interface_pc__cmd"/>
+        <xs:element name="vdc" minOccurs="1" type="vdc_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ec_Cmd_l3vm_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="context" minOccurs="1" type="context_type_ec_Cmd_l3vm_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="context_type_ec_Cmd_l3vm_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Create VRF and enter VRF mode</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_l3vm_vrf_cmd_vrf-name">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_l3vm_vrf_cmd_vrf-name" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_l3vm_vrf_cmd_vrf-name">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vrf-name" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>VRF name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:extension base="nxos:vrf">
+                <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="vrf-name-known-name2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>VRF name</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:extension base="nxos:vrf">
+                <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="logging_type_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_Cmd_l3vm_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="l3vm" minOccurs="1" type="l3vm_type_Cmd_l3vm_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="l3vm_type_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for L3VM</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="port-channel" minOccurs="1" type="port-channel_type_Cmd__cli_im_no_interface_pc__cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="port-channel_type_Cmd__cli_im_no_interface_pc__cmd">
+    <xs:annotation>
+      <xs:documentation>Configure port-channel interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="interface" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Interface name</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:extension base="nxos:InterfaceMRange">
+              <xs:attribute name="isKey" type="xs:string" fixed="true"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_unsignedInt">
+                <xs:minInclusive value="1"/>
+                <xs:maxInclusive value="15"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="name" minOccurs="1" type="name_type_Cmd_CREATE_VDC"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resource_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Resource template name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="logging_type_ec_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Modify message logging facilities</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1" type="level_type_ec_Cmd_l3vm_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="level_type_ec_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Facility parameter for syslog messages</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="l3vm" minOccurs="1" type="l3vm_type_ec_Cmd_l3vm_syslog_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="l3vm_type_ec_Cmd_l3vm_syslog_cmd">
+    <xs:annotation>
+      <xs:documentation>Set syslog filter level for L3VM</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="level" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>0-emerg;1-alert;2-crit;3-err;4-warn;5-notif;6-inform;7-debug</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="0"/>
+              <xs:maxInclusive value="7"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="interface_type_Cmd__cli_im_interface_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure interfaces</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="port-channel" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:portmchannel_key"/>
+              <xs:element name="__XML__MODE_if-eth-port-channel" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-eth-port-channel_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="mgmt" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:element name="__XML__MODE_if-mgmt-ether" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-mgmt-ether_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="loopback" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>Interface Name</xs:documentation>
+          </xs:annotation>
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="interface" type="nxos:IntegerMRange_key"/>
+              <xs:element name="__XML__MODE_if-loopback" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-loopback_type"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-eth-port-channel_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-igp" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-igp_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-igp_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_l3vm_if_vrf_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_l3vm_if_vrf_cmd"/>
+        <xs:element name="site-of-origin" minOccurs="1" type="site-of-origin_type_ecii_Cmd_l3vm_soo_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="member" minOccurs="1" type="member_type_Cmd_l3vm_if_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="member_type_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Set interface's VRF membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_ecii_Cmd_l3vm_if_vrf_cmd"/>
+        <xs:element name="site-of-origin" minOccurs="1" type="site-of-origin_type_Cmd_l3vm_soo_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecii_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="member" minOccurs="1" type="member_type_ecii_Cmd_l3vm_if_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="member_type_ecii_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Set interface's VRF membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_if_vrf_cmd_vrf-name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_if_vrf_cmd_vrf-name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_if_vrf_cmd_vrf-name">
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="site-of-origin_type_Cmd_l3vm_soo_cmd">
+    <xs:annotation>
+      <xs:documentation>Site of Origin</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ext-comm-soo-aa2nn4" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ext-comm-soo-aa4nn2" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="site-of-origin_type_ecii_Cmd_l3vm_soo_cmd">
+    <xs:annotation>
+      <xs:documentation>Site of Origin</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecii_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecii_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ext-comm-soo-aa2nn4" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ext-comm-soo-aa4nn2" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-mgmt-ether_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-mgmt-config" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-mgmt-config_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_if-mgmt-config_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_ecimc_Cmd_l3vm_if_vrf_cmd"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecimc_Cmd_l3vm_if_vrf_cmd"/>
+        <xs:element name="site-of-origin" minOccurs="1" type="site-of-origin_type_ecimc_Cmd_l3vm_soo_cmd_1"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecimc_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="member" minOccurs="1" type="member_type_ecimc_Cmd_l3vm_if_vrf_cmd"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="member_type_ecimc_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Set interface's VRF membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="no_type_ecimc_Cmd_l3vm_if_vrf_cmd">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="vrf" minOccurs="1" type="vrf_type_ecimc_Cmd_l3vm_if_vrf_cmd_1"/>
+        <xs:element name="site-of-origin" minOccurs="1" type="site-of-origin_type_ecimc_Cmd_l3vm_soo_cmd"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecimc_Cmd_l3vm_if_vrf_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Configure VRF parameters</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="member" minOccurs="1" type="member_type_ecimc_Cmd_l3vm_if_vrf_cmd_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="member_type_ecimc_Cmd_l3vm_if_vrf_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Set interface's VRF membership</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_if_vrf_cmd_vrf-name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecimc_Cmd_l3vm_if_vrf_cmd_vrf-name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecimc_Cmd_l3vm_if_vrf_cmd_vrf-name">
+    <xs:sequence>
+      <xs:element name="vrf-name" minOccurs="1" type="nxos:vrf">
+        <xs:annotation>
+          <xs:documentation>VRF name</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="site-of-origin_type_ecimc_Cmd_l3vm_soo_cmd">
+    <xs:annotation>
+      <xs:documentation>Site of Origin</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:group name="bg_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ext-comm-soo-aa2nn4" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ext-comm-soo-aa4nn2" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="site-of-origin_type_ecimc_Cmd_l3vm_soo_cmd_1">
+    <xs:annotation>
+      <xs:documentation>Site of Origin</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecimc_Cmd_l3vm_soo_cmd_ext-comm-soo-aa2nn4_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="ext-comm-soo-aa2nn4" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="ext-comm-soo-aa4nn2" minOccurs="1" type="xs:string">
+          <xs:annotation>
+            <xs:documentation>Extcommunity number</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_if-loopback_type">
+    <xs:sequence>
+      <xs:element name="__XML__MODE_if-igp" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_if-igp_type"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vdc_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="__XML__BLK_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="bg_ec_Cmd_CREATE_VDC_vdc-id" maxOccurs="1"/>
+              <xs:element name="__XML__OPT_Cmd_CREATE_VDC_template" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:group ref="og_Cmd_CREATE_VDC_template" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="__XML__OPT_Cmd_CREATE_VDC_hap" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:group ref="og_Cmd_CREATE_VDC_hap" minOccurs="0" maxOccurs="1"/>
+                          <xs:element name="__XML__MODE_vdc" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc_type"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="resource" minOccurs="1" type="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ec_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="vdc-id" minOccurs="1" type="vdc-id_type_Cmd_CREATE_VDC"/>
+        <xs:element name="__XML__OPT_Cmd_CREATE_VDC_vdc-id">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:group ref="og_Cmd_CREATE_VDC_vdc-id" minOccurs="0" maxOccurs="1"/>
+              <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC_1"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="vdc-id_type_Cmd_CREATE_VDC">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="__XML__OPT_Cmd_CREATE_VDC_name" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_CREATE_VDC_name" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_name">
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="name_type_ec_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_vdc-id">
+    <xs:sequence>
+      <xs:element name="vdc-id" minOccurs="1">
+        <xs:complexType>
+          <xs:annotation>
+            <xs:documentation>Enter Virtual Device Context &lt;vdc-id&gt;</xs:documentation>
+          </xs:annotation>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_unsignedInt">
+              <xs:minInclusive value="1"/>
+              <xs:maxInclusive value="15"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="name_type_ec_Cmd_CREATE_VDC_1">
+    <xs:annotation>
+      <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vdc-name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_template">
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="template_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Resource template for this vdc</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1" type="nxos:base_string">
+        <xs:annotation>
+          <xs:documentation>Enter Virtual Device Context &lt;vdc-name&gt;</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_CREATE_VDC_hap">
+    <xs:sequence>
+      <xs:element name="hap" minOccurs="1" type="hap_type_Cmd_CREATE_VDC"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="hap_type_Cmd_CREATE_VDC">
+    <xs:annotation>
+      <xs:documentation>Change HA policy for this VDC</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_CREATE_VDC_bringdown">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_CREATE_VDC_bringdown" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_CREATE_VDC_bringdown">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="bringdown" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="restart" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Bring down the vdc, then bring the vdc back up</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+        <xs:element name="reset" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>Reset the supervisor</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="__XML__MODE_vdc_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_Cmd_LIMIT_RES"/>
+        <xs:element name="no" minOccurs="1" type="no_type_Cmd_LIMIT_RES"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set vrf resource limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number1" minOccurs="1" type="number1_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="number1_type_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum vrf resource value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_number2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_Cmd_LIMIT_RES_number2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_Cmd_LIMIT_RES_number2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="number2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum vrf resource value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="2"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set vrf resource limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_LIMIT_RES_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_Cmd_LIMIT_RES_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_Cmd_LIMIT_RES_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number1" minOccurs="1" type="number1_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="number1_type_ecv_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum vrf resource value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecv_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecv_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_number2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecv_Cmd_LIMIT_RES_number2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecv_Cmd_LIMIT_RES_number2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="number2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum vrf resource value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="2"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="resource_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="template" minOccurs="1" type="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="template_type_ec_Cmd_RES_MGR_TEMPLATE_CLI">
+    <xs:annotation>
+      <xs:documentation>Resource template configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="name" minOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="__XML__PARAM_value" type="nxos:base_string">
+              <xs:annotation>
+                <xs:documentation>Resource template name</xs:documentation>
+              </xs:annotation>
+            </xs:element>
+            <xs:element name="__XML__MODE_vdc-template" maxOccurs="unbounded" minOccurs="0" type="__XML__MODE_vdc-template_type"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="__XML__MODE_vdc-template_type">
+    <xs:sequence>
+      <xs:choice maxOccurs="unbounded">
+        <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_LIMIT_RES"/>
+        <xs:element name="no" minOccurs="1" type="no_type_ecvt_Cmd_LIMIT_RES"/>
+      </xs:choice>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>set vrf resource limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="minimum_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>minimum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number1" minOccurs="1" type="number1_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="number1_type_ecvt_Cmd_LIMIT_RES">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum vrf resource value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_LIMIT_RES"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>maximum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_number2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_LIMIT_RES_number2" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_LIMIT_RES_number2">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="number2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum vrf resource value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="2"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="no_type_ecvt_Cmd_LIMIT_RES">
+    <xs:annotation>
+      <xs:documentation>Negate a command or set its defaults</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="limit-resource" minOccurs="1" type="limit-resource_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="limit-resource_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>Resource configuration</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="vrf" minOccurs="1" type="vrf_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="vrf_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>set vrf resource limits</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__OPT_Cmd_LIMIT_RES_minimum" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="og_ecvt_Cmd_LIMIT_RES_minimum" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="og_ecvt_Cmd_LIMIT_RES_minimum">
+    <xs:sequence>
+      <xs:element name="minimum" minOccurs="1" type="minimum_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:group>
+  <xs:complexType name="minimum_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>minimum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="number1" minOccurs="1" type="number1_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="number1_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:sequence>
+      <xs:element name="__XML__PARAM_value">
+        <xs:annotation>
+          <xs:documentation>minimum vrf resource value</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:restriction base="nxos:base_integer">
+              <xs:minInclusive value="2"/>
+              <xs:maxInclusive value="4096"/>
+            </xs:restriction>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="maximum" minOccurs="1" type="maximum_type_ecvt_Cmd_LIMIT_RES_1"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="maximum_type_ecvt_Cmd_LIMIT_RES_1">
+    <xs:annotation>
+      <xs:documentation>maximum vrf resources to allocate</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="__XML__BLK_Cmd_LIMIT_RES_number2">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:group ref="bg_ecvt_Cmd_LIMIT_RES_number2_1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:group name="bg_ecvt_Cmd_LIMIT_RES_number2_1">
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="number2" minOccurs="1">
+          <xs:complexType>
+            <xs:annotation>
+              <xs:documentation>maximum vrf resource value</xs:documentation>
+            </xs:annotation>
+            <xs:simpleContent>
+              <xs:restriction base="nxos:base_integer">
+                <xs:minInclusive value="2"/>
+                <xs:maxInclusive value="4096"/>
+              </xs:restriction>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="equal-to-min" minOccurs="1" type="nxos:empty_element">
+          <xs:annotation>
+            <xs:documentation>set maximum value equal to min</xs:documentation>
+          </xs:annotation>
+        </xs:element>
+      </xs:choice>
+    </xs:sequence>
+  </xs:group>
+</xs:schema>
