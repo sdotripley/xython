@@ -2,13 +2,39 @@
 
 import json
 import requests
+import os
+import re
+import inspect
+import pwd
+import sys
 
-ip="SWITCH"
+# Files & Paths
+dirpath = os.getcwd()
+xmlpath = dirpath + "/item.xml"
+configfile = dirpath + "/config.data"
+
+# Abstract out config data here
+with open(configfile,'rU') as configdata:
+    for line in configdata:
+        line = line.rstrip()
+        a = line.split(",")
+        
+        if a[0] == "SWITCH":
+            # print "Switch = ", a[1]
+            ip = a[1]
+        elif a[0] == "ACCOUNT":
+            # print "Account = ", a[1]
+            username = a[1]
+        elif a[0] == "PASSWORD":
+            # print "Password = ", a[1]
+            password = a[1]
+
 
 my_headers = {'content-type': 'application/json-rpc'}
 url = "http://"+ip+"/ins"
-username = "admin"
-password = "PASSWORD"
+
+
+
 
 
 payload=[{"jsonrpc": "2.0",

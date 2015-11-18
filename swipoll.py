@@ -68,13 +68,13 @@ with open(configfile,'rU') as configdata:
         a = line.split(",")
         
         if a[0] == "SWITCH":
-            print "Switch = ", a[1]
+            # print "Switch = ", a[1]
             switch = a[1]
         elif a[0] == "ACCOUNT":
-            print "Account = ", a[1]
+            # print "Account = ", a[1]
             account = a[1]
         elif a[0] == "PASSWORD":
-            print "Password = ", a[1]
+            # print "Password = ", a[1]
             password = a[1]
 
 pollit(switch, xml_file, xml_out)
@@ -119,7 +119,7 @@ ns = {'mod': 'http://www.cisco.com/nxos:1.0:if_manager',
     'nxos': 'http://www.cisco.com/nxos:1.0'}
 
 root = ET.fromstring(xml_data)
-ET.dump(root)
+#ET.dump(root)
 # root = tree.getroot()
 # ET.dump(root)
 # print root.findall(".//mod:interface", namespaces=ns)

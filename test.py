@@ -37,7 +37,7 @@ hello_hed = "<hello"
 hello_end = "]]>]]>"
 
 inspect.getfile(os)
-switch = "172.25.158.204"
+switch = "SWITCH
 xml_file = dir_prefix + "/scripley/xython2.7/xython2.7/show_int.xml"
 xml_out = dir_prefix + "/scripley/xython2.7/xython2.7/out.xml"
 test_out = dir_prefix + "/scripley/xython2.7/xython2.7/test.xml"

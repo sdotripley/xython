@@ -4,7 +4,7 @@
     <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
     <capability>urn:ietf:params:netconf:base:1.0</capability>
   </capabilities>
-  <session-id>27354</session-id>
+  <session-id>16909</session-id>
 </hello>
 ]]>]]><?xml version="1.0" encoding="ISO-8859-1"?>
 <nf:rpc-reply xmlns:nf="urn:ietf:params:xml:ns:netconf:base:1.0" xmlns:nxos="http://www.cisco.com/nxos:1.0" xmlns:mod="http://www.cisco.com/nxos:1.0:if_manager" message-id="110">
@@ -498,7 +498,7 @@
                 <mod:portmode>access</mod:portmode>
                 <mod:state>down</mod:state>
                 <mod:state_rsn_desc>Link not connected</mod:state_rsn_desc>
-                <mod:speed>auto</mod:speed>
+                <mod:speed>1000</mod:speed>
                 <mod:ratemode>D</mod:ratemode>
               </mod:ROW_interface>
               <mod:ROW_interface>
